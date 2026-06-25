@@ -14,13 +14,7 @@
 
 ## 在线访问
 
-部署后访问地址：待补充
-
-如果仓库名保持为 `computer-network-knowledge-map`，GitHub Pages 地址通常为：
-
-```text
-https://你的GitHub用户名.github.io/computer-network-knowledge-map/
-```
+https://lisicheng01.github.io/computer-network-knowledge-map/
 
 ## 核心功能
 

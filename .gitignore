@@ -1,0 +1,17 @@
+node_modules
+dist
+.DS_Store
+.env
+.env.*
+.vite
+npm-debug.log*
+
+# build/type cache
+*.tsbuildinfo
+
+# temporary scripts / stats
+work/
+
+# backups
+*.backup.json
+src/data/*.backup.json

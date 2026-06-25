@@ -1,0 +1,7703 @@
+{
+  "layers": [
+    {
+      "id": "application",
+      "title": "应用层",
+      "order": 5,
+      "summary": "直接面向应用进程，定义应用报文语义和应用间交互规则。",
+      "pdu": "报文",
+      "addressing": "域名、URL、应用标识",
+      "solves": "应用进程如何使用网络服务完成具体业务。",
+      "overviewId": "layer-application-overview",
+      "topicIds": [
+        "dns",
+        "http",
+        "https",
+        "dhcp",
+        "email-protocols",
+        "ftp",
+        "layering-encapsulation"
+      ],
+      "learningPath": [
+        "dns",
+        "http",
+        "https",
+        "dhcp",
+        "email-protocols",
+        "ftp",
+        "application-protocol-comparison"
+      ],
+      "examPath": [
+        "dns",
+        "http-message-status",
+        "https",
+        "dhcp",
+        "application-protocol-comparison",
+        "web-access-process"
+      ]
+    },
+    {
+      "id": "transport",
+      "title": "传输层",
+      "order": 4,
+      "summary": "为端系统中的进程提供端到端通信，典型协议是 TCP 和 UDP。",
+      "pdu": "报文段 / 用户数据报",
+      "addressing": "端口号",
+      "solves": "不同主机上的进程如何复用网络层并进行端到端传输。",
+      "overviewId": "layer-transport-overview",
+      "topicIds": [
+        "ports-for-process",
+        "udp",
+        "tcp",
+        "tcp-reliable-transmission",
+        "tcp-flow-control",
+        "tcp-congestion-control"
+      ],
+      "learningPath": [
+        "ports-for-process",
+        "transport-multiplexing-demultiplexing",
+        "udp",
+        "udp-header-checksum",
+        "tcp",
+        "tcp-header",
+        "tcp-seq-ack",
+        "tcp-three-way-handshake",
+        "tcp-reliable-transmission",
+        "sliding-window",
+        "tcp-flow-control",
+        "tcp-congestion-control",
+        "tcp-four-way-termination"
+      ],
+      "examPath": [
+        "tcp-seq-ack",
+        "tcp-three-way-handshake",
+        "tcp-four-way-termination",
+        "tcp-window-calculation-exam",
+        "tcp-congestion-window-exam",
+        "flow-vs-congestion",
+        "udp-header-checksum"
+      ]
+    },
+    {
+      "id": "network",
+      "title": "网络层",
+      "order": 3,
+      "summary": "负责跨网络的主机到主机交付、逻辑寻址和路由选择。",
+      "pdu": "分组 / IP 数据报",
+      "addressing": "IP 地址",
+      "solves": "分组如何从源主机跨多个网络到达目的主机。",
+      "overviewId": "layer-network-overview",
+      "topicIds": [
+        "ip-address",
+        "ipv4-header-ttl",
+        "routing-table-forwarding-table",
+        "longest-prefix-match",
+        "icmp-ping-traceroute",
+        "nat-napt-private-address",
+        "routing-algorithms",
+        "ipv6-overview"
+      ],
+      "learningPath": [
+        "ip-address",
+        "subnet-mask",
+        "cidr-route-aggregation",
+        "network-address-broadcast-host",
+        "ipv4-header-ttl",
+        "ip-fragmentation",
+        "arp",
+        "routing-table-forwarding-table",
+        "longest-prefix-match",
+        "icmp-ping-traceroute",
+        "nat-napt-private-address",
+        "routing-algorithms",
+        "distance-vector-rip",
+        "link-state-ospf"
+      ],
+      "examPath": [
+        "subnetting-exam-template",
+        "network-address-broadcast-host",
+        "longest-prefix-match",
+        "ip-fragmentation",
+        "arp-process-exam",
+        "nat-napt-translation-exam"
+      ]
+    },
+    {
+      "id": "data-link",
+      "title": "数据链路层",
+      "order": 2,
+      "summary": "负责相邻节点之间的成帧传输、MAC 寻址和差错检测。",
+      "pdu": "帧",
+      "addressing": "MAC 地址",
+      "solves": "相邻节点之间如何有效地传输帧。",
+      "overviewId": "layer-data-link-overview",
+      "topicIds": [
+        "framing",
+        "error-detection-crc",
+        "error-control",
+        "ppp-hdlc",
+        "ethernet",
+        "hub-switch",
+        "vlan",
+        "csma-ca-wlan"
+      ],
+      "learningPath": [
+        "framing",
+        "transparent-transmission",
+        "error-detection-crc",
+        "error-control",
+        "stop-and-wait",
+        "gbn",
+        "selective-repeat",
+        "ethernet",
+        "csma-cd",
+        "minimum-frame-length",
+        "switch-learning-forwarding",
+        "vlan",
+        "arp"
+      ],
+      "examPath": [
+        "error-detection-crc",
+        "minimum-frame-length",
+        "arq-utilization-exam",
+        "gbn",
+        "selective-repeat",
+        "switch-table-building-exam",
+        "vlan-broadcast-domain-exam"
+      ]
+    },
+    {
+      "id": "physical",
+      "title": "物理层",
+      "order": 1,
+      "summary": "把比特转换为电、光、无线等物理信号并在介质上传输。",
+      "pdu": "比特流",
+      "addressing": "无",
+      "solves": "0 和 1 如何在物理介质中表示、同步和传输。",
+      "overviewId": "layer-physical-overview",
+      "topicIds": [
+        "bit-baud-symbol",
+        "bandwidth-channel-limit",
+        "line-coding-manchester",
+        "multiplexing-methods",
+        "delay-model",
+        "physical-medium"
+      ],
+      "learningPath": [
+        "bit-baud-symbol",
+        "bandwidth-channel-limit",
+        "nyquist-exam-template",
+        "shannon-exam-template",
+        "line-coding-manchester",
+        "multiplexing-methods",
+        "delay-model",
+        "bandwidth-delay-product",
+        "channel-utilization",
+        "throughput"
+      ],
+      "examPath": [
+        "delay-model",
+        "bandwidth-delay-product",
+        "nyquist-exam-template",
+        "shannon-exam-template",
+        "channel-utilization",
+        "throughput"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "application-transport",
+      "source": "application",
+      "target": "transport",
+      "title": "应用层 ↔ 传输层",
+      "summary": "解释应用协议如何通过端口号区分进程，并依赖 TCP 或 UDP 传输。",
+      "overviewId": "edge-application-transport-overview",
+      "topicIds": [
+        "ports-for-process",
+        "transport-multiplexing-demultiplexing",
+        "app-transport-dependency",
+        "web-access-process"
+      ]
+    },
+    {
+      "id": "transport-network",
+      "source": "transport",
+      "target": "network",
+      "title": "传输层 ↔ 网络层",
+      "summary": "解释端到端与点到点、TCP/UDP 封装进 IP 数据报，以及 TCP 如何在端系统上弥补 IP 的不可靠。",
+      "overviewId": "edge-transport-network-overview",
+      "topicIds": [
+        "end-to-end-vs-point-to-point",
+        "host-process-delivery",
+        "transport-in-ip",
+        "tcp-reliability-over-ip",
+        "tcp-vs-link-reliable",
+        "flow-vs-congestion"
+      ]
+    },
+    {
+      "id": "network-data-link",
+      "source": "network",
+      "target": "data-link",
+      "title": "网络层 ↔ 数据链路层",
+      "summary": "解释 IP 地址与 MAC 地址、ARP、封装解封装、直接交付与间接交付。",
+      "overviewId": "edge-network-data-link-overview",
+      "topicIds": [
+        "ip-vs-mac",
+        "address-change-switch-router",
+        "arp-vs-dns",
+        "arp",
+        "encapsulation",
+        "direct-indirect-delivery",
+        "switch-vs-router",
+        "subnet-routing-arp-integrated"
+      ]
+    },
+    {
+      "id": "data-link-physical",
+      "source": "data-link",
+      "target": "physical",
+      "title": "数据链路层 ↔ 物理层",
+      "summary": "解释帧如何变成比特流，以及编码、调制和传输介质对数据链路层的支撑。",
+      "overviewId": "edge-data-link-physical-overview",
+      "topicIds": [
+        "pdu-name-change",
+        "frame-to-bitstream",
+        "encoding-transmission"
+      ]
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "layer-application-overview",
+      "title": "应用层总览",
+      "layer": "application",
+      "type": "concept",
+      "summary": "应用层定义应用进程之间交换报文的格式、含义和时序。",
+      "keywords": [
+        "应用层",
+        "DNS",
+        "HTTP",
+        "应用协议"
+      ],
+      "definition": "应用层是五层体系中最靠近用户的一层，负责规定应用进程如何组织和解释应用报文。",
+      "solves": "解决具体网络应用如何表达请求、响应和错误状态的问题。",
+      "input": [
+        "用户请求",
+        "应用数据",
+        "传输层服务"
+      ],
+      "output": [
+        "应用层报文",
+        "应用语义结果"
+      ],
+      "mechanism": [
+        "应用进程生成报文",
+        "选择 TCP 或 UDP",
+        "交给传输层发送",
+        "接收方按协议语义解析报文"
+      ],
+      "fieldsOrStates": [
+        "报文方法",
+        "状态码",
+        "域名",
+        "资源路径"
+      ],
+      "examRules": [
+        "应用层不负责路由选择。",
+        "应用层协议通常需要依赖端口号定位进程。"
+      ],
+      "pitfalls": [
+        "不要把 HTTP 状态码当成 TCP 状态。",
+        "DNS 名字解析不是网络层路由。"
+      ],
+      "related": [
+        "dns",
+        "http",
+        "ports-for-process"
+      ],
+      "examTemplates": [],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "layer-transport-overview",
+      "title": "传输层总览",
+      "layer": "transport",
+      "type": "concept",
+      "summary": "传输层为进程提供端到端通信，核心标识是端口号。",
+      "keywords": [
+        "传输层",
+        "TCP",
+        "UDP",
+        "端口"
+      ],
+      "definition": "传输层位于应用层与网络层之间，负责把应用数据交给目标主机上的正确进程。",
+      "solves": "解决多应用复用网络层、端到端可靠性和流量控制等问题。",
+      "input": [
+        "应用层报文",
+        "源端口",
+        "目的端口"
+      ],
+      "output": [
+        "TCP 报文段",
+        "UDP 用户数据报"
+      ],
+      "mechanism": [
+        "封装端口号",
+        "复用多个应用进程",
+        "交给网络层",
+        "接收端按端口分用"
+      ],
+      "fieldsOrStates": [
+        "源端口",
+        "目的端口",
+        "序号",
+        "确认号",
+        "校验和"
+      ],
+      "examRules": [
+        "TCP 面向连接且可靠，UDP 无连接且尽力交付。",
+        "端口号用于标识进程，不用于路由。"
+      ],
+      "pitfalls": [
+        "不要把端口号当成主机地址。",
+        "TCP 的可靠性在端系统实现，不是路由器实现。"
+      ],
+      "related": [
+        "tcp",
+        "udp",
+        "tcp-three-way-handshake"
+      ],
+      "examTemplates": [],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "layer-network-overview",
+      "title": "网络层总览",
+      "layer": "network",
+      "type": "concept",
+      "summary": "网络层负责 IP 寻址、路由选择和跨网络分组转发。",
+      "keywords": [
+        "网络层",
+        "IP",
+        "路由",
+        "分组"
+      ],
+      "definition": "网络层通过逻辑地址和路由表，把分组从源主机送往目的主机所在网络。",
+      "solves": "解决异构网络之间如何互联并选择下一跳的问题。",
+      "input": [
+        "传输层报文段",
+        "源 IP",
+        "目的 IP",
+        "路由表"
+      ],
+      "output": [
+        "IP 数据报",
+        "下一跳接口"
+      ],
+      "mechanism": [
+        "封装 IP 首部",
+        "查路由表",
+        "选择下一跳",
+        "交给数据链路层逐跳转发"
+      ],
+      "fieldsOrStates": [
+        "源 IP",
+        "目的 IP",
+        "TTL",
+        "协议字段",
+        "路由表项"
+      ],
+      "examRules": [
+        "路由器根据目的 IP 查表转发。",
+        "IP 提供尽最大努力交付，不保证可靠。"
+      ],
+      "pitfalls": [
+        "转发过程中目的 IP 通常不变。",
+        "MAC 地址只在当前链路内有效。"
+      ],
+      "related": [
+        "ip-address",
+        "subnet-mask",
+        "longest-prefix-match"
+      ],
+      "examTemplates": [],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "layer-data-link-overview",
+      "title": "数据链路层总览",
+      "layer": "data-link",
+      "type": "concept",
+      "summary": "数据链路层负责相邻节点之间的帧传输、MAC 寻址和差错检测。",
+      "keywords": [
+        "数据链路层",
+        "帧",
+        "MAC",
+        "以太网"
+      ],
+      "definition": "数据链路层把网络层数据报封装成帧，在同一链路或同一局域网内交付。",
+      "solves": "解决相邻节点如何成帧、识别下一跳和检测传输差错的问题。",
+      "input": [
+        "IP 数据报",
+        "下一跳 MAC",
+        "链路状态"
+      ],
+      "output": [
+        "以太网帧",
+        "差错检测结果"
+      ],
+      "mechanism": [
+        "成帧",
+        "填写源和目的 MAC",
+        "计算 FCS",
+        "在链路上传输帧"
+      ],
+      "fieldsOrStates": [
+        "目的 MAC",
+        "源 MAC",
+        "类型字段",
+        "FCS",
+        "VLAN 标记"
+      ],
+      "examRules": [
+        "交换机主要按 MAC 地址转发帧。",
+        "CRC/FCS 主要用于差错检测。"
+      ],
+      "pitfalls": [
+        "不要把 MAC 地址理解成跨网络不变的地址。",
+        "广播域和冲突域不是同一个概念。"
+      ],
+      "related": [
+        "mac-address",
+        "arp",
+        "vlan",
+        "csma-cd"
+      ],
+      "examTemplates": [],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "layer-physical-overview",
+      "title": "物理层总览",
+      "layer": "physical",
+      "type": "concept",
+      "summary": "物理层定义比特在物理介质上的表示和传输方式。",
+      "keywords": [
+        "物理层",
+        "比特",
+        "编码",
+        "介质"
+      ],
+      "definition": "物理层关注信号、电气特性、接口标准、传输速率和同步方式。",
+      "solves": "解决比特如何被表示成实际信号并通过介质传输的问题。",
+      "input": [
+        "比特序列",
+        "时钟同步",
+        "物理介质"
+      ],
+      "output": [
+        "电信号",
+        "光信号",
+        "无线信号"
+      ],
+      "mechanism": [
+        "线路编码",
+        "调制或电平转换",
+        "经介质传播",
+        "接收端恢复比特"
+      ],
+      "fieldsOrStates": [
+        "码元",
+        "波特率",
+        "比特率",
+        "带宽",
+        "信噪比"
+      ],
+      "examRules": [
+        "物理层不识别帧地址。",
+        "比特率和波特率不是总相等。"
+      ],
+      "pitfalls": [
+        "不要把物理层带宽直接等同于吞吐量。",
+        "编码方式会影响同步和差错表现。"
+      ],
+      "related": [
+        "physical-medium",
+        "encoding-transmission"
+      ],
+      "examTemplates": [],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "edge-application-transport-overview",
+      "title": "应用层与传输层关系总览",
+      "layer": "application / transport",
+      "type": "concept",
+      "summary": "应用协议通过端口号找到进程，并按需求选择 TCP 或 UDP。",
+      "keywords": [
+        "应用层",
+        "传输层",
+        "端口",
+        "TCP",
+        "UDP"
+      ],
+      "definition": "应用层生成报文，传输层用端口号完成进程复用与分用，并提供 TCP 或 UDP 服务。",
+      "solves": "解决应用报文如何进入端到端传输通道，以及接收端如何交给正确应用进程的问题。",
+      "input": [
+        "应用报文",
+        "目标服务名",
+        "端口号"
+      ],
+      "output": [
+        "TCP 报文段",
+        "UDP 用户数据报"
+      ],
+      "mechanism": [
+        "应用选择协议",
+        "确定目的端口",
+        "传输层封装端口",
+        "接收端按端口分用"
+      ],
+      "fieldsOrStates": [
+        "源端口",
+        "目的端口",
+        "套接字",
+        "连接状态"
+      ],
+      "examRules": [
+        "HTTP 常用 TCP，DNS 可用 UDP 也可用 TCP。",
+        "端口号标识主机内进程。"
+      ],
+      "pitfalls": [
+        "协议默认端口不等于只能使用该端口。",
+        "应用层可靠性通常依赖下层或应用自身设计。"
+      ],
+      "related": [
+        "ports-for-process",
+        "app-transport-dependency",
+        "tcp",
+        "udp"
+      ],
+      "examTemplates": [],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "edge-transport-network-overview",
+      "title": "传输层与网络层关系总览",
+      "layer": "transport / network",
+      "type": "concept",
+      "summary": "传输层提供进程到进程服务，网络层提供主机到主机分组交付。",
+      "keywords": [
+        "端到端",
+        "点到点",
+        "IP",
+        "TCP",
+        "UDP"
+      ],
+      "definition": "传输层报文段被封装进 IP 数据报，IP 负责跨网络转发，TCP/UDP 负责端系统上的传输语义。",
+      "solves": "解决进程通信如何复用主机级分组转发服务的问题。",
+      "input": [
+        "TCP/UDP 数据",
+        "源 IP",
+        "目的 IP"
+      ],
+      "output": [
+        "IP 数据报",
+        "端到端传输结果"
+      ],
+      "mechanism": [
+        "传输层封装端口",
+        "网络层封装 IP",
+        "路由器逐跳转发",
+        "目的端系统交给传输层"
+      ],
+      "fieldsOrStates": [
+        "协议字段",
+        "源 IP",
+        "目的 IP",
+        "端口号"
+      ],
+      "examRules": [
+        "IP 是尽最大努力交付。",
+        "TCP 可靠性由端系统维护，路由器不维护 TCP 连接。"
+      ],
+      "pitfalls": [
+        "不要把网络层点到点链路交付说成进程到进程。",
+        "UDP 使用 IP 但不提供可靠传输。"
+      ],
+      "related": [
+        "end-to-end-vs-point-to-point",
+        "transport-in-ip",
+        "tcp-reliability-over-ip"
+      ],
+      "examTemplates": [],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "edge-network-data-link-overview",
+      "title": "网络层与数据链路层关系总览",
+      "layer": "network / data-link",
+      "type": "concept",
+      "summary": "IP 地址定位跨网络目的，MAC 地址定位当前链路上的下一跳。",
+      "keywords": [
+        "IP",
+        "MAC",
+        "ARP",
+        "封装",
+        "下一跳"
+      ],
+      "definition": "网络层决定目的 IP 和下一跳，数据链路层用 MAC 地址把帧交给当前链路上的相邻节点。",
+      "solves": "解决跨网络逻辑寻址与逐跳链路交付如何衔接的问题。",
+      "input": [
+        "IP 数据报",
+        "下一跳 IP",
+        "ARP 缓存"
+      ],
+      "output": [
+        "以太网帧",
+        "下一跳 MAC"
+      ],
+      "mechanism": [
+        "查路由得到下一跳",
+        "ARP 解析 MAC",
+        "封装成帧",
+        "逐跳转发"
+      ],
+      "fieldsOrStates": [
+        "源 IP",
+        "目的 IP",
+        "源 MAC",
+        "目的 MAC",
+        "ARP 表"
+      ],
+      "examRules": [
+        "路由器转发时 IP 地址通常不变，MAC 地址逐跳变化。",
+        "ARP 只在同一广播域内工作。"
+      ],
+      "pitfalls": [
+        "不要用目的主机 MAC 直接跨多个路由器通信。",
+        "交换机不根据 IP 路由。"
+      ],
+      "related": [
+        "ip-vs-mac",
+        "arp",
+        "direct-indirect-delivery"
+      ],
+      "examTemplates": [],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "edge-data-link-physical-overview",
+      "title": "数据链路层与物理层关系总览",
+      "layer": "data-link / physical",
+      "type": "concept",
+      "summary": "数据链路层组织帧，物理层负责把帧的比特实际发送出去。",
+      "keywords": [
+        "帧",
+        "比特流",
+        "编码",
+        "物理介质"
+      ],
+      "definition": "数据链路层给出帧边界和链路地址，物理层把帧中的比特转换为可传输信号。",
+      "solves": "解决逻辑帧结构与真实物理信号之间的转换问题。",
+      "input": [
+        "帧",
+        "物理接口",
+        "编码规则"
+      ],
+      "output": [
+        "比特流",
+        "物理信号"
+      ],
+      "mechanism": [
+        "帧交给网卡",
+        "序列化为比特",
+        "物理层编码",
+        "介质上传输"
+      ],
+      "fieldsOrStates": [
+        "帧边界",
+        "码元",
+        "时钟",
+        "速率"
+      ],
+      "examRules": [
+        "物理层不检查 MAC 地址。",
+        "成帧属于数据链路层。"
+      ],
+      "pitfalls": [
+        "不要把网卡发送信号的物理过程等同于交换机转发表学习。"
+      ],
+      "related": [
+        "frame-to-bitstream",
+        "encoding-transmission",
+        "physical-medium"
+      ],
+      "examTemplates": [],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80
+    },
+    {
+      "id": "layering-encapsulation",
+      "title": "分层与封装",
+      "layer": "application",
+      "type": "concept",
+      "summary": "分层把复杂通信拆成相邻层服务，封装把上层数据包进下层首部或尾部。",
+      "keywords": [
+        "分层",
+        "封装",
+        "解封装",
+        "PDU"
+      ],
+      "definition": "分层是按职责划分协议功能，封装是下层在上层数据外添加控制信息形成该层 PDU。",
+      "solves": "降低网络协议设计复杂度，使各层可以通过清晰接口协作。",
+      "input": [
+        "上层数据",
+        "本层控制信息",
+        "下一层服务"
+      ],
+      "output": [
+        "本层 PDU",
+        "下层可处理的数据单元"
+      ],
+      "mechanism": [
+        "发送端自上而下逐层封装",
+        "每层添加本层首部或尾部",
+        "接收端自下而上逐层解封装",
+        "每层只解释本层控制信息"
+      ],
+      "fieldsOrStates": [
+        "应用报文",
+        "报文段",
+        "IP 数据报",
+        "帧",
+        "比特流"
+      ],
+      "examRules": [
+        "PDU 名称随层变化。",
+        "封装不会让所有层都理解所有字段。"
+      ],
+      "pitfalls": [
+        "不要把服务、协议、接口混为一谈。",
+        "解封装方向与封装方向相反。"
+      ],
+      "related": [
+        "encapsulation",
+        "layer-transport-overview",
+        "layer-network-overview"
+      ],
+      "examTemplates": [
+        {
+          "title": "封装顺序判断",
+          "rule": "应用报文 -> 传输层报文段 -> IP 数据报 -> 帧 -> 比特流",
+          "steps": [
+            "先判断发送方向",
+            "列出经过的层",
+            "写出每层 PDU 名称"
+          ]
+        }
+      ],
+      "children": [
+        "encapsulation"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "dns",
+      "title": "DNS",
+      "layer": "application",
+      "type": "protocol",
+      "summary": "把域名解析为 IP 地址的应用层协议。",
+      "keywords": [
+        "DNS",
+        "域名",
+        "递归查询",
+        "迭代查询",
+        "UDP 53"
+      ],
+      "definition": "DNS 是分布式层次化命名系统，用于完成域名与 IP 地址等资源记录之间的映射。",
+      "solves": "解决用户易记域名与网络层 IP 地址之间的转换问题。",
+      "input": [
+        "域名",
+        "查询类型",
+        "本地 DNS 配置"
+      ],
+      "output": [
+        "资源记录",
+        "IP 地址",
+        "解析失败结果"
+      ],
+      "mechanism": [
+        "客户端查询本地 DNS",
+        "必要时递归或迭代查询根、顶级域、权威服务器",
+        "返回资源记录",
+        "按 TTL 缓存"
+      ],
+      "fieldsOrStates": [
+        "A 记录",
+        "AAAA 记录",
+        "CNAME",
+        "MX",
+        "TTL"
+      ],
+      "examRules": [
+        "DNS 常用 UDP 53，区域传送等场景可用 TCP。",
+        "递归查询由被询问服务器继续代查。"
+      ],
+      "pitfalls": [
+        "不要把 DNS 解析说成路由选择。",
+        "TTL 是缓存生存时间，不是 IP 首部 TTL。"
+      ],
+      "related": [
+        "ip-address",
+        "ports-for-process",
+        "udp"
+      ],
+      "examTemplates": [
+        {
+          "title": "DNS 查询过程题",
+          "rule": "先查缓存，再按层次查询",
+          "steps": [
+            "判断本地是否命中",
+            "区分递归和迭代",
+            "写出返回记录和缓存行为"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "children": [
+        "dns-query-modes",
+        "dns-records-cache"
+      ]
+    },
+    {
+      "id": "http",
+      "title": "HTTP",
+      "layer": "application",
+      "type": "protocol",
+      "summary": "Web 中用于请求和传输资源的应用层协议。",
+      "keywords": [
+        "HTTP",
+        "Web",
+        "请求",
+        "响应",
+        "状态码"
+      ],
+      "definition": "HTTP 是无状态的应用层请求-响应协议，规定客户端和服务器之间的报文格式与交互语义。",
+      "solves": "解决浏览器等客户端如何向服务器请求资源并解释响应的问题。",
+      "input": [
+        "URL",
+        "请求方法",
+        "首部字段",
+        "请求体"
+      ],
+      "output": [
+        "响应报文",
+        "状态码",
+        "资源内容"
+      ],
+      "mechanism": [
+        "客户端建立传输连接",
+        "发送 HTTP 请求",
+        "服务器处理并返回响应",
+        "客户端按状态码和内容类型处理"
+      ],
+      "fieldsOrStates": [
+        "Method",
+        "URL",
+        "Status Code",
+        "Host",
+        "Content-Type"
+      ],
+      "examRules": [
+        "HTTP 本身无状态。",
+        "HTTPS 是 HTTP 运行在 TLS 之上。"
+      ],
+      "pitfalls": [
+        "不要把 HTTP 无状态理解成 TCP 无连接。",
+        "404 是应用层状态码，不是网络层不可达。"
+      ],
+      "related": [
+        "tcp",
+        "ports-for-process",
+        "app-transport-dependency"
+      ],
+      "examTemplates": [
+        {
+          "title": "HTTP 层次定位题",
+          "rule": "HTTP 属于应用层，可靠传输通常依赖 TCP",
+          "steps": [
+            "先定位协议层次",
+            "再说明下层依赖",
+            "最后解释报文语义"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "children": [
+        "http-message-status",
+        "http-persistent-cookie"
+      ]
+    },
+    {
+      "id": "tcp",
+      "title": "TCP",
+      "layer": "transport",
+      "type": "protocol",
+      "summary": "面向连接、可靠、按字节流传输的传输层协议。",
+      "keywords": [
+        "TCP",
+        "可靠传输",
+        "流量控制",
+        "拥塞控制"
+      ],
+      "definition": "TCP 为应用进程提供面向连接的可靠字节流服务，通过确认、重传、序号和窗口等机制维护传输语义。",
+      "solves": "解决 IP 尽最大努力交付下的丢失、乱序、重复和端到端流量匹配问题。",
+      "input": [
+        "应用字节流",
+        "端口号",
+        "网络层服务"
+      ],
+      "output": [
+        "TCP 报文段",
+        "可靠有序字节流"
+      ],
+      "mechanism": [
+        "建立连接",
+        "按序编号",
+        "确认与超时重传",
+        "滑动窗口流量控制",
+        "拥塞控制",
+        "释放连接"
+      ],
+      "fieldsOrStates": [
+        "源端口",
+        "目的端口",
+        "序号",
+        "确认号",
+        "窗口",
+        "SYN",
+        "ACK",
+        "FIN"
+      ],
+      "examRules": [
+        "TCP 是面向连接的传输层协议。",
+        "TCP 可靠性依赖端系统状态，不依赖中间路由器保存连接。"
+      ],
+      "pitfalls": [
+        "不要说 TCP 保证网络不丢包。",
+        "TCP 面向字节流，不保留应用报文边界。"
+      ],
+      "related": [
+        "tcp-three-way-handshake",
+        "tcp-reliability-over-ip",
+        "ports-for-process"
+      ],
+      "examTemplates": [
+        {
+          "title": "TCP 可靠传输分析",
+          "rule": "序号 + 确认 + 超时重传 + 窗口",
+          "steps": [
+            "标出序号范围",
+            "判断 ACK 含义",
+            "判断是否超时或重复确认",
+            "更新窗口和已确认范围"
+          ]
+        }
+      ],
+      "children": [
+        "tcp-header",
+        "tcp-seq-ack",
+        "tcp-three-way-handshake",
+        "tcp-four-way-termination"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 6
+    },
+    {
+      "id": "tcp-three-way-handshake",
+      "title": "TCP 三次握手",
+      "layer": "transport",
+      "type": "mechanism",
+      "summary": "TCP 建立连接时同步双方初始序号并确认双向通信能力。",
+      "keywords": [
+        "三次握手",
+        "SYN",
+        "ACK",
+        "初始序号",
+        "连接建立"
+      ],
+      "definition": "TCP 三次握手是客户端和服务器通过 SYN、SYN+ACK、ACK 三个报文段建立连接的过程。",
+      "solves": "解决双方初始序号同步、历史连接报文误用和双向收发能力确认的问题。",
+      "input": [
+        "客户端初始序号",
+        "服务器初始序号",
+        "连接请求"
+      ],
+      "output": [
+        "已建立 TCP 连接",
+        "双方确认号状态"
+      ],
+      "mechanism": [
+        "客户端发送 SYN，进入 SYN-SENT",
+        "服务器回复 SYN+ACK，进入 SYN-RCVD",
+        "客户端发送 ACK，双方进入 ESTABLISHED"
+      ],
+      "fieldsOrStates": [
+        "SYN",
+        "ACK",
+        "seq",
+        "ack",
+        "SYN-SENT",
+        "SYN-RCVD",
+        "ESTABLISHED"
+      ],
+      "examRules": [
+        "第三次握手可以携带数据，但通常题目不强调。",
+        "ACK 号通常等于对方 seq 加 1。"
+      ],
+      "pitfalls": [
+        "不要把三次握手说成传输数据必须三次。",
+        "SYN 会消耗一个序号。"
+      ],
+      "related": [
+        "tcp",
+        "ports-for-process"
+      ],
+      "examTemplates": [
+        {
+          "title": "握手序号题",
+          "rule": "SYN 占用一个序号，ACK 确认下一个期望字节",
+          "steps": [
+            "记录客户端 ISN",
+            "记录服务器 ISN",
+            "分别计算 ACK 值",
+            "判断连接状态"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20
+    },
+    {
+      "id": "udp",
+      "title": "UDP",
+      "layer": "transport",
+      "type": "protocol",
+      "summary": "无连接、尽最大努力交付、保留报文边界的传输层协议。",
+      "keywords": [
+        "UDP",
+        "无连接",
+        "用户数据报",
+        "校验和"
+      ],
+      "definition": "UDP 是简单的传输层协议，只提供端口复用、分用和校验和等最小功能。",
+      "solves": "解决应用进程需要低开销、低时延传输并愿意自行处理可靠性的场景。",
+      "input": [
+        "应用报文",
+        "源端口",
+        "目的端口"
+      ],
+      "output": [
+        "UDP 用户数据报",
+        "尽最大努力交付结果"
+      ],
+      "mechanism": [
+        "封装 UDP 首部",
+        "计算校验和",
+        "交给 IP",
+        "接收端按目的端口分用"
+      ],
+      "fieldsOrStates": [
+        "源端口",
+        "目的端口",
+        "长度",
+        "校验和"
+      ],
+      "examRules": [
+        "UDP 无连接，不保证可靠交付。",
+        "UDP 保留应用报文边界。"
+      ],
+      "pitfalls": [
+        "不要说 UDP 一定不可靠到不可用，应用可自行实现可靠性。",
+        "UDP 没有 TCP 的三次握手。"
+      ],
+      "related": [
+        "dns",
+        "transport-in-ip",
+        "ports-for-process"
+      ],
+      "examTemplates": [
+        {
+          "title": "TCP 与 UDP 对比",
+          "rule": "连接性、可靠性、边界、开销四项对比",
+          "steps": [
+            "判断是否需要连接",
+            "判断是否要求可靠",
+            "看是否保留报文边界",
+            "比较首部开销"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "children": [
+        "udp-header-checksum"
+      ]
+    },
+    {
+      "id": "ip-address",
+      "title": "IP 地址",
+      "layer": "network",
+      "type": "concept",
+      "summary": "网络层用于标识主机或接口的逻辑地址。",
+      "keywords": [
+        "IP 地址",
+        "IPv4",
+        "网络号",
+        "主机号"
+      ],
+      "definition": "IP 地址是网络层逻辑地址，用于在互联网范围内定位网络和主机接口。",
+      "solves": "解决跨网络主机定位和路由选择所需的逻辑寻址问题。",
+      "input": [
+        "网络前缀",
+        "主机号",
+        "子网掩码"
+      ],
+      "output": [
+        "源 IP",
+        "目的 IP",
+        "路由匹配依据"
+      ],
+      "mechanism": [
+        "按前缀划分网络",
+        "主机接口配置 IP",
+        "路由器根据目的 IP 查表",
+        "逐跳转发到目的网络"
+      ],
+      "fieldsOrStates": [
+        "网络位",
+        "主机位",
+        "前缀长度",
+        "特殊地址"
+      ],
+      "examRules": [
+        "IP 地址用于网络层寻址。",
+        "同一链路通信仍然需要数据链路层 MAC 地址。"
+      ],
+      "pitfalls": [
+        "不要把 IP 地址和 MAC 地址功能混淆。",
+        "一个主机可有多个网络接口和多个 IP。"
+      ],
+      "related": [
+        "subnet-mask",
+        "longest-prefix-match",
+        "ip-vs-mac"
+      ],
+      "examTemplates": [
+        {
+          "title": "IP 所属网络判断",
+          "rule": "IP 地址与子网掩码按位与得到网络地址",
+          "steps": [
+            "写出 IP 和掩码",
+            "按位与",
+            "得到网络地址",
+            "判断是否同网段"
+          ]
+        }
+      ],
+      "children": [
+        "subnet-mask",
+        "network-address-broadcast-host",
+        "cidr-route-aggregation"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 2
+    },
+    {
+      "id": "subnet-mask",
+      "title": "子网掩码",
+      "layer": "network",
+      "type": "formula",
+      "summary": "用于区分 IP 地址中的网络前缀和主机号。",
+      "keywords": [
+        "子网掩码",
+        "CIDR",
+        "前缀长度",
+        "网络地址"
+      ],
+      "definition": "子网掩码是一串连续 1 后接连续 0 的位模式，用于标识 IP 地址的网络前缀长度。",
+      "solves": "解决同一个地址空间如何进一步划分子网，以及如何判断两个地址是否同属一个子网的问题。",
+      "input": [
+        "IP 地址",
+        "掩码或前缀长度"
+      ],
+      "output": [
+        "网络地址",
+        "广播地址",
+        "可用主机范围"
+      ],
+      "mechanism": [
+        "把掩码写成二进制",
+        "IP 与掩码按位与",
+        "得到网络地址",
+        "主机位全 1 得广播地址"
+      ],
+      "fieldsOrStates": [
+        "前缀长度",
+        "网络位",
+        "主机位",
+        "广播地址"
+      ],
+      "formulas": [
+        "网络地址 = IP 地址 & 子网掩码",
+        "可用主机数 = 2^主机位数 - 2"
+      ],
+      "examRules": [
+        "传统题目中主机号全 0 和全 1 通常不可分配给普通主机。",
+        "CIDR 记法 /n 表示前 n 位为网络前缀。"
+      ],
+      "pitfalls": [
+        "不要把掩码写成不连续的 1。",
+        "点分十进制转换错误是常见失分点。"
+      ],
+      "related": [
+        "ip-address",
+        "longest-prefix-match"
+      ],
+      "examTemplates": [
+        {
+          "title": "子网划分计算",
+          "rule": "借位数决定子网数，剩余主机位决定主机数",
+          "steps": [
+            "确定原前缀",
+            "确定借位数",
+            "计算新前缀",
+            "列出网络地址范围"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 3,
+      "children": [
+        "subnetting-exam-template"
+      ]
+    },
+    {
+      "id": "longest-prefix-match",
+      "title": "最长前缀匹配",
+      "layer": "network",
+      "type": "mechanism",
+      "summary": "路由查表时选择与目的 IP 匹配且前缀最长的路由项。",
+      "keywords": [
+        "最长前缀匹配",
+        "路由表",
+        "CIDR",
+        "下一跳"
+      ],
+      "definition": "最长前缀匹配是路由器在多条可匹配路由中选择前缀长度最大的路由项。",
+      "solves": "解决路由表存在聚合路由和更具体路由时如何确定最佳下一跳的问题。",
+      "input": [
+        "目的 IP",
+        "路由表",
+        "前缀长度"
+      ],
+      "output": [
+        "最佳匹配路由",
+        "下一跳",
+        "出接口"
+      ],
+      "mechanism": [
+        "逐项判断目的 IP 是否落入前缀",
+        "保留所有匹配项",
+        "选择前缀长度最长者",
+        "按该项转发"
+      ],
+      "fieldsOrStates": [
+        "目的网络",
+        "前缀长度",
+        "下一跳",
+        "出接口",
+        "默认路由"
+      ],
+      "examRules": [
+        "默认路由 0.0.0.0/0 只有在没有更具体匹配时使用。",
+        "前缀越长，匹配范围越小且越具体。"
+      ],
+      "pitfalls": [
+        "不要选择最先出现的匹配项，除非题目另有说明。",
+        "最长前缀不是数值最大的下一跳地址。"
+      ],
+      "related": [
+        "ip-address",
+        "subnet-mask",
+        "direct-indirect-delivery"
+      ],
+      "examTemplates": [
+        {
+          "title": "路由表选择题",
+          "rule": "所有匹配项中取最长前缀",
+          "steps": [
+            "把目的 IP 与每个掩码匹配",
+            "列出匹配项",
+            "比较前缀长度",
+            "给出下一跳"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 4
+    },
+    {
+      "id": "broadcast-domain",
+      "title": "广播域",
+      "layer": "network",
+      "type": "concept",
+      "summary": "广播帧能够到达的二层范围，通常由路由器或 VLAN 边界隔离。",
+      "keywords": [
+        "广播域",
+        "VLAN",
+        "路由器",
+        "ARP"
+      ],
+      "definition": "广播域是一个广播帧在二层网络中可以被转发到的范围。",
+      "solves": "说明广播流量影响范围，以及为什么需要路由器或 VLAN 划分网络。",
+      "input": [
+        "广播帧",
+        "交换机转发表",
+        "VLAN 配置"
+      ],
+      "output": [
+        "广播到达范围",
+        "隔离边界"
+      ],
+      "mechanism": [
+        "交换机在同一 VLAN 内泛洪广播帧",
+        "路由器默认不转发二层广播",
+        "不同 VLAN 形成不同广播域"
+      ],
+      "fieldsOrStates": [
+        "广播 MAC",
+        "VLAN ID",
+        "路由接口",
+        "广播地址"
+      ],
+      "examRules": [
+        "路由器隔离广播域。",
+        "VLAN 可以在交换网络中划分广播域。"
+      ],
+      "pitfalls": [
+        "不要把冲突域和广播域混淆。",
+        "交换机默认隔离冲突域，但不一定隔离广播域。"
+      ],
+      "related": [
+        "vlan",
+        "arp",
+        "collision-domain"
+      ],
+      "examTemplates": [
+        {
+          "title": "广播域数量判断",
+          "rule": "按路由器接口或 VLAN 边界划分",
+          "steps": [
+            "标出 VLAN",
+            "标出三层边界",
+            "统计每个独立广播范围"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20
+    },
+    {
+      "id": "ethernet",
+      "title": "以太网",
+      "layer": "data-link",
+      "type": "protocol",
+      "summary": "局域网中最常见的数据链路层技术，规定帧格式、MAC 寻址和介质访问相关规则。",
+      "keywords": [
+        "以太网",
+        "Ethernet",
+        "MAC",
+        "以太网帧",
+        "CSMA/CD"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 8,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "以太网可以先按“帧格式 + MAC 地址 + 交换转发 + 介质访问”四个角度阅读。早期共享式以太网依赖 [[CSMA/CD|csma-cd]] 处理多个站点争用同一信道的问题；现代交换式全双工以太网通常不再使用该机制。"
+        },
+        {
+          "type": "paragraph",
+          "content": "在考试题中，以太网常和 [[MAC 地址|mac-address]]、[[冲突域|collision-domain]]、[[广播域|broadcast-domain]] 一起出现。判断地址变化时要区分当前链路内的 MAC 地址和跨网络保持语义的 IP 地址。"
+        }
+      ],
+      "definition": "以太网是一组局域网数据链路层标准，核心包括以太网帧格式、MAC 地址、链路层差错检测以及不同介质访问环境下的发送规则。",
+      "solves": "解决局域网内主机如何组织帧、识别接收方、检测差错并在共享或交换环境中传输数据的问题。",
+      "input": [
+        "网络层 IP 数据报",
+        "源 MAC",
+        "目的 MAC",
+        "链路工作模式"
+      ],
+      "output": [
+        "以太网帧",
+        "局域网内帧交付结果"
+      ],
+      "mechanism": [
+        "把上层数据封装进以太网帧",
+        "填写目的 MAC 和源 MAC",
+        "根据类型字段标识上层协议",
+        "发送到共享介质或交换机端口",
+        "接收端用 FCS 检测差错"
+      ],
+      "fieldsOrStates": [
+        "目的 MAC",
+        "源 MAC",
+        "类型字段",
+        "数据字段",
+        "FCS",
+        "双工模式"
+      ],
+      "examRules": [
+        "以太网最小帧长通常按 64 字节记忆，不包括前导码。",
+        "交换式全双工以太网通常不使用 CSMA/CD。",
+        "以太网帧中的目的 MAC 只负责当前链路或当前二层广播域内交付。"
+      ],
+      "pitfalls": [
+        "不要把以太网的 MAC 地址当成跨路由器不变的地址。",
+        "不要把前导码计入 64 字节最小帧长。",
+        "共享式和交换式以太网对冲突的讨论不同。"
+      ],
+      "related": [
+        "mac-address",
+        "csma-cd",
+        "collision-domain",
+        "broadcast-domain",
+        "vlan"
+      ],
+      "examTemplates": [
+        {
+          "title": "以太网综合判断",
+          "rule": "先判断工作环境，再判断帧字段和地址变化",
+          "steps": [
+            "判断共享式还是交换式",
+            "写出源 MAC 和目的 MAC",
+            "判断是否存在冲突域问题",
+            "检查最小帧长或 FCS 考点"
+          ]
+        }
+      ],
+      "details": [
+        {
+          "id": "ethernet-shared-vs-switched",
+          "title": "共享式以太网与交换式以太网",
+          "content": "共享式以太网中多个站点竞争同一介质，因此需要 [[CSMA/CD|csma-cd]] 和冲突域分析；交换式以太网通过交换机端口隔离冲突域，全双工链路下通常不再发生传统碰撞。"
+        }
+      ],
+      "references": [
+        {
+          "title": "计算机网络：自顶向下方法，以太网与链路层章节",
+          "type": "textbook",
+          "target": "Ethernet and link layer switching"
+        },
+        {
+          "title": "IEEE 802.3 Ethernet 工作组",
+          "type": "external",
+          "target": "https://www.ieee802.org/3/"
+        }
+      ],
+      "children": [
+        "ethernet-frame",
+        "mac-address",
+        "csma-cd",
+        "minimum-frame-length",
+        "collision-domain"
+      ]
+    },
+    {
+      "id": "mac-address",
+      "title": "MAC 地址",
+      "layer": "data-link",
+      "type": "concept",
+      "summary": "数据链路层用于在局域网内标识网卡接口的地址。",
+      "keywords": [
+        "MAC 地址",
+        "以太网",
+        "物理地址",
+        "二层地址"
+      ],
+      "definition": "MAC 地址是数据链路层地址，以太网中通常为 48 位，用于同一链路或局域网内的帧交付。",
+      "solves": "解决当前链路上帧应该交给哪个网卡接口的问题。",
+      "input": [
+        "下一跳 MAC",
+        "以太网帧",
+        "交换机转发表"
+      ],
+      "output": [
+        "帧转发目标",
+        "局域网内交付结果"
+      ],
+      "mechanism": [
+        "发送端填写目的 MAC",
+        "交换机学习源 MAC",
+        "交换机按目的 MAC 转发或泛洪",
+        "接收端检查目的 MAC"
+      ],
+      "fieldsOrStates": [
+        "源 MAC",
+        "目的 MAC",
+        "广播 MAC",
+        "转发表"
+      ],
+      "examRules": [
+        "MAC 地址在当前链路内使用。",
+        "广播 MAC 地址为 FF:FF:FF:FF:FF:FF。"
+      ],
+      "pitfalls": [
+        "不要认为跨路由器转发时目的 MAC 始终不变。",
+        "MAC 地址不替代 IP 地址做全网路由。"
+      ],
+      "related": [
+        "ip-vs-mac",
+        "arp",
+        "encapsulation"
+      ],
+      "examTemplates": [
+        {
+          "title": "逐跳 MAC 变化题",
+          "rule": "每经过一个三层转发边界，二层帧重新封装",
+          "steps": [
+            "确定当前链路下一跳",
+            "写源 MAC 和目的 MAC",
+            "到下一跳后重新封装"
+          ]
+        }
+      ],
+      "children": [
+        "arp"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20
+    },
+    {
+      "id": "arp",
+      "title": "ARP",
+      "layer": "data-link",
+      "type": "protocol",
+      "summary": "在同一广播域内根据 IP 地址解析对应 MAC 地址。",
+      "keywords": [
+        "ARP",
+        "IP 到 MAC",
+        "广播",
+        "ARP 缓存"
+      ],
+      "definition": "ARP 是地址解析协议，用广播询问目标 IP 对应的 MAC 地址，并把结果缓存在 ARP 表中。",
+      "solves": "解决已知下一跳 IP 但不知道其 MAC 地址时无法封装二层帧的问题。",
+      "input": [
+        "目标 IP 或下一跳 IP",
+        "本机 ARP 缓存",
+        "广播域"
+      ],
+      "output": [
+        "目标 MAC",
+        "ARP 缓存表项"
+      ],
+      "mechanism": [
+        "查 ARP 缓存",
+        "未命中则广播 ARP 请求",
+        "目标主机单播 ARP 响应",
+        "发送方缓存映射并封装帧"
+      ],
+      "fieldsOrStates": [
+        "Sender IP",
+        "Sender MAC",
+        "Target IP",
+        "Target MAC",
+        "ARP 表"
+      ],
+      "examRules": [
+        "ARP 请求是广播，ARP 响应通常是单播。",
+        "ARP 解析的是同一广播域内下一跳的 MAC。"
+      ],
+      "pitfalls": [
+        "跨网段通信时解析的是网关 MAC，不是远端主机 MAC。",
+        "ARP 不负责查询域名。"
+      ],
+      "related": [
+        "ip-vs-mac",
+        "broadcast-domain",
+        "direct-indirect-delivery"
+      ],
+      "examTemplates": [
+        {
+          "title": "ARP 目标判断",
+          "rule": "同网段解析目的主机，跨网段解析默认网关",
+          "steps": [
+            "判断目的 IP 是否同网段",
+            "确定下一跳 IP",
+            "说明 ARP 请求范围",
+            "写出目的 MAC"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 5,
+      "children": [
+        "arp-process-exam"
+      ]
+    },
+    {
+      "id": "vlan",
+      "title": "VLAN",
+      "layer": "data-link",
+      "type": "concept",
+      "summary": "在交换网络中用逻辑方式划分广播域。",
+      "keywords": [
+        "VLAN",
+        "802.1Q",
+        "广播域",
+        "Trunk"
+      ],
+      "definition": "VLAN 是虚拟局域网技术，用标签或端口配置把一个物理交换网络划分成多个逻辑二层网络。",
+      "solves": "解决大型二层网络广播范围过大、管理边界不清和隔离需求的问题。",
+      "input": [
+        "交换机端口配置",
+        "VLAN ID",
+        "以太网帧"
+      ],
+      "output": [
+        "隔离的二层广播域",
+        "带标签或不带标签的帧"
+      ],
+      "mechanism": [
+        "接入口归属一个 VLAN",
+        "Trunk 口携带多个 VLAN",
+        "802.1Q 标签标识 VLAN",
+        "不同 VLAN 间需三层转发"
+      ],
+      "fieldsOrStates": [
+        "VLAN ID",
+        "Access 口",
+        "Trunk 口",
+        "802.1Q Tag"
+      ],
+      "examRules": [
+        "不同 VLAN 默认不在同一广播域。",
+        "VLAN 间通信需要三层设备或三层交换。"
+      ],
+      "pitfalls": [
+        "不要把 VLAN 当成物理上必须分开的交换机。",
+        "同一交换机上的不同 VLAN 不能直接二层通信。"
+      ],
+      "related": [
+        "broadcast-domain",
+        "mac-address"
+      ],
+      "examTemplates": [
+        {
+          "title": "VLAN 广播范围题",
+          "rule": "广播只在同一 VLAN 内泛洪",
+          "steps": [
+            "标出端口 VLAN",
+            "判断 Trunk 允许列表",
+            "统计广播到达端口"
+          ]
+        }
+      ],
+      "children": [
+        "broadcast-domain",
+        "vlan-broadcast-domain-exam"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20
+    },
+    {
+      "id": "csma-cd",
+      "title": "CSMA/CD",
+      "layer": "data-link",
+      "type": "mechanism",
+      "summary": "传统共享式以太网的介质访问控制机制。",
+      "keywords": [
+        "CSMA/CD",
+        "冲突检测",
+        "以太网",
+        "最短帧长"
+      ],
+      "definition": "CSMA/CD 是载波监听多点接入/碰撞检测机制，用于共享式以太网中多个站点竞争同一信道。",
+      "solves": "解决多个站点共享信道时如何发送以及发生冲突后如何处理的问题。",
+      "input": [
+        "待发送帧",
+        "信道空闲/忙状态",
+        "碰撞检测结果"
+      ],
+      "output": [
+        "成功发送帧",
+        "检测到冲突后退避重发"
+      ],
+      "mechanism": [
+        "发送前监听信道",
+        "信道空闲则发送",
+        "边发送边检测冲突",
+        "发生冲突立即停止发送",
+        "发送阻塞信号",
+        "随机退避后重发"
+      ],
+      "fieldsOrStates": [
+        "信道状态",
+        "冲突检测",
+        "退避次数",
+        "争用期"
+      ],
+      "formulas": [
+        "发送时延 >= 2τ",
+        "最小帧长 = 2τ × 数据率"
+      ],
+      "examRules": [
+        "CSMA/CD 不能完全避免冲突，只能检测并处理冲突。",
+        "以太网最短帧长 64 字节是为了保证发送端在发送完之前能检测到最远端冲突。",
+        "现代交换式全双工以太网通常不使用 CSMA/CD。"
+      ],
+      "pitfalls": [
+        "不要把 CSMA/CD 说成无线局域网使用，无线局域网主要使用 CSMA/CA。",
+        "τ 是单程传播时延，2τ 是往返传播时延。",
+        "64 字节不包括前导码。"
+      ],
+      "related": [
+        "collision-domain",
+        "mac-address"
+      ],
+      "examTemplates": [
+        {
+          "title": "最小帧长计算",
+          "rule": "Lmin = 2τR",
+          "steps": [
+            "先统一单位",
+            "计算 2τ",
+            "乘以数据率得到 bit 数",
+            "如需字节再除以 8"
+          ]
+        }
+      ],
+      "children": [
+        "collision-domain"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 9
+    },
+    {
+      "id": "collision-domain",
+      "title": "冲突域",
+      "layer": "data-link",
+      "type": "concept",
+      "summary": "共享介质中可能发生帧碰撞的一组站点范围。",
+      "keywords": [
+        "冲突域",
+        "集线器",
+        "交换机",
+        "CSMA/CD"
+      ],
+      "definition": "冲突域是多个站点同时发送时可能发生信号冲突的网络范围。",
+      "solves": "用于分析共享式以太网中碰撞可能发生在哪里，以及设备如何缩小冲突范围。",
+      "input": [
+        "网络拓扑",
+        "二层设备类型",
+        "通信模式"
+      ],
+      "output": [
+        "冲突域数量",
+        "冲突影响范围"
+      ],
+      "mechanism": [
+        "共享介质上多个站点竞争发送",
+        "同时发送导致冲突",
+        "集线器不隔离冲突域",
+        "交换机每个端口通常形成独立冲突域"
+      ],
+      "fieldsOrStates": [
+        "半双工",
+        "全双工",
+        "共享介质",
+        "交换端口"
+      ],
+      "examRules": [
+        "集线器连接的所有主机在同一冲突域。",
+        "交换机每个端口通常隔离冲突域。"
+      ],
+      "pitfalls": [
+        "不要把冲突域数量和广播域数量混用。",
+        "全双工交换式以太网通常不存在 CSMA/CD 冲突问题。"
+      ],
+      "related": [
+        "csma-cd",
+        "broadcast-domain"
+      ],
+      "examTemplates": [
+        {
+          "title": "冲突域数量判断",
+          "rule": "集线器不隔离，交换机端口隔离",
+          "steps": [
+            "标出集线器范围",
+            "标出交换机端口",
+            "统计可能冲突的独立范围"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20
+    },
+    {
+      "id": "physical-medium",
+      "title": "传输介质",
+      "layer": "physical",
+      "type": "concept",
+      "summary": "承载物理信号的有线或无线媒介。",
+      "keywords": [
+        "传输介质",
+        "双绞线",
+        "光纤",
+        "无线"
+      ],
+      "definition": "传输介质是物理层用于承载电、光或无线信号的媒介。",
+      "solves": "解决信号通过什么路径传播，以及带宽、距离、抗干扰能力如何受介质影响的问题。",
+      "input": [
+        "物理信号",
+        "介质特性",
+        "接口标准"
+      ],
+      "output": [
+        "传输距离",
+        "误码表现",
+        "可用带宽"
+      ],
+      "mechanism": [
+        "发送端把比特编码为信号",
+        "信号在介质中传播",
+        "受到衰减和噪声影响",
+        "接收端恢复比特"
+      ],
+      "fieldsOrStates": [
+        "带宽",
+        "衰减",
+        "噪声",
+        "传输距离"
+      ],
+      "examRules": [
+        "光纤抗电磁干扰能力强。",
+        "双绞线常用于局域网接入。"
+      ],
+      "pitfalls": [
+        "不要把介质速率上限等同于应用吞吐量。"
+      ],
+      "related": [
+        "encoding-transmission",
+        "frame-to-bitstream"
+      ],
+      "examTemplates": [],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80
+    },
+    {
+      "id": "ports-for-process",
+      "title": "端口号区分进程",
+      "layer": "application / transport",
+      "type": "concept",
+      "summary": "传输层通过端口号把报文交给主机内正确的应用进程。",
+      "keywords": [
+        "端口号",
+        "复用",
+        "分用",
+        "套接字"
+      ],
+      "definition": "端口号是传输层用于标识主机内应用进程或服务端点的编号。",
+      "solves": "解决同一主机上多个网络应用如何共享同一个 IP 地址通信的问题。",
+      "input": [
+        "源端口",
+        "目的端口",
+        "IP 地址",
+        "传输层报文"
+      ],
+      "output": [
+        "目标套接字",
+        "应用进程"
+      ],
+      "mechanism": [
+        "发送端封装源端口和目的端口",
+        "网络层按 IP 交付到主机",
+        "传输层读取目的端口",
+        "分用给对应进程"
+      ],
+      "fieldsOrStates": [
+        "源端口",
+        "目的端口",
+        "套接字四元组",
+        "监听端口"
+      ],
+      "examRules": [
+        "端口号只在传输层使用。",
+        "常见服务有默认端口但可配置变更。"
+      ],
+      "pitfalls": [
+        "不要说端口号定位网络中的主机。",
+        "同一端口是否能复用取决于协议、地址和套接字状态。"
+      ],
+      "related": [
+        "tcp",
+        "udp",
+        "http",
+        "dns"
+      ],
+      "examTemplates": [
+        {
+          "title": "进程分用题",
+          "rule": "IP 定位主机，端口定位进程",
+          "steps": [
+            "先确定目的 IP",
+            "再读取传输层目的端口",
+            "匹配服务进程"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "children": [
+        "transport-multiplexing-demultiplexing"
+      ]
+    },
+    {
+      "id": "app-transport-dependency",
+      "title": "应用协议依赖 TCP 或 UDP",
+      "layer": "application / transport",
+      "type": "comparison",
+      "summary": "DNS、HTTP、SMTP 等应用协议会根据需求选择 TCP 或 UDP。",
+      "keywords": [
+        "HTTP over TCP",
+        "DNS over UDP",
+        "SMTP",
+        "应用协议"
+      ],
+      "definition": "应用层协议本身定义业务语义，具体传输可靠性、连接和端口复用通常依赖传输层协议提供。",
+      "solves": "解释为什么不同应用协议在可靠性、时延和开销之间选择不同传输服务。",
+      "input": [
+        "应用需求",
+        "报文大小",
+        "可靠性要求",
+        "时延要求"
+      ],
+      "output": [
+        "TCP 或 UDP 选择",
+        "应用交互方式"
+      ],
+      "mechanism": [
+        "判断是否需要连接和可靠字节流",
+        "判断是否需要低时延低开销",
+        "选择 TCP 或 UDP",
+        "应用按传输服务设计重试或状态"
+      ],
+      "fieldsOrStates": [
+        "默认端口",
+        "连接状态",
+        "超时重试",
+        "应用报文边界"
+      ],
+      "examRules": [
+        "HTTP/1.1 通常运行在 TCP 上。",
+        "DNS 查询常用 UDP，必要时可用 TCP。",
+        "SMTP 通常运行在 TCP 上。"
+      ],
+      "pitfalls": [
+        "不要把应用协议等同于传输层协议。",
+        "使用 UDP 不代表应用一定不能实现可靠性。"
+      ],
+      "related": [
+        "http",
+        "dns",
+        "tcp",
+        "udp"
+      ],
+      "examTemplates": [
+        {
+          "title": "应用协议选型题",
+          "rule": "可靠字节流偏 TCP，低开销短查询可用 UDP",
+          "steps": [
+            "识别应用协议",
+            "说明默认传输层协议",
+            "解释选择原因"
+          ]
+        }
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "end-to-end-vs-point-to-point",
+      "title": "端到端 vs 点到点",
+      "layer": "transport / network",
+      "type": "comparison",
+      "summary": "端到端强调源进程到目的进程，点到点或逐跳强调相邻节点之间。",
+      "keywords": [
+        "端到端",
+        "点到点",
+        "逐跳",
+        "传输层",
+        "链路层"
+      ],
+      "definition": "端到端通信跨越整个路径的两个端系统，点到点或逐跳通信只发生在相邻节点之间。",
+      "solves": "帮助区分 TCP 可靠传输、IP 转发和链路层帧交付的责任边界。",
+      "input": [
+        "通信路径",
+        "协议层次",
+        "节点角色"
+      ],
+      "output": [
+        "责任层判断",
+        "交付范围判断"
+      ],
+      "mechanism": [
+        "传输层维护端系统状态",
+        "网络层路由器逐跳转发分组",
+        "数据链路层在每条链路上传输帧"
+      ],
+      "fieldsOrStates": [
+        "端系统",
+        "路由器",
+        "下一跳",
+        "连接状态"
+      ],
+      "examRules": [
+        "TCP 是端到端协议。",
+        "链路层交付是相邻节点之间。"
+      ],
+      "pitfalls": [
+        "不要说路由器参与维护 TCP 连接状态。",
+        "端到端不等于中间没有路由器。"
+      ],
+      "related": [
+        "tcp",
+        "direct-indirect-delivery",
+        "encapsulation"
+      ],
+      "examTemplates": [
+        {
+          "title": "层次责任判断",
+          "rule": "进程到进程看传输层，相邻节点看链路层",
+          "steps": [
+            "确定通信端点",
+            "判断是否跨多个网络",
+            "对应到协议层次"
+          ]
+        }
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "transport-in-ip",
+      "title": "TCP/UDP 封装进 IP 数据报",
+      "layer": "transport / network",
+      "type": "concept",
+      "summary": "传输层报文段或用户数据报作为 IP 数据报的数据部分。",
+      "keywords": [
+        "封装",
+        "TCP",
+        "UDP",
+        "IP 数据报",
+        "协议字段"
+      ],
+      "definition": "网络层把 TCP 报文段或 UDP 用户数据报封装为 IP 数据报的数据载荷，并用协议字段标明上层协议。",
+      "solves": "解决接收端网络层如何知道应把数据交给 TCP 还是 UDP 的问题。",
+      "input": [
+        "TCP 报文段",
+        "UDP 用户数据报",
+        "源 IP",
+        "目的 IP"
+      ],
+      "output": [
+        "IP 数据报",
+        "协议字段"
+      ],
+      "mechanism": [
+        "传输层生成报文",
+        "网络层添加 IP 首部",
+        "协议字段记录 TCP 或 UDP",
+        "接收端按协议字段上交"
+      ],
+      "fieldsOrStates": [
+        "Protocol 字段",
+        "源 IP",
+        "目的 IP",
+        "载荷"
+      ],
+      "examRules": [
+        "IP 首部协议字段用于指示上层协议。",
+        "端口号不在 IP 首部中。"
+      ],
+      "pitfalls": [
+        "不要把 TCP 端口写进 IP 地址。",
+        "IP 分组转发不读取应用层 HTTP 字段。"
+      ],
+      "related": [
+        "tcp",
+        "udp",
+        "ip-address"
+      ],
+      "examTemplates": [
+        {
+          "title": "封装字段定位",
+          "rule": "IP 管 IP 字段，TCP/UDP 管端口字段",
+          "steps": [
+            "定位层次",
+            "写出该层首部字段",
+            "说明接收端如何分用"
+          ]
+        }
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "tcp-reliability-over-ip",
+      "title": "TCP 在 IP 之上实现可靠传输",
+      "layer": "transport / network",
+      "type": "mechanism",
+      "summary": "IP 尽最大努力交付，TCP 在端系统用确认和重传等机制实现可靠性。",
+      "keywords": [
+        "TCP 可靠性",
+        "IP 尽力交付",
+        "确认",
+        "重传"
+      ],
+      "definition": "TCP 不改变 IP 的尽力交付属性，而是在端系统检测丢失、乱序和重复并恢复可靠字节流。",
+      "solves": "解决下层网络可能丢包、乱序、重复时应用仍需要可靠传输的问题。",
+      "input": [
+        "不可靠 IP 交付",
+        "TCP 序号",
+        "ACK",
+        "定时器"
+      ],
+      "output": [
+        "可靠有序字节流",
+        "重传报文段"
+      ],
+      "mechanism": [
+        "给字节编号",
+        "接收端确认",
+        "发送端维护定时器",
+        "超时或快速重传",
+        "按序交付给应用"
+      ],
+      "fieldsOrStates": [
+        "序号",
+        "确认号",
+        "重传计时器",
+        "接收窗口",
+        "拥塞窗口"
+      ],
+      "examRules": [
+        "TCP 可靠性发生在端系统。",
+        "IP 本身不保证可靠、不保证按序。"
+      ],
+      "pitfalls": [
+        "不要说 TCP 要求所有路由器保存连接。",
+        "ACK 丢失也可能导致重传。"
+      ],
+      "related": [
+        "tcp",
+        "transport-in-ip",
+        "end-to-end-vs-point-to-point"
+      ],
+      "examTemplates": [
+        {
+          "title": "可靠性机制归属题",
+          "rule": "确认、重传、窗口属于 TCP；路由转发属于 IP",
+          "steps": [
+            "识别问题现象",
+            "判断涉及字段",
+            "归属到 TCP 或 IP"
+          ]
+        }
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "ip-vs-mac",
+      "title": "IP 地址 vs MAC 地址",
+      "layer": "network / data-link",
+      "type": "comparison",
+      "summary": "IP 地址用于跨网络逻辑寻址，MAC 地址用于当前链路帧交付。",
+      "keywords": [
+        "IP",
+        "MAC",
+        "逻辑地址",
+        "物理地址",
+        "逐跳"
+      ],
+      "definition": "IP 地址服务于网络层路由，MAC 地址服务于数据链路层在当前链路上的帧交付。",
+      "solves": "区分全路径目的地址和当前链路下一跳地址，避免转发题中地址变化判断错误。",
+      "input": [
+        "目的 IP",
+        "下一跳",
+        "ARP 结果",
+        "以太网帧"
+      ],
+      "output": [
+        "路由决策",
+        "帧目的 MAC"
+      ],
+      "mechanism": [
+        "网络层确定目的 IP 和下一跳",
+        "数据链路层确定下一跳 MAC",
+        "每一跳重新封装帧",
+        "IP 目的地址通常保持不变"
+      ],
+      "fieldsOrStates": [
+        "源 IP",
+        "目的 IP",
+        "源 MAC",
+        "目的 MAC",
+        "下一跳"
+      ],
+      "examRules": [
+        "跨路由器转发时 IP 地址通常不变，MAC 地址逐跳变化。",
+        "同一广播域内 ARP 解析下一跳 MAC。"
+      ],
+      "pitfalls": [
+        "不要把远端主机 MAC 写成第一跳帧的目的 MAC。",
+        "交换机转发帧不等于路由器查 IP 路由。"
+      ],
+      "related": [
+        "ip-address",
+        "mac-address",
+        "arp",
+        "direct-indirect-delivery"
+      ],
+      "examTemplates": [
+        {
+          "title": "地址变化表",
+          "rule": "IP 看端到端，MAC 看每一跳",
+          "steps": [
+            "画出每条链路",
+            "确定每跳源/目的 MAC",
+            "保持端到端源/目的 IP",
+            "遇到 NAT 题再单独处理"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20
+    },
+    {
+      "id": "encapsulation",
+      "title": "封装 / 解封装",
+      "layer": "network / data-link",
+      "type": "mechanism",
+      "summary": "发送端逐层添加控制信息，接收端逐层去除并上交。",
+      "keywords": [
+        "封装",
+        "解封装",
+        "首部",
+        "尾部",
+        "PDU"
+      ],
+      "definition": "封装是在上层数据外添加本层控制信息形成 PDU，解封装是在接收端解析并移除本层控制信息。",
+      "solves": "让各层只处理本层所需的控制信息，同时复用下层传输服务。",
+      "input": [
+        "上层 PDU",
+        "本层地址或控制字段"
+      ],
+      "output": [
+        "本层 PDU",
+        "上交的载荷"
+      ],
+      "mechanism": [
+        "发送端添加本层首部或尾部",
+        "下交给下一层",
+        "中间节点按需解封装到对应层",
+        "接收端逐层上交"
+      ],
+      "fieldsOrStates": [
+        "TCP 首部",
+        "IP 首部",
+        "以太网首部",
+        "FCS"
+      ],
+      "examRules": [
+        "路由器通常处理到网络层并重新封装链路层帧。",
+        "交换机主要处理到数据链路层。"
+      ],
+      "pitfalls": [
+        "不要认为每个中间设备都会查看应用层报文。",
+        "链路层 FCS 不会跨越多跳保持不变。"
+      ],
+      "related": [
+        "layering-encapsulation",
+        "transport-in-ip",
+        "ip-vs-mac"
+      ],
+      "examTemplates": [
+        {
+          "title": "中间设备封装层次",
+          "rule": "交换机看二层，路由器看三层并重封装二层",
+          "steps": [
+            "识别设备类型",
+            "判断解封装到哪层",
+            "写出重新封装的字段"
+          ]
+        }
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "teachingTemplate": "process"
+    },
+    {
+      "id": "direct-indirect-delivery",
+      "title": "直接交付与间接交付",
+      "layer": "network / data-link",
+      "type": "concept",
+      "summary": "同一网络内直接交付，跨网络通过默认网关或下一跳间接交付。",
+      "keywords": [
+        "直接交付",
+        "间接交付",
+        "默认网关",
+        "下一跳"
+      ],
+      "definition": "直接交付指目的主机与源主机在同一网络中可直接二层交付；间接交付指需先交给路由器下一跳。",
+      "solves": "解决发送主机应 ARP 目的主机还是默认网关的问题。",
+      "input": [
+        "源 IP",
+        "目的 IP",
+        "子网掩码",
+        "路由表"
+      ],
+      "output": [
+        "下一跳 IP",
+        "应解析的 MAC"
+      ],
+      "mechanism": [
+        "用掩码判断是否同网段",
+        "同网段则 ARP 目的主机",
+        "不同网段则查默认网关或路由",
+        "ARP 下一跳并封装帧"
+      ],
+      "fieldsOrStates": [
+        "目的网络",
+        "默认网关",
+        "下一跳",
+        "ARP 缓存"
+      ],
+      "examRules": [
+        "跨网段通信第一跳目的 MAC 是网关 MAC。",
+        "目的 IP 仍是最终目的主机 IP。"
+      ],
+      "pitfalls": [
+        "不要跨广播域 ARP 远端主机。",
+        "默认网关不是所有题目的最终目的地址。"
+      ],
+      "related": [
+        "arp",
+        "subnet-mask",
+        "longest-prefix-match",
+        "ip-vs-mac"
+      ],
+      "examTemplates": [
+        {
+          "title": "下一跳判断",
+          "rule": "同网段直接交付，异网段交给网关",
+          "steps": [
+            "计算源和目的网络地址",
+            "判断是否同网段",
+            "确定 ARP 的目标 IP",
+            "写出帧目的 MAC"
+          ]
+        }
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "children": [
+        "same-subnet-vs-cross-subnet"
+      ],
+      "teachingTemplate": "process"
+    },
+    {
+      "id": "frame-to-bitstream",
+      "title": "帧到比特流",
+      "layer": "data-link / physical",
+      "type": "concept",
+      "summary": "数据链路层帧在物理层被序列化为比特并转换为信号。",
+      "keywords": [
+        "帧",
+        "比特流",
+        "网卡",
+        "序列化"
+      ],
+      "definition": "帧到比特流是网卡把数据链路层帧按位发送给物理层，再由物理层编码成信号的过程。",
+      "solves": "解释二层帧结构如何真正进入传输介质。",
+      "input": [
+        "以太网帧",
+        "发送速率",
+        "物理接口"
+      ],
+      "output": [
+        "比特流",
+        "物理信号"
+      ],
+      "mechanism": [
+        "网卡取得帧",
+        "按规定顺序发送比特",
+        "物理层进行线路编码",
+        "接收端恢复比特并交给链路层"
+      ],
+      "fieldsOrStates": [
+        "帧边界",
+        "前导码",
+        "比特率",
+        "时钟同步"
+      ],
+      "examRules": [
+        "前导码用于同步，不计入以太网最小帧长 64 字节。",
+        "成帧和差错检测属于数据链路层。"
+      ],
+      "pitfalls": [
+        "不要把比特流本身说成带有 MAC 地址语义，MAC 字段属于帧结构。"
+      ],
+      "related": [
+        "physical-medium",
+        "encoding-transmission",
+        "csma-cd"
+      ],
+      "examTemplates": [],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80
+    },
+    {
+      "id": "encoding-transmission",
+      "title": "编码与传输",
+      "layer": "data-link / physical",
+      "type": "mechanism",
+      "summary": "物理层用编码或调制方式把比特映射为可传输信号。",
+      "keywords": [
+        "编码",
+        "调制",
+        "码元",
+        "比特率",
+        "波特率"
+      ],
+      "definition": "编码与传输是把离散比特映射为电平、光脉冲或无线波形，并在接收端恢复的物理层过程。",
+      "solves": "解决比特同步、信号抗干扰和传输效率问题。",
+      "input": [
+        "比特序列",
+        "编码规则",
+        "信道带宽"
+      ],
+      "output": [
+        "码元序列",
+        "接收端恢复比特"
+      ],
+      "mechanism": [
+        "按编码规则映射比特",
+        "发送物理信号",
+        "信道传播",
+        "接收端采样判决",
+        "恢复比特序列"
+      ],
+      "fieldsOrStates": [
+        "码元",
+        "波特率",
+        "比特率",
+        "带宽",
+        "信噪比"
+      ],
+      "formulas": [
+        "比特率 = 波特率 × 每码元携带比特数"
+      ],
+      "examRules": [
+        "比特率和波特率需要看每个码元携带多少比特。",
+        "编码方式会影响同步能力和带宽利用。"
+      ],
+      "pitfalls": [
+        "不要默认一个码元只能表示 1 bit。",
+        "物理层错误会影响上层帧校验结果。"
+      ],
+      "related": [
+        "physical-medium",
+        "frame-to-bitstream"
+      ],
+      "examTemplates": [
+        {
+          "title": "码元速率换算",
+          "rule": "Rbit = Baud × log2(M)",
+          "steps": [
+            "确定码元种类数 M",
+            "算每码元 bit 数",
+            "乘以波特率"
+          ]
+        }
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50
+    },
+    {
+      "id": "dns-query-modes",
+      "title": "DNS 递归查询与迭代查询",
+      "layer": "application",
+      "type": "comparison",
+      "summary": "比较 DNS 查询中递归和迭代两种责任分配方式。",
+      "keywords": [
+        "DNS",
+        "递归查询",
+        "迭代查询"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "DNS 查询题先判断谁继续代查。递归查询由被询问服务器继续查询，迭代查询由本机或本地 DNS 按返回线索继续问下一级服务器。"
+        }
+      ],
+      "definition": "递归查询要求被询问的 DNS 服务器返回最终结果；迭代查询只要求返回更接近答案的服务器线索。",
+      "solves": "解决域名解析过程中查询责任如何分配的问题。",
+      "input": [
+        "域名",
+        "本地 DNS",
+        "根/顶级域/权威 DNS"
+      ],
+      "output": [
+        "最终资源记录",
+        "下一步查询线索"
+      ],
+      "mechanism": [
+        "客户端询问本地 DNS",
+        "递归方式由本地 DNS 继续代查",
+        "迭代方式逐级返回下一级服务器",
+        "最终得到权威答案并缓存"
+      ],
+      "fieldsOrStates": [
+        "查询类型",
+        "递归标志",
+        "权威应答",
+        "TTL"
+      ],
+      "examRules": [
+        "递归强调代查到底，迭代强调返回线索。",
+        "根服务器通常返回顶级域服务器线索。"
+      ],
+      "pitfalls": [
+        "不要把 DNS 查询过程说成 IP 路由。",
+        "递归和迭代描述的是查询方式，不是记录类型。"
+      ],
+      "related": [
+        "dns",
+        "dns-records-cache"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "dns-records-cache",
+      "title": "DNS 资源记录与缓存",
+      "layer": "application",
+      "type": "concept",
+      "summary": "DNS 用资源记录表达域名映射，并用 TTL 控制缓存时间。",
+      "keywords": [
+        "DNS",
+        "资源记录",
+        "A",
+        "AAAA",
+        "CNAME",
+        "MX",
+        "TTL"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "DNS 资源记录是域名系统保存和返回的结构化映射，缓存根据 TTL 临时保存查询结果。",
+      "solves": "解决域名到地址、别名、邮件服务器等不同信息的表达和复用问题。",
+      "input": [
+        "域名",
+        "查询类型",
+        "TTL"
+      ],
+      "output": [
+        "资源记录",
+        "缓存项"
+      ],
+      "mechanism": [
+        "按查询类型查找记录",
+        "返回 A/AAAA/CNAME/MX 等记录",
+        "解析器按 TTL 缓存",
+        "TTL 到期后重新查询"
+      ],
+      "fieldsOrStates": [
+        "A",
+        "AAAA",
+        "CNAME",
+        "MX",
+        "NS",
+        "TTL"
+      ],
+      "examRules": [
+        "A 记录对应 IPv4，AAAA 对应 IPv6，MX 用于邮件服务器。",
+        "TTL 控制 DNS 缓存，不等同于 IP 首部 TTL。"
+      ],
+      "pitfalls": [
+        "不要把 CNAME 当作最终 IP 地址。",
+        "缓存命中会减少实际查询次数。"
+      ],
+      "related": [
+        "dns",
+        "dns-query-modes",
+        "ipv6-overview"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "http-message-status",
+      "title": "HTTP 报文格式与状态码",
+      "layer": "application",
+      "type": "concept",
+      "summary": "HTTP 请求/响应由起始行、首部和可选主体组成，状态码表示响应结果。",
+      "keywords": [
+        "HTTP 报文",
+        "状态码",
+        "请求行",
+        "响应行"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "HTTP 报文题先看是请求还是响应，再看方法、URL、状态码和首部字段。状态码是应用层语义，不是 [[TCP|tcp]] 或 [[IP地址|ip-address]] 的状态。"
+        }
+      ],
+      "definition": "HTTP 报文是 HTTP 客户端和服务器交换的文本化应用层数据结构，状态码用于说明服务器处理结果。",
+      "solves": "解决 Web 请求如何表达资源、动作、元数据和处理结果的问题。",
+      "input": [
+        "请求方法",
+        "URL",
+        "首部字段",
+        "响应状态"
+      ],
+      "output": [
+        "HTTP 请求报文",
+        "HTTP 响应报文"
+      ],
+      "mechanism": [
+        "请求行说明方法和资源",
+        "首部携带 Host、Cookie 等元数据",
+        "空行分隔首部和主体",
+        "响应行给出状态码"
+      ],
+      "fieldsOrStates": [
+        "GET",
+        "POST",
+        "Host",
+        "Content-Type",
+        "200",
+        "301",
+        "404",
+        "500"
+      ],
+      "examRules": [
+        "2xx 成功，3xx 重定向，4xx 客户端错误，5xx 服务器错误。",
+        "HTTP 状态码属于应用层。"
+      ],
+      "pitfalls": [
+        "不要把 404 解释为网络层不可达。",
+        "GET 和 POST 的语义不能只按是否有请求体判断。"
+      ],
+      "related": [
+        "http",
+        "http-persistent-cookie",
+        "https"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "http-persistent-cookie",
+      "title": "HTTP 持久连接与 Cookie / Session",
+      "layer": "application",
+      "type": "concept",
+      "summary": "持久连接复用 TCP 连接，Cookie/Session 为无状态 HTTP 引入会话识别。",
+      "keywords": [
+        "HTTP 持久连接",
+        "Cookie",
+        "Session"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "HTTP 持久连接允许多个请求响应复用同一 TCP 连接；Cookie/Session 用于在多次请求间维持用户状态。",
+      "solves": "解决频繁建连开销和 HTTP 无状态带来的登录状态维护问题。",
+      "input": [
+        "TCP 连接",
+        "HTTP 请求",
+        "Cookie 首部",
+        "Session 标识"
+      ],
+      "output": [
+        "复用连接",
+        "会话识别结果"
+      ],
+      "mechanism": [
+        "客户端建立连接",
+        "多个 HTTP 请求复用连接",
+        "服务器通过 Set-Cookie 下发标识",
+        "后续请求携带 Cookie 匹配 Session"
+      ],
+      "fieldsOrStates": [
+        "Connection",
+        "Keep-Alive",
+        "Cookie",
+        "Set-Cookie",
+        "Session ID"
+      ],
+      "examRules": [
+        "HTTP 持久连接减少 TCP 建立次数。",
+        "Cookie 保存在客户端，Session 状态通常在服务器侧维护。"
+      ],
+      "pitfalls": [
+        "不要把 HTTP 持久连接说成 HTTP 本身面向连接。",
+        "Cookie 不等于 Session 的全部服务器状态。"
+      ],
+      "related": [
+        "http",
+        "tcp",
+        "http-message-status"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "https",
+      "title": "HTTPS",
+      "layer": "application",
+      "type": "concept",
+      "summary": "HTTPS 是运行在 TLS 之上的 HTTP，用于提供加密、认证和完整性保护。",
+      "keywords": [
+        "HTTPS",
+        "TLS",
+        "证书",
+        "加密"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "HTTPS 不改变 HTTP 的应用语义，而是在 [[HTTP|http]] 与 [[TCP|tcp]] 之间增加 TLS 安全层。考试常考它解决窃听、篡改和服务器身份认证问题。"
+        }
+      ],
+      "definition": "HTTPS 是 HTTP over TLS，通过 TLS 握手和证书体系为 Web 通信提供安全保护。",
+      "solves": "解决明文 HTTP 容易被窃听、篡改和伪造服务器的问题。",
+      "input": [
+        "HTTP 报文",
+        "服务器证书",
+        "密钥协商参数"
+      ],
+      "output": [
+        "加密传输通道",
+        "认证后的 HTTP 通信"
+      ],
+      "mechanism": [
+        "客户端发起 TLS 握手",
+        "服务器发送证书",
+        "协商密钥",
+        "后续 HTTP 数据加密传输"
+      ],
+      "fieldsOrStates": [
+        "证书",
+        "公钥",
+        "会话密钥",
+        "TLS 握手状态"
+      ],
+      "examRules": [
+        "HTTPS 属于应用层安全封装，底层通常仍使用 TCP。",
+        "证书主要用于身份认证和公钥绑定。"
+      ],
+      "pitfalls": [
+        "不要说 HTTPS 只是在 HTTP 端口号上做变化。",
+        "加密不代表服务器业务逻辑一定安全。"
+      ],
+      "related": [
+        "http",
+        "tcp",
+        "app-transport-dependency"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "dhcp",
+      "title": "DHCP",
+      "layer": "application",
+      "type": "protocol",
+      "summary": "DHCP 为主机自动分配 IP 地址、网关、DNS 等网络配置。",
+      "keywords": [
+        "DHCP",
+        "自动配置",
+        "租约"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "DHCP 是动态主机配置协议，用于主机接入网络时自动获取地址和相关配置。",
+      "solves": "解决手动配置 IP、掩码、网关、DNS 容易出错且管理成本高的问题。",
+      "input": [
+        "新接入主机",
+        "DHCP 服务器",
+        "地址池"
+      ],
+      "output": [
+        "IP 地址",
+        "子网掩码",
+        "默认网关",
+        "DNS 服务器",
+        "租约"
+      ],
+      "mechanism": [
+        "Discover 广播寻找服务器",
+        "Offer 提供地址",
+        "Request 请求使用地址",
+        "Ack 确认租约"
+      ],
+      "fieldsOrStates": [
+        "Discover",
+        "Offer",
+        "Request",
+        "Ack",
+        "租约时间",
+        "地址池"
+      ],
+      "examRules": [
+        "DHCP 属于应用层协议，常用 UDP。",
+        "新主机未知服务器地址时会使用广播。"
+      ],
+      "pitfalls": [
+        "不要把 DHCP 说成路由协议。",
+        "DHCP 分配的是配置，实际跨网通信仍依赖路由和 ARP。"
+      ],
+      "related": [
+        "udp",
+        "ip-address",
+        "subnet-mask",
+        "dns"
+      ],
+      "examTemplates": [],
+      "children": [
+        "application-protocol-comparison"
+      ]
+    },
+    {
+      "id": "email-protocols",
+      "title": "SMTP 与 POP3 / IMAP",
+      "layer": "application",
+      "type": "protocol",
+      "summary": "SMTP 用于发送和中继邮件，POP3/IMAP 用于用户读取邮件。",
+      "keywords": [
+        "SMTP",
+        "POP3",
+        "IMAP",
+        "邮件协议"
+      ],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80,
+      "definition": "邮件系统中 SMTP 负责发信和服务器间转发，POP3/IMAP 负责客户端从邮箱服务器读取邮件。",
+      "solves": "解决邮件发送、转发和读取职责分离的问题。",
+      "input": [
+        "邮件报文",
+        "发件服务器",
+        "收件邮箱",
+        "用户客户端"
+      ],
+      "output": [
+        "已投递邮件",
+        "客户端可读取邮件"
+      ],
+      "mechanism": [
+        "客户端提交邮件到 SMTP 服务器",
+        "SMTP 服务器间转发",
+        "邮件到达收件服务器",
+        "用户用 POP3 或 IMAP 读取"
+      ],
+      "fieldsOrStates": [
+        "MAIL FROM",
+        "RCPT TO",
+        "DATA",
+        "邮箱状态",
+        "文件夹状态"
+      ],
+      "examRules": [
+        "SMTP 主要负责发送，POP3/IMAP 主要负责读取。",
+        "IMAP 更适合服务器端保存和多设备同步。"
+      ],
+      "pitfalls": [
+        "不要把 POP3/IMAP 说成发信协议。",
+        "邮件地址中的域名通常需要 DNS MX 记录。"
+      ],
+      "related": [
+        "dns-records-cache",
+        "tcp",
+        "app-transport-dependency"
+      ],
+      "examTemplates": [],
+      "details": [
+        {
+          "id": "imap-vs-pop3",
+          "title": "POP3 与 IMAP 的差别",
+          "content": "POP3 更偏向下载到本地，IMAP 更偏向服务器端保存状态和多终端同步。408 通常只需掌握职责区分。"
+        }
+      ]
+    },
+    {
+      "id": "ftp",
+      "title": "FTP",
+      "layer": "application",
+      "type": "protocol",
+      "summary": "FTP 是文件传输协议，典型特点是控制连接与数据连接分离。",
+      "keywords": [
+        "FTP",
+        "控制连接",
+        "数据连接"
+      ],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80,
+      "definition": "FTP 是应用层文件传输协议，使用独立控制连接传命令，并用数据连接传输文件内容。",
+      "solves": "解决客户端与服务器之间文件上传、下载和目录操作的问题。",
+      "input": [
+        "用户命令",
+        "文件路径",
+        "连接模式"
+      ],
+      "output": [
+        "文件数据",
+        "传输状态"
+      ],
+      "mechanism": [
+        "建立控制连接",
+        "用户发送命令",
+        "按主动或被动模式建立数据连接",
+        "传输文件或目录列表"
+      ],
+      "fieldsOrStates": [
+        "控制连接",
+        "数据连接",
+        "主动模式",
+        "被动模式"
+      ],
+      "examRules": [
+        "FTP 控制连接和数据连接分离。",
+        "FTP 属于应用层协议，可靠传输通常依赖 TCP。"
+      ],
+      "pitfalls": [
+        "不要把 FTP 当作 Web 的默认传输协议。",
+        "主动/被动模式关注数据连接由谁发起。"
+      ],
+      "related": [
+        "tcp",
+        "app-transport-dependency"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "transport-multiplexing-demultiplexing",
+      "title": "复用与分用",
+      "layer": "transport",
+      "type": "concept",
+      "summary": "传输层通过端口号把多个应用进程的数据复用到底层网络，并在接收端分用给正确进程。",
+      "keywords": [
+        "复用",
+        "分用",
+        "端口号",
+        "套接字"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "复用是多个应用共享传输层和网络层服务，分用是接收端按端口和连接信息交付给对应进程。",
+      "solves": "解决一台主机上多个进程同时通信时如何区分数据归属的问题。",
+      "input": [
+        "应用进程数据",
+        "端口号",
+        "IP 地址",
+        "协议类型"
+      ],
+      "output": [
+        "传输层报文",
+        "目标进程"
+      ],
+      "mechanism": [
+        "发送端添加端口号",
+        "网络层按 IP 交付到主机",
+        "传输层读取目的端口",
+        "按套接字分用给进程"
+      ],
+      "fieldsOrStates": [
+        "源端口",
+        "目的端口",
+        "四元组",
+        "监听套接字"
+      ],
+      "examRules": [
+        "IP 定位主机，端口号定位进程。",
+        "TCP 分用通常依赖四元组。"
+      ],
+      "pitfalls": [
+        "不要把端口号用于路由器转发。",
+        "同一端口能否复用要看协议和套接字绑定条件。"
+      ],
+      "related": [
+        "ports-for-process",
+        "tcp",
+        "udp"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "udp-header-checksum",
+      "title": "UDP 首部、校验和与伪首部",
+      "layer": "transport",
+      "type": "protocol",
+      "summary": "UDP 首部很短，校验和计算会引入伪首部增强端到端校验。",
+      "keywords": [
+        "UDP 首部",
+        "校验和",
+        "伪首部"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "UDP 首部包含源端口、目的端口、长度和校验和；伪首部参与校验但不实际发送为 UDP 首部。",
+      "solves": "解决 UDP 低开销传输和基本差错检测问题。",
+      "input": [
+        "应用报文",
+        "源/目的端口",
+        "源/目的 IP"
+      ],
+      "output": [
+        "UDP 用户数据报",
+        "校验和"
+      ],
+      "mechanism": [
+        "封装 8 字节 UDP 首部",
+        "构造伪首部参与计算",
+        "发送时只发送 UDP 首部和数据",
+        "接收端重新计算校验"
+      ],
+      "fieldsOrStates": [
+        "源端口",
+        "目的端口",
+        "长度",
+        "校验和",
+        "伪首部"
+      ],
+      "examRules": [
+        "UDP 首部固定 8 字节。",
+        "伪首部参与校验计算但不是 UDP 数据报实际首部。"
+      ],
+      "pitfalls": [
+        "不要说 UDP 没有任何差错检测。",
+        "伪首部来自 IP 层信息，用于检查端到端投递错误。"
+      ],
+      "related": [
+        "udp",
+        "ip-address",
+        "transport-in-ip"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "tcp-header",
+      "title": "TCP 首部",
+      "layer": "transport",
+      "type": "protocol",
+      "summary": "TCP 首部携带端口、序号、确认号、窗口和控制位等可靠传输所需信息。",
+      "keywords": [
+        "TCP 首部",
+        "序号",
+        "确认号",
+        "窗口",
+        "SYN",
+        "ACK",
+        "FIN"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "TCP 首部是 TCP 报文段的控制信息区域，用于连接管理、可靠传输、流量控制和拥塞控制。",
+      "solves": "解决 TCP 如何在不可靠 IP 之上维护有序可靠字节流的问题。",
+      "input": [
+        "应用字节流",
+        "连接状态",
+        "窗口状态"
+      ],
+      "output": [
+        "TCP 报文段",
+        "控制信息"
+      ],
+      "mechanism": [
+        "填写端口号",
+        "设置序号和确认号",
+        "设置窗口大小",
+        "按状态设置控制位"
+      ],
+      "fieldsOrStates": [
+        "源端口",
+        "目的端口",
+        "序号",
+        "确认号",
+        "首部长度",
+        "窗口",
+        "校验和",
+        "SYN",
+        "ACK",
+        "FIN"
+      ],
+      "examRules": [
+        "TCP 首部至少 20 字节。",
+        "SYN 和 FIN 都会消耗一个序号。"
+      ],
+      "pitfalls": [
+        "不要把端口字段写到 IP 首部。",
+        "确认号表示期望收到的下一个字节序号。"
+      ],
+      "related": [
+        "tcp",
+        "tcp-seq-ack",
+        "tcp-three-way-handshake"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "tcp-seq-ack",
+      "title": "TCP 序号与确认号",
+      "layer": "transport",
+      "type": "mechanism",
+      "summary": "TCP 用字节序号和累计确认表达可靠有序传输状态。",
+      "keywords": [
+        "TCP 序号",
+        "确认号",
+        "累计确认"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "TCP 序号标识本报文段数据第一个字节的编号，确认号表示接收方期望收到的下一个字节编号。",
+      "solves": "解决接收方如何告知发送方哪些字节已经正确收到的问题。",
+      "input": [
+        "字节流",
+        "报文段长度",
+        "ACK"
+      ],
+      "output": [
+        "已确认范围",
+        "重传依据"
+      ],
+      "mechanism": [
+        "发送端按字节编号",
+        "接收端按序接收",
+        "确认号指向下一个期望字节",
+        "发送端滑动已确认边界"
+      ],
+      "fieldsOrStates": [
+        "seq",
+        "ack",
+        "数据长度",
+        "累计确认"
+      ],
+      "formulas": [
+        "ACK = 已按序收到的最后一个字节序号 + 1"
+      ],
+      "examRules": [
+        "确认号不是确认当前报文段编号，而是下一个期望字节。",
+        "SYN/FIN 占用序号。"
+      ],
+      "pitfalls": [
+        "不要把报文段个数当成字节序号。",
+        "无数据 ACK 通常不消耗序号。"
+      ],
+      "related": [
+        "tcp-header",
+        "tcp-reliable-transmission",
+        "sliding-window"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "tcp-four-way-termination",
+      "title": "TCP 四次挥手",
+      "layer": "transport",
+      "type": "mechanism",
+      "summary": "TCP 连接释放通常通过双方分别关闭发送方向完成。",
+      "keywords": [
+        "四次挥手",
+        "FIN",
+        "ACK",
+        "TIME_WAIT"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "TCP 四次挥手是连接双方分别发送 FIN 并确认，以关闭两个方向数据流的过程。",
+      "solves": "解决全双工连接中双方发送方向需要独立关闭的问题。",
+      "input": [
+        "连接状态",
+        "FIN",
+        "ACK"
+      ],
+      "output": [
+        "连接释放",
+        "TIME_WAIT 状态"
+      ],
+      "mechanism": [
+        "主动方发送 FIN",
+        "被动方 ACK",
+        "被动方处理完剩余数据后发送 FIN",
+        "主动方 ACK 并进入 TIME_WAIT"
+      ],
+      "fieldsOrStates": [
+        "FIN_WAIT_1",
+        "FIN_WAIT_2",
+        "CLOSE_WAIT",
+        "LAST_ACK",
+        "TIME_WAIT"
+      ],
+      "examRules": [
+        "TCP 是全双工，两个方向通常分别关闭。",
+        "TIME_WAIT 用于等待迟到报文并保证最后 ACK 可重传。"
+      ],
+      "pitfalls": [
+        "不要机械认为任何释放都必须画成严格四个报文，特殊场景可能合并。",
+        "FIN 会消耗一个序号。"
+      ],
+      "related": [
+        "tcp",
+        "tcp-three-way-handshake",
+        "tcp-header"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "tcp-reliable-transmission",
+      "title": "TCP 可靠传输",
+      "layer": "transport",
+      "type": "mechanism",
+      "summary": "TCP 用序号、确认、重传和窗口机制在端系统实现可靠有序字节流。",
+      "keywords": [
+        "TCP 可靠传输",
+        "超时重传",
+        "快速重传",
+        "序号",
+        "ACK"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 7,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "TCP 可靠传输建立在 [[TCP序号与确认号|tcp-seq-ack]] 之上，通过超时重传和快速重传恢复丢失数据；它不要求中间路由器维护连接状态。"
+        }
+      ],
+      "definition": "TCP 可靠传输是端系统通过编号、确认、重传和按序交付保证应用看到可靠字节流的机制。",
+      "solves": "解决 IP 尽最大努力交付可能丢失、乱序、重复的问题。",
+      "input": [
+        "TCP 字节流",
+        "ACK",
+        "定时器",
+        "重复 ACK"
+      ],
+      "output": [
+        "可靠有序字节流",
+        "重传报文段"
+      ],
+      "mechanism": [
+        "发送端编号",
+        "接收端累计确认",
+        "超时未确认则重传",
+        "收到多个重复 ACK 可快速重传",
+        "按序交付应用"
+      ],
+      "fieldsOrStates": [
+        "序号",
+        "确认号",
+        "重传定时器",
+        "重复 ACK",
+        "发送窗口"
+      ],
+      "examRules": [
+        "TCP 可靠性在端系统实现。",
+        "超时重传和快速重传都可能触发重发。"
+      ],
+      "pitfalls": [
+        "不要说 TCP 保证网络不丢包。",
+        "重复 ACK 是快速重传的重要线索。"
+      ],
+      "related": [
+        "tcp",
+        "tcp-seq-ack",
+        "rtt-rto",
+        "tcp-reliability-over-ip"
+      ],
+      "examTemplates": [],
+      "children": [
+        "timeout-retransmission",
+        "sliding-window",
+        "rtt-rto"
+      ]
+    },
+    {
+      "id": "timeout-retransmission",
+      "title": "超时重传",
+      "layer": "transport",
+      "type": "mechanism",
+      "summary": "发送方在 RTO 内未收到确认时，认为报文段可能丢失并重传。",
+      "keywords": [
+        "超时重传",
+        "RTO",
+        "定时器",
+        "TCP"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "超时重传依赖 [[RTT / RTO|rtt-rto]] 设置定时器，是 [[TCP可靠传输|tcp-reliable-transmission]] 恢复丢失报文段的基本手段。"
+        }
+      ],
+      "definition": "超时重传是发送方在重传超时时间内没有收到对应 ACK 时重新发送报文段的机制。",
+      "solves": "解决报文段或 ACK 丢失后发送方无法无限等待的问题。",
+      "input": [
+        "已发送未确认报文段",
+        "重传定时器",
+        "ACK 到达情况"
+      ],
+      "output": [
+        "重传报文段",
+        "更新后的定时器状态"
+      ],
+      "mechanism": [
+        "发送报文段时启动定时器",
+        "在 RTO 内收到确认则取消或更新定时器",
+        "超时未确认则重传报文段",
+        "根据实现调整 RTO 或拥塞窗口"
+      ],
+      "fieldsOrStates": [
+        "RTO",
+        "重传定时器",
+        "序号",
+        "确认号",
+        "未确认队列"
+      ],
+      "formulas": [
+        "RTO 应随估计 RTT 和 RTT 波动动态调整"
+      ],
+      "examRules": [
+        "超时重传可由数据段丢失或 ACK 丢失触发。",
+        "超时通常被 TCP 视为较严重的拥塞信号。"
+      ],
+      "pitfalls": [
+        "不要认为只要没收到 ACK 就立即重传，必须等待定时器超时。",
+        "不要把超时重传和快速重传的触发条件混淆。"
+      ],
+      "related": [
+        "tcp-reliable-transmission",
+        "rtt-rto",
+        "congestion-phases"
+      ],
+      "examTemplates": [
+        {
+          "title": "超时重传判断",
+          "rule": "RTO 内未收到确认则重传",
+          "steps": [
+            "标出报文段序号",
+            "判断 ACK 是否在 RTO 内到达",
+            "若超时则重传对应报文段",
+            "按题目规则更新窗口或 RTO"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sliding-window",
+      "title": "滑动窗口",
+      "layer": "transport",
+      "type": "mechanism",
+      "summary": "滑动窗口允许发送方在未收到所有确认前连续发送多个字节或报文段。",
+      "keywords": [
+        "滑动窗口",
+        "发送窗口",
+        "接收窗口"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "滑动窗口是发送端和接收端用窗口边界控制可发送和可接收数据范围的机制。",
+      "solves": "解决停止等待效率低和接收端缓存能力有限的问题。",
+      "input": [
+        "发送窗口",
+        "接收窗口",
+        "ACK",
+        "字节序号"
+      ],
+      "output": [
+        "可发送范围",
+        "窗口移动结果"
+      ],
+      "mechanism": [
+        "窗口覆盖可发送未确认数据",
+        "收到 ACK 后左边界右移",
+        "接收窗口限制发送方发送量",
+        "窗口大小影响吞吐"
+      ],
+      "fieldsOrStates": [
+        "窗口左边界",
+        "窗口右边界",
+        "rwnd",
+        "cwnd",
+        "ACK"
+      ],
+      "formulas": [
+        "可发送未确认数据量 <= min(rwnd, cwnd)"
+      ],
+      "examRules": [
+        "窗口移动由确认推进。",
+        "TCP 实际发送窗口受接收窗口和拥塞窗口共同限制。"
+      ],
+      "pitfalls": [
+        "不要只看接收窗口忽略拥塞窗口。",
+        "窗口大小单位要看题目给的是字节还是报文段。"
+      ],
+      "related": [
+        "tcp-flow-control",
+        "tcp-congestion-control",
+        "tcp-seq-ack"
+      ],
+      "examTemplates": [
+        {
+          "title": "滑动窗口可发送量",
+          "rule": "可发送量 = min(rwnd, cwnd) - 已发送未确认量",
+          "steps": [
+            "确定窗口大小单位",
+            "计算未确认数据量",
+            "取接收窗口和拥塞窗口较小值",
+            "减去未确认量"
+          ]
+        }
+      ],
+      "children": [
+        "tcp-window-calculation-exam"
+      ]
+    },
+    {
+      "id": "tcp-flow-control",
+      "title": "TCP 流量控制",
+      "layer": "transport",
+      "type": "mechanism",
+      "summary": "TCP 流量控制用接收窗口防止发送方压垮接收方缓存。",
+      "keywords": [
+        "流量控制",
+        "接收窗口",
+        "rwnd"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "TCP 流量控制是接收端通过通告接收窗口限制发送端发送速率的机制。",
+      "solves": "解决发送方过快导致接收方缓存溢出的问题。",
+      "input": [
+        "接收缓存",
+        "接收窗口",
+        "ACK"
+      ],
+      "output": [
+        "发送上限",
+        "窗口更新"
+      ],
+      "mechanism": [
+        "接收端计算空闲缓存",
+        "在 ACK 中通告 rwnd",
+        "发送端限制未确认数据量",
+        "窗口变化后调整发送"
+      ],
+      "fieldsOrStates": [
+        "rwnd",
+        "接收缓存",
+        "窗口通告",
+        "零窗口"
+      ],
+      "examRules": [
+        "流量控制关注接收方能力。",
+        "接收窗口由接收端通告。"
+      ],
+      "pitfalls": [
+        "不要把流量控制和拥塞控制混淆。",
+        "零窗口不代表连接一定关闭。"
+      ],
+      "related": [
+        "sliding-window",
+        "flow-vs-congestion",
+        "tcp"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "tcp-congestion-control",
+      "title": "TCP 拥塞控制",
+      "layer": "transport",
+      "type": "mechanism",
+      "summary": "TCP 拥塞控制根据网络拥塞程度调节拥塞窗口，避免向网络注入过多数据。",
+      "keywords": [
+        "拥塞控制",
+        "cwnd",
+        "ssthresh"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "TCP 拥塞控制是发送端根据丢包、重复 ACK 和窗口增长规则调节拥塞窗口的机制。",
+      "solves": "解决过多主机同时发送导致网络队列溢出和吞吐下降的问题。",
+      "input": [
+        "ACK",
+        "丢包事件",
+        "cwnd",
+        "ssthresh"
+      ],
+      "output": [
+        "新的拥塞窗口",
+        "发送速率调整"
+      ],
+      "mechanism": [
+        "慢开始指数增长",
+        "达到阈值后拥塞避免线性增长",
+        "丢包后降低窗口",
+        "快重传快恢复减少等待"
+      ],
+      "fieldsOrStates": [
+        "cwnd",
+        "ssthresh",
+        "重复 ACK",
+        "超时",
+        "拥塞窗口"
+      ],
+      "examRules": [
+        "拥塞控制关注网络承载能力。",
+        "实际发送窗口受 min(rwnd, cwnd) 限制。"
+      ],
+      "pitfalls": [
+        "不要把 cwnd 当作接收端通告。",
+        "超时和三次重复 ACK 对窗口调整不同。"
+      ],
+      "related": [
+        "congestion-phases",
+        "flow-vs-congestion",
+        "sliding-window"
+      ],
+      "examTemplates": [],
+      "children": [
+        "congestion-phases",
+        "tcp-congestion-window-exam"
+      ]
+    },
+    {
+      "id": "congestion-phases",
+      "title": "慢开始、拥塞避免、快重传与快恢复",
+      "layer": "transport",
+      "type": "mechanism",
+      "summary": "TCP 拥塞控制的典型阶段决定 cwnd 如何增长和在拥塞后如何下降。",
+      "keywords": [
+        "慢开始",
+        "拥塞避免",
+        "快重传",
+        "快恢复"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "慢开始指数增长 cwnd，拥塞避免线性增长，快重传与快恢复用重复 ACK 更快发现和恢复丢包。",
+      "solves": "解决拥塞窗口变化题中如何按事件更新 cwnd 和 ssthresh 的问题。",
+      "input": [
+        "cwnd",
+        "ssthresh",
+        "ACK",
+        "超时",
+        "重复 ACK"
+      ],
+      "output": [
+        "新 cwnd",
+        "新 ssthresh"
+      ],
+      "mechanism": [
+        "cwnd 从小开始指数增长",
+        "到达 ssthresh 后线性增长",
+        "超时通常将 cwnd 降到 1 MSS",
+        "三次重复 ACK 触发快重传和快恢复"
+      ],
+      "fieldsOrStates": [
+        "cwnd",
+        "ssthresh",
+        "MSS",
+        "超时",
+        "重复 ACK"
+      ],
+      "formulas": [
+        "慢开始近似每 RTT 翻倍",
+        "拥塞避免近似每 RTT 增加 1 MSS"
+      ],
+      "examRules": [
+        "超时比重复 ACK 更严重，窗口下降更明显。",
+        "慢开始不是发送速度慢，而是从小窗口快速探测。"
+      ],
+      "pitfalls": [
+        "不要把 ssthresh 当成固定不变。",
+        "题目实现版本不同，以题干规则为准。"
+      ],
+      "related": [
+        "tcp-congestion-control",
+        "rtt-rto"
+      ],
+      "examTemplates": [
+        {
+          "title": "拥塞窗口变化题",
+          "rule": "按事件更新 cwnd 和 ssthresh",
+          "steps": [
+            "标出当前阶段",
+            "判断 ACK、超时或重复 ACK",
+            "更新 ssthresh",
+            "更新 cwnd",
+            "继续按阶段增长"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rtt-rto",
+      "title": "RTT / RTO",
+      "layer": "transport",
+      "type": "formula",
+      "summary": "RTT 是往返时间，RTO 是超时重传定时器的超时时间。",
+      "keywords": [
+        "RTT",
+        "RTO",
+        "超时重传"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "RTT 表示报文段发送到收到确认的往返时间；RTO 是发送方等待 ACK 的超时阈值。",
+      "solves": "解决 TCP 如何设置重传等待时间的问题。",
+      "input": [
+        "采样 RTT",
+        "估计 RTT",
+        "RTT 偏差"
+      ],
+      "output": [
+        "重传超时时间 RTO"
+      ],
+      "mechanism": [
+        "测量 SampleRTT",
+        "平滑估计 RTT",
+        "估计波动",
+        "设置 RTO 并驱动超时重传"
+      ],
+      "fieldsOrStates": [
+        "SampleRTT",
+        "EstimatedRTT",
+        "DevRTT",
+        "RTO"
+      ],
+      "formulas": [
+        "RTO 通常随 EstimatedRTT 和 RTT 波动增大而增大"
+      ],
+      "examRules": [
+        "RTO 太小会误重传，太大恢复丢包慢。",
+        "RTT 是往返时间，不是单程传播时延。"
+      ],
+      "pitfalls": [
+        "不要把 RTT 与 2τ 在所有场景下简单等同。",
+        "排队时延会影响实际 RTT。"
+      ],
+      "related": [
+        "tcp-reliable-transmission",
+        "timeout-retransmission",
+        "delay-model"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "network-address-broadcast-host",
+      "title": "网络地址 / 广播地址 / 可用主机地址",
+      "layer": "network",
+      "type": "formula",
+      "summary": "由 IP 地址和前缀计算网络地址、广播地址和可用主机范围。",
+      "keywords": [
+        "网络地址",
+        "广播地址",
+        "可用主机地址",
+        "子网划分"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "子网计算题通常从 [[子网掩码|subnet-mask]] 入手：IP 与掩码按位与得到网络地址，主机位全 1 得到广播地址。"
+        }
+      ],
+      "definition": "网络地址表示子网本身，广播地址表示该子网内广播目标，可用主机地址通常排除主机位全 0 和全 1。",
+      "solves": "解决判断主机所属网络、可分配地址范围和子网容量的问题。",
+      "input": [
+        "IP 地址",
+        "前缀长度",
+        "子网掩码"
+      ],
+      "output": [
+        "网络地址",
+        "广播地址",
+        "可用主机范围"
+      ],
+      "mechanism": [
+        "IP 与掩码按位与",
+        "主机位全 0 得网络地址",
+        "主机位全 1 得广播地址",
+        "中间范围为常规可用主机地址"
+      ],
+      "fieldsOrStates": [
+        "网络位",
+        "主机位",
+        "前缀长度",
+        "广播地址"
+      ],
+      "formulas": [
+        "网络地址 = IP & mask",
+        "广播地址 = 网络地址 + 主机位全 1",
+        "可用主机数 = 2^h - 2"
+      ],
+      "examRules": [
+        "传统 IPv4 子网题通常扣除全 0 和全 1 主机号。",
+        "点分十进制要先统一成二进制或块大小。"
+      ],
+      "pitfalls": [
+        "不要把子网广播地址分配给普通主机。",
+        "主机位数 h 不等于前缀长度。"
+      ],
+      "related": [
+        "ip-address",
+        "subnet-mask",
+        "cidr-route-aggregation"
+      ],
+      "examTemplates": [
+        {
+          "title": "子网地址范围计算",
+          "rule": "网络地址、广播地址、可用范围三步走",
+          "steps": [
+            "确定前缀长度",
+            "计算块大小",
+            "找网络地址",
+            "找广播地址",
+            "列出可用主机范围"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cidr-route-aggregation",
+      "title": "CIDR 与路由聚合",
+      "layer": "network",
+      "type": "formula",
+      "summary": "CIDR 用可变长前缀表示网络，路由聚合用较短公共前缀合并多条路由。",
+      "keywords": [
+        "CIDR",
+        "路由聚合",
+        "超网",
+        "前缀"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "CIDR 是无分类域间路由表示方法，路由聚合把连续网络合并为公共前缀以减少路由表规模。",
+      "solves": "解决分类地址浪费和路由表项过多的问题。",
+      "input": [
+        "多个网络前缀",
+        "二进制地址",
+        "公共前缀"
+      ],
+      "output": [
+        "聚合路由",
+        "CIDR 前缀"
+      ],
+      "mechanism": [
+        "写出网络地址二进制",
+        "找最长公共前缀",
+        "公共前缀后主机位清零",
+        "得到聚合 CIDR"
+      ],
+      "fieldsOrStates": [
+        "前缀长度",
+        "公共前缀",
+        "路由表项",
+        "地址块"
+      ],
+      "formulas": [
+        "聚合前缀 = 多个网络地址的最长公共前缀"
+      ],
+      "examRules": [
+        "聚合后的地址块必须覆盖原网络，可能包含额外地址。",
+        "更具体路由仍按最长前缀匹配优先。"
+      ],
+      "pitfalls": [
+        "不要简单取数值平均。",
+        "聚合前缀过短会覆盖过大范围。"
+      ],
+      "related": [
+        "longest-prefix-match",
+        "routing-table-forwarding-table",
+        "subnet-mask"
+      ],
+      "examTemplates": [
+        {
+          "title": "路由聚合题",
+          "rule": "找连续网络的最长公共前缀",
+          "steps": [
+            "写出网络地址二进制",
+            "逐位比较",
+            "确定公共前缀长度",
+            "补零写成 CIDR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "routing-table-forwarding-table",
+      "title": "路由表 / 转发表",
+      "layer": "network",
+      "type": "concept",
+      "summary": "路由表描述到目的网络的路由，转发表用于高速查找下一跳和出接口。",
+      "keywords": [
+        "路由表",
+        "转发表",
+        "下一跳",
+        "出接口"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "路由表由路由协议或静态配置生成，转发表是用于实际分组转发的查找结构。",
+      "solves": "解决路由器收到 IP 数据报后如何确定下一跳和出接口的问题。",
+      "input": [
+        "目的 IP",
+        "路由表项",
+        "转发表"
+      ],
+      "output": [
+        "下一跳",
+        "出接口"
+      ],
+      "mechanism": [
+        "读取目的 IP",
+        "查找匹配前缀",
+        "按最长前缀匹配选择表项",
+        "输出到指定接口"
+      ],
+      "fieldsOrStates": [
+        "目的网络",
+        "前缀长度",
+        "下一跳",
+        "出接口",
+        "度量"
+      ],
+      "examRules": [
+        "转发时通常根据目的 IP 查表。",
+        "默认路由只在没有更具体匹配时使用。"
+      ],
+      "pitfalls": [
+        "不要把路由表项的下一跳当作最终目的主机。",
+        "查表不是按源 IP 优先。"
+      ],
+      "related": [
+        "longest-prefix-match",
+        "cidr-route-aggregation",
+        "direct-indirect-delivery"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "ipv4-header-ttl",
+      "title": "IPv4 数据报首部与 TTL",
+      "layer": "network",
+      "type": "protocol",
+      "summary": "IPv4 首部携带源/目的 IP、TTL、协议字段、分片字段等网络层控制信息。",
+      "keywords": [
+        "IPv4 首部",
+        "TTL",
+        "协议字段",
+        "首部校验和"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "IPv4 数据报首部是网络层转发和控制所需字段集合，TTL 用于限制分组生命周期。",
+      "solves": "解决跨网络转发中寻址、循环限制、上层协议标识和分片控制问题。",
+      "input": [
+        "传输层报文段",
+        "源 IP",
+        "目的 IP",
+        "TTL"
+      ],
+      "output": [
+        "IPv4 数据报",
+        "转发控制结果"
+      ],
+      "mechanism": [
+        "封装 IPv4 首部",
+        "每过一台路由器 TTL 减 1",
+        "TTL 为 0 时丢弃并可发 ICMP",
+        "协议字段指示上层 TCP/UDP/ICMP"
+      ],
+      "fieldsOrStates": [
+        "版本",
+        "首部长度",
+        "总长度",
+        "标识",
+        "标志",
+        "片偏移",
+        "TTL",
+        "协议",
+        "源 IP",
+        "目的 IP"
+      ],
+      "examRules": [
+        "TTL 每经过一个路由器减 1。",
+        "协议字段用于交给 TCP、UDP 或 ICMP。"
+      ],
+      "pitfalls": [
+        "不要把 TTL 当成时间秒数。",
+        "IP 首部校验和只校验首部，不校验数据部分。"
+      ],
+      "related": [
+        "ip-address",
+        "ip-fragmentation",
+        "icmp-ping-traceroute"
+      ],
+      "examTemplates": [],
+      "children": [
+        "ip-fragmentation"
+      ]
+    },
+    {
+      "id": "ip-fragmentation",
+      "title": "IP 分片与重组",
+      "layer": "network",
+      "type": "formula",
+      "summary": "当 IP 数据报超过链路 MTU 时可能被分片，目的主机负责重组。",
+      "keywords": [
+        "IP 分片",
+        "MTU",
+        "片偏移",
+        "MF"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "IP 分片把一个较大数据报拆成多个片，每片带有标识、标志和片偏移，最终由目的主机重组。",
+      "solves": "解决不同链路 MTU 不一致导致大数据报无法直接通过的问题。",
+      "input": [
+        "原始数据报长度",
+        "MTU",
+        "IP 首部长度"
+      ],
+      "output": [
+        "多个 IP 分片",
+        "片偏移"
+      ],
+      "mechanism": [
+        "比较数据报长度和 MTU",
+        "每片数据长度通常取 8 字节整数倍",
+        "填写相同标识",
+        "设置 MF 和片偏移",
+        "目的主机重组"
+      ],
+      "fieldsOrStates": [
+        "MTU",
+        "标识",
+        "DF",
+        "MF",
+        "片偏移",
+        "总长度"
+      ],
+      "formulas": [
+        "每片最大数据长度 = floor((MTU - IP首部长度) / 8) × 8",
+        "片偏移单位 = 8 字节"
+      ],
+      "examRules": [
+        "片偏移单位是 8 字节。",
+        "重组通常只在目的主机进行。"
+      ],
+      "pitfalls": [
+        "不要把偏移量按字节直接填写。",
+        "每个分片都有自己的 IP 首部。"
+      ],
+      "related": [
+        "ipv4-header-ttl",
+        "routing-table-forwarding-table"
+      ],
+      "examTemplates": [
+        {
+          "title": "IP 分片计算",
+          "rule": "先扣 IP 首部，再按 8 字节对齐",
+          "steps": [
+            "确定 MTU 和首部长度",
+            "计算每片最大数据长度",
+            "拆分数据部分",
+            "计算片偏移",
+            "设置 MF"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "icmp-ping-traceroute",
+      "title": "ICMP、Ping 与 Traceroute",
+      "layer": "network",
+      "type": "protocol",
+      "summary": "ICMP 用于差错报告和网络诊断，Ping 和 Traceroute 是典型诊断工具。",
+      "keywords": [
+        "ICMP",
+        "Ping",
+        "Traceroute",
+        "TTL"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "ICMP 是网络层辅助协议，Ping 使用回显请求/应答，Traceroute 利用 TTL 逐跳探测路径。",
+      "solves": "解决 IP 尽力交付下的差错报告和连通性诊断问题。",
+      "input": [
+        "IP 数据报",
+        "TTL",
+        "ICMP 报文"
+      ],
+      "output": [
+        "差错报告",
+        "连通性或路径信息"
+      ],
+      "mechanism": [
+        "Ping 发送 Echo Request",
+        "目标返回 Echo Reply",
+        "Traceroute 从小 TTL 开始发送探测包",
+        "沿途路由器返回 TTL 超时报文"
+      ],
+      "fieldsOrStates": [
+        "Echo Request",
+        "Echo Reply",
+        "TTL Exceeded",
+        "Destination Unreachable"
+      ],
+      "examRules": [
+        "ICMP 封装在 IP 数据报中。",
+        "Traceroute 的核心线索来自 TTL 递增和 ICMP 超时报文。"
+      ],
+      "pitfalls": [
+        "不要说 ICMP 负责可靠传输。",
+        "禁用 ICMP 可能影响诊断结果但不等于路径不存在。"
+      ],
+      "related": [
+        "ipv4-header-ttl",
+        "ip-address"
+      ],
+      "examTemplates": [],
+      "children": [
+        "icmp-error-types"
+      ]
+    },
+    {
+      "id": "nat-napt-private-address",
+      "title": "NAT / NAPT 与专用地址",
+      "layer": "network",
+      "type": "mechanism",
+      "summary": "NAT 转换 IP 地址，NAPT 进一步转换端口，使多个内网主机共享公网地址。",
+      "keywords": [
+        "NAT",
+        "NAPT",
+        "专用地址",
+        "端口转换"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "NAT 是网络地址转换，NAPT 使用地址和端口映射把多个内部连接复用到同一公网 IP。",
+      "solves": "解决 IPv4 公网地址不足和内网地址对外通信问题。",
+      "input": [
+        "内网专用地址",
+        "端口号",
+        "NAT 映射表"
+      ],
+      "output": [
+        "公网地址/端口映射",
+        "回程转换"
+      ],
+      "mechanism": [
+        "内网主机发包到 NAT 设备",
+        "NAT 改写源地址和端口",
+        "记录映射表",
+        "回包按映射还原到内网主机"
+      ],
+      "fieldsOrStates": [
+        "专用地址",
+        "公网地址",
+        "端口映射",
+        "NAT 表"
+      ],
+      "examRules": [
+        "NAPT 用端口区分多个内网连接。",
+        "常见专用地址包括 10/8、172.16/12、192.168/16。"
+      ],
+      "pitfalls": [
+        "不要把 NAT 当作路由协议。",
+        "NAT 会改变端到端地址透明性。"
+      ],
+      "related": [
+        "ip-address",
+        "ports-for-process",
+        "tcp"
+      ],
+      "examTemplates": [],
+      "children": [
+        "nat-napt-translation-exam"
+      ]
+    },
+    {
+      "id": "routing-algorithms",
+      "title": "路由算法",
+      "layer": "network",
+      "type": "concept",
+      "summary": "路由算法根据网络拓扑和度量计算到目的网络的路径。",
+      "keywords": [
+        "路由算法",
+        "距离向量",
+        "链路状态"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "路由算法是路由协议计算路由表的核心方法，典型类别包括距离向量和链路状态。",
+      "solves": "解决路由器如何自动获得到各目的网络路径的问题。",
+      "input": [
+        "拓扑信息",
+        "链路代价",
+        "邻居信息"
+      ],
+      "output": [
+        "路由表",
+        "下一跳"
+      ],
+      "mechanism": [
+        "收集局部或全局路由信息",
+        "按算法计算路径",
+        "更新路由表",
+        "在拓扑变化后重新收敛"
+      ],
+      "fieldsOrStates": [
+        "度量",
+        "下一跳",
+        "收敛",
+        "路由环路"
+      ],
+      "examRules": [
+        "距离向量交换距离表，链路状态泛洪链路状态并本地算最短路。"
+      ],
+      "pitfalls": [
+        "不要把路由算法和转发过程混为一谈。",
+        "算法收敛不代表链路不可能变化。"
+      ],
+      "related": [
+        "distance-vector-rip",
+        "link-state-ospf",
+        "routing-table-forwarding-table"
+      ],
+      "examTemplates": [],
+      "children": [
+        "distance-vector-rip",
+        "link-state-ospf",
+        "bgp-overview"
+      ]
+    },
+    {
+      "id": "distance-vector-rip",
+      "title": "距离向量算法与 RIP",
+      "layer": "network",
+      "type": "protocol",
+      "summary": "距离向量算法按邻居交换距离信息，RIP 是典型距离向量路由协议。",
+      "keywords": [
+        "距离向量",
+        "RIP",
+        "跳数",
+        "Bellman-Ford"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "距离向量算法让路由器只知道到目的网络的距离和下一跳，RIP 使用跳数作为度量。",
+      "solves": "解决小型网络中路由器分布式计算路径的问题。",
+      "input": [
+        "邻居距离向量",
+        "链路代价",
+        "跳数"
+      ],
+      "output": [
+        "更新后的距离和下一跳"
+      ],
+      "mechanism": [
+        "周期性交换距离向量",
+        "按 Bellman-Ford 更新",
+        "选择代价更小路径",
+        "RIP 中超过 15 跳视为不可达"
+      ],
+      "fieldsOrStates": [
+        "距离向量",
+        "下一跳",
+        "跳数",
+        "无穷大",
+        "计数到无穷"
+      ],
+      "examRules": [
+        "RIP 最大有效跳数为 15。",
+        "距离向量容易出现慢收敛和计数到无穷问题。"
+      ],
+      "pitfalls": [
+        "不要把 RIP 度量写成带宽。",
+        "只知道下一跳和距离，不掌握完整拓扑。"
+      ],
+      "related": [
+        "routing-algorithms",
+        "link-state-ospf"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "link-state-ospf",
+      "title": "链路状态算法与 OSPF",
+      "layer": "network",
+      "type": "protocol",
+      "summary": "链路状态算法泛洪链路状态信息，OSPF 是典型链路状态路由协议。",
+      "keywords": [
+        "链路状态",
+        "OSPF",
+        "Dijkstra",
+        "最短路径"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "链路状态算法让每台路由器获得较完整拓扑，并用最短路径算法计算路由。",
+      "solves": "解决较大自治系统内更快收敛和更灵活度量的路由计算问题。",
+      "input": [
+        "链路状态通告",
+        "链路代价",
+        "拓扑数据库"
+      ],
+      "output": [
+        "最短路径树",
+        "路由表"
+      ],
+      "mechanism": [
+        "泛洪链路状态",
+        "构建拓扑数据库",
+        "运行 Dijkstra",
+        "生成转发表"
+      ],
+      "fieldsOrStates": [
+        "LSA",
+        "链路代价",
+        "拓扑数据库",
+        "最短路径树"
+      ],
+      "examRules": [
+        "OSPF 属于链路状态协议。",
+        "链路状态路由器通常知道区域内拓扑。"
+      ],
+      "pitfalls": [
+        "不要说 OSPF 使用跳数作为唯一度量。",
+        "泛洪的是链路状态，不是完整路由表。"
+      ],
+      "related": [
+        "routing-algorithms",
+        "distance-vector-rip"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "bgp-overview",
+      "title": "BGP 概要",
+      "layer": "network",
+      "type": "protocol",
+      "summary": "BGP 是自治系统之间的路径向量路由协议，用于互联网域间路由。",
+      "keywords": [
+        "BGP",
+        "自治系统",
+        "路径向量"
+      ],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80,
+      "definition": "BGP 是外部网关协议，在自治系统之间传播可达前缀和 AS 路径等策略信息。",
+      "solves": "解决不同自治系统之间如何按策略交换路由的问题。",
+      "input": [
+        "AS 路径",
+        "网络前缀",
+        "路由策略"
+      ],
+      "output": [
+        "域间路由选择"
+      ],
+      "mechanism": [
+        "BGP 邻居建立会话",
+        "通告可达前缀",
+        "携带 AS_PATH",
+        "按策略选择路径"
+      ],
+      "fieldsOrStates": [
+        "AS",
+        "AS_PATH",
+        "NEXT_HOP",
+        "前缀"
+      ],
+      "examRules": [
+        "BGP 是域间路由协议。",
+        "BGP 更强调策略而不只是最短路径。"
+      ],
+      "pitfalls": [
+        "不要把 BGP 当作链路状态协议。",
+        "AS_PATH 可用于避免环路。"
+      ],
+      "related": [
+        "routing-algorithms",
+        "cidr-route-aggregation"
+      ],
+      "examTemplates": [],
+      "details": [
+        {
+          "id": "bgp-scope",
+          "title": "BGP 的复习边界",
+          "content": "408 通常掌握 BGP 的域间、自治系统、路径向量和策略属性即可，不需要深入真实互联网运营细节。"
+        }
+      ]
+    },
+    {
+      "id": "ipv6-overview",
+      "title": "IPv6 概要",
+      "layer": "network",
+      "type": "protocol",
+      "summary": "IPv6 使用 128 位地址并简化首部，扩大地址空间。",
+      "keywords": [
+        "IPv6",
+        "128 位地址",
+        "扩展首部"
+      ],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80,
+      "definition": "IPv6 是下一代网际协议，核心变化包括 128 位地址、固定基本首部和扩展首部机制。",
+      "solves": "解决 IPv4 地址空间不足和首部处理复杂等问题。",
+      "input": [
+        "IPv6 地址",
+        "扩展首部",
+        "下一首部字段"
+      ],
+      "output": [
+        "IPv6 分组",
+        "更大地址空间"
+      ],
+      "mechanism": [
+        "使用 128 位地址",
+        "基本首部固定长度",
+        "可选信息放入扩展首部",
+        "通过下一首部字段串联"
+      ],
+      "fieldsOrStates": [
+        "源 IPv6 地址",
+        "目的 IPv6 地址",
+        "Hop Limit",
+        "Next Header"
+      ],
+      "examRules": [
+        "IPv6 地址长度为 128 位。",
+        "IPv6 基本首部不包含 IPv4 那样的首部校验和。"
+      ],
+      "pitfalls": [
+        "不要把 IPv6 地址长度写成 64 位。",
+        "IPv6 与 IPv4 首部字段不能逐项机械对应。"
+      ],
+      "related": [
+        "ip-address",
+        "dns-records-cache"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "framing",
+      "title": "成帧",
+      "layer": "data-link",
+      "type": "concept",
+      "summary": "成帧把网络层数据封装为可在链路上传输和识别边界的帧。",
+      "keywords": [
+        "成帧",
+        "帧边界",
+        "帧格式"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "成帧是数据链路层为上层数据添加首部和尾部，形成具有边界、地址和校验信息的数据帧。",
+      "solves": "解决接收方如何从连续比特流中识别一帧的开始和结束的问题。",
+      "input": [
+        "网络层数据报",
+        "链路层地址",
+        "帧定界规则"
+      ],
+      "output": [
+        "数据链路层帧"
+      ],
+      "mechanism": [
+        "添加帧首部",
+        "按规则标记帧边界",
+        "添加校验字段",
+        "交给物理层发送"
+      ],
+      "fieldsOrStates": [
+        "帧首部",
+        "帧尾部",
+        "长度字段",
+        "定界符",
+        "FCS"
+      ],
+      "examRules": [
+        "成帧属于数据链路层。",
+        "不同协议可使用长度计数、定界符或比特填充等方式。"
+      ],
+      "pitfalls": [
+        "不要把成帧说成物理层编码。",
+        "帧边界和透明传输常一起考。"
+      ],
+      "related": [
+        "transparent-transmission",
+        "ethernet-frame",
+        "frame-to-bitstream"
+      ],
+      "examTemplates": [],
+      "children": [
+        "transparent-transmission"
+      ]
+    },
+    {
+      "id": "transparent-transmission",
+      "title": "透明传输",
+      "layer": "data-link",
+      "type": "mechanism",
+      "summary": "透明传输保证数据内容即使包含定界符模式也不会被误判为帧边界。",
+      "keywords": [
+        "透明传输",
+        "字节填充",
+        "比特填充"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "透明传输是通过转义、字节填充或比特填充等方法，使任意数据都能作为帧内容传输。",
+      "solves": "解决数据字段中出现帧定界符导致接收方误判边界的问题。",
+      "input": [
+        "数据字段",
+        "定界符",
+        "转义规则"
+      ],
+      "output": [
+        "填充后的帧数据",
+        "还原后的原始数据"
+      ],
+      "mechanism": [
+        "发送端检查特殊模式",
+        "遇到定界符或转义字节就填充",
+        "接收端按规则删除填充",
+        "恢复原数据"
+      ],
+      "fieldsOrStates": [
+        "转义字符",
+        "字节填充",
+        "比特填充",
+        "定界符"
+      ],
+      "examRules": [
+        "透明传输关注数据内容不受控制字符影响。",
+        "PPP/HDLC 中常见字节或比特填充思想。"
+      ],
+      "pitfalls": [
+        "不要把透明传输理解为加密。",
+        "填充后的长度可能大于原始数据长度。"
+      ],
+      "related": [
+        "framing",
+        "ppp-hdlc"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "error-detection-crc",
+      "title": "差错检测与 CRC",
+      "layer": "data-link",
+      "type": "formula",
+      "summary": "差错检测通过冗余码发现传输错误，CRC 是常见检错方法。",
+      "keywords": [
+        "差错检测",
+        "CRC",
+        "FCS",
+        "生成多项式"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "CRC 用生成多项式对数据进行模 2 除法得到冗余码，接收端再次计算以判断是否出错。",
+      "solves": "解决链路传输中比特错误如何被发现的问题。",
+      "input": [
+        "待发送比特串",
+        "生成多项式",
+        "接收比特串"
+      ],
+      "output": [
+        "CRC 校验码",
+        "差错检测结果"
+      ],
+      "mechanism": [
+        "数据后补 0",
+        "按生成多项式做模 2 除法",
+        "余数作为 CRC",
+        "接收端整串相除检查余数"
+      ],
+      "fieldsOrStates": [
+        "生成多项式",
+        "余数",
+        "FCS",
+        "模 2 除法"
+      ],
+      "formulas": [
+        "CRC 位数 = 生成多项式阶数",
+        "接收串能被生成多项式整除则认为未检测到差错"
+      ],
+      "examRules": [
+        "CRC 只能检错，不自动纠错。",
+        "模 2 除法不借位不进位，本质是异或。"
+      ],
+      "pitfalls": [
+        "不要用普通十进制除法计算 CRC。",
+        "检错不代表所有错误都能被发现。"
+      ],
+      "related": [
+        "ethernet-frame",
+        "framing"
+      ],
+      "examTemplates": [
+        {
+          "title": "CRC 计算",
+          "rule": "补 0 后模 2 除法取余数",
+          "steps": [
+            "确定生成多项式阶数",
+            "在数据后补相同位数 0",
+            "做异或除法",
+            "余数不足补齐",
+            "附加到原数据后发送"
+          ]
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "error-control",
+      "title": "差错控制",
+      "layer": "data-link",
+      "type": "mechanism",
+      "summary": "差错控制在检错基础上通过确认和重传等机制恢复错误或丢失帧。",
+      "keywords": [
+        "差错控制",
+        "确认",
+        "重传",
+        "ARQ"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "差错控制是链路层为提高帧传输可靠性而使用的确认、否认、超时和重传机制。",
+      "solves": "解决帧出错或丢失后如何恢复的问题。",
+      "input": [
+        "数据帧",
+        "ACK/NAK",
+        "超时定时器"
+      ],
+      "output": [
+        "可靠帧传输结果",
+        "重传动作"
+      ],
+      "mechanism": [
+        "发送帧",
+        "接收端检错",
+        "正确则确认",
+        "错误或超时则重传"
+      ],
+      "fieldsOrStates": [
+        "ACK",
+        "NAK",
+        "序号",
+        "定时器"
+      ],
+      "examRules": [
+        "检错发现错误，差错控制决定是否重传。",
+        "ARQ 类协议通常结合确认和超时。"
+      ],
+      "pitfalls": [
+        "不要把 CRC 说成自动纠错机制。",
+        "链路层可靠传输只覆盖相邻节点或链路范围。"
+      ],
+      "related": [
+        "error-detection-crc",
+        "stop-and-wait",
+        "gbn",
+        "selective-repeat"
+      ],
+      "examTemplates": [],
+      "children": [
+        "stop-and-wait",
+        "gbn",
+        "selective-repeat",
+        "sliding-window-arq-overview"
+      ]
+    },
+    {
+      "id": "stop-and-wait",
+      "title": "停止等待协议",
+      "layer": "data-link",
+      "type": "mechanism",
+      "summary": "停止等待协议每发送一帧就等待确认，简单但信道利用率低。",
+      "keywords": [
+        "停止等待",
+        "ACK",
+        "超时重传"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "停止等待协议是最简单的可靠传输协议，发送方一次只允许一个未确认帧在途。",
+      "solves": "解决基础可靠传输中的丢失和出错恢复问题。",
+      "input": [
+        "数据帧",
+        "ACK",
+        "超时定时器"
+      ],
+      "output": [
+        "按序可靠交付",
+        "重传帧"
+      ],
+      "mechanism": [
+        "发送一帧",
+        "启动定时器",
+        "收到 ACK 后发送下一帧",
+        "超时则重传当前帧"
+      ],
+      "fieldsOrStates": [
+        "0/1 序号",
+        "ACK",
+        "定时器",
+        "等待状态"
+      ],
+      "formulas": [
+        "信道利用率常与 发送时延 / (RTT + 发送时延) 相关"
+      ],
+      "examRules": [
+        "停止等待一次只有一个未确认帧。",
+        "序号可用于区分重复帧。"
+      ],
+      "pitfalls": [
+        "不要忘记 ACK 丢失也会导致发送方重传。",
+        "传播时延大时利用率很低。"
+      ],
+      "related": [
+        "error-control",
+        "gbn",
+        "selective-repeat"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "gbn",
+      "title": "后退 N 帧 GBN",
+      "layer": "data-link",
+      "type": "mechanism",
+      "summary": "GBN 允许连续发送多个帧，但出错后从出错帧起回退重传。",
+      "keywords": [
+        "GBN",
+        "后退 N 帧",
+        "滑动窗口"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "GBN 是滑动窗口可靠传输协议，接收端通常只按序接收，发送端出错后重传出错帧及其后的帧。",
+      "solves": "解决停止等待效率低，同时保持接收端较简单的问题。",
+      "input": [
+        "发送窗口",
+        "累计 ACK",
+        "超时帧"
+      ],
+      "output": [
+        "连续发送",
+        "回退重传"
+      ],
+      "mechanism": [
+        "发送端窗口内连续发送",
+        "接收端只接受按序帧",
+        "使用累计确认",
+        "某帧超时后重传该帧及之后帧"
+      ],
+      "fieldsOrStates": [
+        "发送窗口",
+        "累计 ACK",
+        "接收窗口通常为 1",
+        "超时"
+      ],
+      "formulas": [
+        "若序号字段 k 位，GBN 发送窗口最大通常 <= 2^k - 1"
+      ],
+      "examRules": [
+        "GBN 接收窗口通常为 1。",
+        "出错后可能重传多个已经发送的帧。"
+      ],
+      "pitfalls": [
+        "不要把 GBN 和 SR 的接收缓存能力混淆。",
+        "窗口大小受序号空间限制。"
+      ],
+      "related": [
+        "error-control",
+        "selective-repeat",
+        "sliding-window"
+      ],
+      "examTemplates": [
+        {
+          "title": "GBN 窗口与重传",
+          "rule": "接收端只按序接收，超时后后退重传",
+          "steps": [
+            "标出发送窗口",
+            "找出丢失或出错帧",
+            "判断累计 ACK",
+            "列出需要重传的帧"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "selective-repeat",
+      "title": "选择重传 SR",
+      "layer": "data-link",
+      "type": "mechanism",
+      "summary": "SR 只重传出错或丢失帧，接收端可缓存失序帧。",
+      "keywords": [
+        "SR",
+        "选择重传",
+        "接收窗口"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "选择重传协议是滑动窗口可靠传输协议，接收端缓存窗口内失序帧，发送端只重传未被正确确认的帧。",
+      "solves": "解决 GBN 出错后重传过多导致效率下降的问题。",
+      "input": [
+        "发送窗口",
+        "接收窗口",
+        "逐帧 ACK",
+        "超时"
+      ],
+      "output": [
+        "选择性重传",
+        "失序缓存"
+      ],
+      "mechanism": [
+        "窗口内连续发送",
+        "接收端缓存失序帧",
+        "逐帧确认",
+        "只重传超时或否认帧"
+      ],
+      "fieldsOrStates": [
+        "发送窗口",
+        "接收窗口",
+        "逐帧 ACK",
+        "缓存"
+      ],
+      "formulas": [
+        "若序号字段 k 位，SR 窗口大小通常 <= 2^(k-1)"
+      ],
+      "examRules": [
+        "SR 接收端可以缓存失序帧。",
+        "SR 窗口不能超过序号空间一半以避免新旧帧混淆。"
+      ],
+      "pitfalls": [
+        "不要把 SR 说成累计确认后退重传。",
+        "序号空间限制比 GBN 更严格。"
+      ],
+      "related": [
+        "gbn",
+        "error-control",
+        "sliding-window"
+      ],
+      "examTemplates": [
+        {
+          "title": "SR 窗口上限",
+          "rule": "窗口大小 <= 序号空间一半",
+          "steps": [
+            "确定序号位数 k",
+            "计算序号空间 2^k",
+            "取一半作为窗口上限",
+            "判断题目窗口是否合法"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ppp-hdlc",
+      "title": "PPP 与 HDLC 概要",
+      "layer": "data-link",
+      "type": "protocol",
+      "summary": "PPP 常用于点到点链路，HDLC 是面向比特的数据链路控制协议。",
+      "keywords": [
+        "PPP",
+        "HDLC",
+        "点到点链路"
+      ],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80,
+      "definition": "PPP 是点到点链路协议，HDLC 是经典高级数据链路控制协议，二者都体现成帧和透明传输思想。",
+      "solves": "解决点到点链路上的成帧、链路控制和上层协议封装问题。",
+      "input": [
+        "点到点链路",
+        "上层分组",
+        "链路控制信息"
+      ],
+      "output": [
+        "PPP/HDLC 帧"
+      ],
+      "mechanism": [
+        "链路建立",
+        "封装上层分组",
+        "使用定界和填充保持帧边界",
+        "链路终止"
+      ],
+      "fieldsOrStates": [
+        "标志字段",
+        "地址字段",
+        "控制字段",
+        "协议字段",
+        "FCS"
+      ],
+      "examRules": [
+        "PPP 是点到点链路常见协议。",
+        "HDLC 常与比特填充、帧定界联系。"
+      ],
+      "pitfalls": [
+        "不要把 PPP 当作以太网交换协议。",
+        "HDLC 概要掌握即可，通常不深挖实现细节。"
+      ],
+      "related": [
+        "framing",
+        "transparent-transmission",
+        "error-detection-crc"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "ethernet-frame",
+      "title": "以太网帧格式",
+      "layer": "data-link",
+      "type": "protocol",
+      "summary": "以太网帧包含目的 MAC、源 MAC、类型、数据和 FCS 等字段。",
+      "keywords": [
+        "以太网帧",
+        "目的 MAC",
+        "源 MAC",
+        "类型字段",
+        "FCS"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "以太网帧是以太网数据链路层传输单元，用字段描述接收方、发送方、上层协议和差错检测。",
+      "solves": "解决局域网内数据如何被封装和交付给正确网卡的问题。",
+      "input": [
+        "IP 数据报",
+        "源 MAC",
+        "目的 MAC",
+        "类型字段"
+      ],
+      "output": [
+        "以太网帧",
+        "FCS 检测结果"
+      ],
+      "mechanism": [
+        "填写目的 MAC",
+        "填写源 MAC",
+        "类型字段标识上层协议",
+        "数据字段承载上层分组",
+        "FCS 用于检错"
+      ],
+      "fieldsOrStates": [
+        "目的 MAC",
+        "源 MAC",
+        "Type",
+        "Data",
+        "FCS"
+      ],
+      "examRules": [
+        "以太网最小帧长 64 字节不包括前导码。",
+        "类型字段可指示 IPv4、ARP 等上层协议。"
+      ],
+      "pitfalls": [
+        "不要把前导码计入 MAC 帧长度。",
+        "FCS 是检错，不负责纠错。"
+      ],
+      "related": [
+        "ethernet",
+        "mac-address",
+        "minimum-frame-length",
+        "error-detection-crc"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "minimum-frame-length",
+      "title": "最短帧长 64 字节",
+      "layer": "data-link",
+      "type": "formula",
+      "summary": "传统以太网最短帧长保证发送端能在发送完前检测到最远冲突。",
+      "keywords": [
+        "最短帧长",
+        "64 字节",
+        "2τ",
+        "CSMA/CD"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "最短帧长是共享式以太网为配合 CSMA/CD 碰撞检测而规定的最小 MAC 帧长度。",
+      "solves": "解决发送端若帧太短，可能发送完后才收到远端冲突信号的问题。",
+      "input": [
+        "传播时延 τ",
+        "数据率 R"
+      ],
+      "output": [
+        "最小帧长"
+      ],
+      "mechanism": [
+        "考虑最远两端冲突",
+        "冲突信号最晚 2τ 返回",
+        "发送时延至少覆盖 2τ",
+        "据此计算最小比特数"
+      ],
+      "fieldsOrStates": [
+        "τ",
+        "2τ",
+        "数据率",
+        "发送时延",
+        "争用期"
+      ],
+      "formulas": [
+        "Lmin = 2τ × R",
+        "以太网最短帧长 = 64 字节"
+      ],
+      "examRules": [
+        "64 字节不包括前导码。",
+        "现代交换式全双工以太网通常不使用 CSMA/CD。"
+      ],
+      "pitfalls": [
+        "不要把 τ 当作往返时延。",
+        "单位换算 bit 和 Byte 容易出错。"
+      ],
+      "related": [
+        "csma-cd",
+        "ethernet-frame"
+      ],
+      "examTemplates": [
+        {
+          "title": "CSMA/CD 最短帧长",
+          "rule": "Lmin = 2τR",
+          "steps": [
+            "统一时延和速率单位",
+            "计算 2τ",
+            "乘数据率得到 bit",
+            "需要字节时除以 8",
+            "与 64 字节规则联系"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hub-switch",
+      "title": "集线器与交换机",
+      "layer": "data-link",
+      "type": "comparison",
+      "summary": "集线器工作在物理层共享冲突域，交换机工作在数据链路层按 MAC 转发帧。",
+      "keywords": [
+        "集线器",
+        "交换机",
+        "冲突域",
+        "二层设备"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "集线器是物理层多端口中继设备，交换机是数据链路层按 MAC 地址学习和转发帧的设备。",
+      "solves": "解决局域网互连设备层次和冲突域/广播域判断问题。",
+      "input": [
+        "以太网帧或信号",
+        "设备类型",
+        "端口"
+      ],
+      "output": [
+        "信号转发",
+        "帧转发"
+      ],
+      "mechanism": [
+        "集线器收到信号后向所有端口转发",
+        "交换机学习源 MAC",
+        "交换机按目的 MAC 查表",
+        "未知目的则泛洪"
+      ],
+      "fieldsOrStates": [
+        "物理层",
+        "数据链路层",
+        "MAC 表",
+        "冲突域",
+        "广播域"
+      ],
+      "examRules": [
+        "集线器不隔离冲突域。",
+        "交换机每个端口通常隔离冲突域，但默认不隔离广播域。"
+      ],
+      "pitfalls": [
+        "不要说集线器根据 MAC 地址转发。",
+        "交换机不是路由器，默认不按 IP 跨网转发。"
+      ],
+      "related": [
+        "collision-domain",
+        "broadcast-domain",
+        "switch-learning-forwarding"
+      ],
+      "examTemplates": [],
+      "children": [
+        "switch-learning-forwarding"
+      ]
+    },
+    {
+      "id": "switch-learning-forwarding",
+      "title": "交换机自学习与泛洪 / 过滤 / 转发",
+      "layer": "data-link",
+      "type": "mechanism",
+      "summary": "交换机通过源 MAC 自学习转发表，并根据目的 MAC 决定泛洪、过滤或转发。",
+      "keywords": [
+        "交换机自学习",
+        "泛洪",
+        "过滤",
+        "转发",
+        "MAC 表"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "交换机自学习是从进入端口的帧源 MAC 建立 MAC-端口映射，并据目的 MAC 选择转发行为。",
+      "solves": "解决交换机无需人工配置即可学习局域网主机位置的问题。",
+      "input": [
+        "入端口",
+        "源 MAC",
+        "目的 MAC",
+        "MAC 表"
+      ],
+      "output": [
+        "更新后的 MAC 表",
+        "转发动作"
+      ],
+      "mechanism": [
+        "记录源 MAC 与入端口",
+        "查目的 MAC",
+        "未知目的泛洪",
+        "目的在同端口则过滤",
+        "目的在其他端口则转发"
+      ],
+      "fieldsOrStates": [
+        "MAC 地址表",
+        "入端口",
+        "老化时间",
+        "泛洪",
+        "过滤",
+        "转发"
+      ],
+      "examRules": [
+        "交换机根据源 MAC 学习，根据目的 MAC 转发。",
+        "未知单播和广播通常泛洪到除入端口外端口。"
+      ],
+      "pitfalls": [
+        "不要说交换机根据目的 MAC 学习。",
+        "过滤不是丢弃错误帧，而是目的就在入端口方向无需转发。"
+      ],
+      "related": [
+        "mac-address",
+        "hub-switch",
+        "vlan"
+      ],
+      "examTemplates": [],
+      "children": [
+        "switch-table-building-exam"
+      ]
+    },
+    {
+      "id": "csma-ca-wlan",
+      "title": "CSMA/CA 与无线局域网 802.11 概要",
+      "layer": "data-link",
+      "type": "mechanism",
+      "summary": "无线局域网常用 CSMA/CA 避免碰撞，802.11 是典型 WLAN 标准族。",
+      "keywords": [
+        "CSMA/CA",
+        "802.11",
+        "无线局域网",
+        "ACK"
+      ],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80,
+      "definition": "CSMA/CA 是无线局域网中通过监听、退避和确认等方式尽量避免碰撞的介质访问机制。",
+      "solves": "解决无线环境中难以边发送边检测碰撞的问题。",
+      "input": [
+        "无线信道状态",
+        "退避计时器",
+        "ACK"
+      ],
+      "output": [
+        "发送机会",
+        "成功确认或重传"
+      ],
+      "mechanism": [
+        "发送前监听信道",
+        "空闲后随机退避",
+        "发送数据帧",
+        "接收端返回 ACK",
+        "未收到 ACK 则重传"
+      ],
+      "fieldsOrStates": [
+        "退避窗口",
+        "ACK",
+        "RTS/CTS",
+        "隐藏站问题"
+      ],
+      "examRules": [
+        "无线局域网主要使用 CSMA/CA，不是 CSMA/CD。",
+        "802.11 工作在数据链路层和物理层相关范围。"
+      ],
+      "pitfalls": [
+        "不要把 CSMA/CD 套到无线局域网。",
+        "CA 是避免碰撞，不保证完全没有碰撞。"
+      ],
+      "related": [
+        "csma-cd",
+        "collision-domain"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "bit-baud-symbol",
+      "title": "比特率、波特率与码元",
+      "layer": "physical",
+      "type": "formula",
+      "summary": "比特率表示每秒比特数，波特率表示每秒码元数，码元可携带多个比特。",
+      "keywords": [
+        "比特率",
+        "波特率",
+        "码元"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "比特率是单位时间传输的比特数，波特率是单位时间传输的码元数，码元是承载信息的信号基本单位。",
+      "solves": "解决物理层速率单位换算和多进制调制计算问题。",
+      "input": [
+        "码元速率",
+        "码元种类数",
+        "每码元比特数"
+      ],
+      "output": [
+        "比特率",
+        "波特率"
+      ],
+      "mechanism": [
+        "确定一个码元可表示的状态数",
+        "计算每码元携带比特数",
+        "乘以码元速率得到比特率"
+      ],
+      "fieldsOrStates": [
+        "bit/s",
+        "Baud",
+        "码元",
+        "调制阶数"
+      ],
+      "formulas": [
+        "比特率 = 波特率 × log2(M)"
+      ],
+      "examRules": [
+        "一个码元不一定只携带 1 bit。",
+        "波特率和比特率只有在二进制码元时常相等。"
+      ],
+      "pitfalls": [
+        "不要把 bit/s 和 Baud 无条件等同。",
+        "M 必须是码元可取状态数。"
+      ],
+      "related": [
+        "bandwidth-channel-limit",
+        "encoding-transmission"
+      ],
+      "examTemplates": [
+        {
+          "title": "比特率与波特率换算",
+          "rule": "Rb = B × log2(M)",
+          "steps": [
+            "确定码元种类 M",
+            "求每码元 bit 数",
+            "乘以波特率",
+            "检查单位"
+          ]
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "bandwidth-channel-limit",
+      "title": "带宽、奈奎斯特定理与香农公式",
+      "layer": "physical",
+      "type": "formula",
+      "summary": "带宽限制信道最高码元率，奈奎斯特和香农公式给出理想或有噪信道的容量上限。",
+      "keywords": [
+        "带宽",
+        "奈奎斯特定理",
+        "香农公式",
+        "信道容量"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "带宽是信道可通过频率范围；奈奎斯特定理关注无噪声有限带宽信道，香农公式考虑噪声下容量上限。",
+      "solves": "解决物理层信道最高传输速率估算问题。",
+      "input": [
+        "带宽",
+        "信噪比",
+        "码元状态数"
+      ],
+      "output": [
+        "最大码元率",
+        "信道容量"
+      ],
+      "mechanism": [
+        "无噪声按奈奎斯特估算码元率",
+        "多电平码元增加每码元比特",
+        "有噪声按香农公式估算容量",
+        "比较题目约束取合理上限"
+      ],
+      "fieldsOrStates": [
+        "Hz",
+        "S/N",
+        "dB",
+        "码元状态数"
+      ],
+      "formulas": [
+        "奈奎斯特: C = 2W log2(V)",
+        "香农: C = W log2(1 + S/N)"
+      ],
+      "examRules": [
+        "dB 转普通信噪比后才能代入香农公式。",
+        "奈奎斯特和香农适用条件不同。"
+      ],
+      "pitfalls": [
+        "不要把带宽 Hz 直接当 bit/s。",
+        "有噪信道不能只用增加电平数无限提高速率。"
+      ],
+      "related": [
+        "bit-baud-symbol",
+        "bandwidth-delay-product"
+      ],
+      "examTemplates": [
+        {
+          "title": "信道极限速率",
+          "rule": "按题意选择奈奎斯特或香农",
+          "steps": [
+            "判断是否给噪声或信噪比",
+            "统一带宽单位",
+            "dB 转 S/N",
+            "代入公式",
+            "比较限制条件"
+          ]
+        }
+      ],
+      "children": [
+        "nyquist-exam-template",
+        "shannon-exam-template"
+      ]
+    },
+    {
+      "id": "line-coding-manchester",
+      "title": "编码方式与曼彻斯特编码",
+      "layer": "physical",
+      "type": "concept",
+      "summary": "线路编码把比特映射为信号变化，曼彻斯特编码用跳变兼顾数据和同步。",
+      "keywords": [
+        "编码方式",
+        "曼彻斯特编码",
+        "线路编码"
+      ],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80,
+      "definition": "线路编码是把比特序列转换为物理信号的规则，曼彻斯特编码在每个码元中间发生跳变。",
+      "solves": "解决接收端同步、直流分量和比特表示问题。",
+      "input": [
+        "比特序列",
+        "编码规则"
+      ],
+      "output": [
+        "物理信号波形"
+      ],
+      "mechanism": [
+        "按编码规则映射 0/1",
+        "用电平或跳变表示码元",
+        "接收端根据时钟恢复比特"
+      ],
+      "fieldsOrStates": [
+        "电平",
+        "跳变",
+        "同步",
+        "码元"
+      ],
+      "examRules": [
+        "曼彻斯特编码每个比特周期中间有跳变。",
+        "编码方式会影响带宽利用率和同步能力。"
+      ],
+      "pitfalls": [
+        "不要把编码和加密混淆。",
+        "曼彻斯特编码的具体高低电平含义要看题目约定。"
+      ],
+      "related": [
+        "encoding-transmission",
+        "bit-baud-symbol"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "multiplexing-methods",
+      "title": "FDM / TDM / WDM / CDM",
+      "layer": "physical",
+      "type": "comparison",
+      "summary": "复用技术让多个信号共享同一传输介质。",
+      "keywords": [
+        "FDM",
+        "TDM",
+        "WDM",
+        "CDM",
+        "复用"
+      ],
+      "importance": "low",
+      "examDepth": "了解",
+      "displayMode": "summary",
+      "reviewPriority": 80,
+      "definition": "频分、时分、波分和码分复用分别按频率、时间、光波长和码序列区分多个用户或信道。",
+      "solves": "解决多路信号如何共享物理介质的问题。",
+      "input": [
+        "多个信号",
+        "复用规则",
+        "传输介质"
+      ],
+      "output": [
+        "复用后的信号",
+        "分用后的各路信号"
+      ],
+      "mechanism": [
+        "FDM 分配不同频带",
+        "TDM 分配不同时隙",
+        "WDM 分配不同光波长",
+        "CDM 用不同码片序列区分"
+      ],
+      "fieldsOrStates": [
+        "频带",
+        "时隙",
+        "波长",
+        "码片"
+      ],
+      "examRules": [
+        "WDM 可视为光纤中的频分思想。",
+        "TDM 关注时间片分配。"
+      ],
+      "pitfalls": [
+        "不要把复用和交换混为一谈。",
+        "不同复用方式区分维度不同。"
+      ],
+      "related": [
+        "physical-medium",
+        "bandwidth-channel-limit"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "delay-model",
+      "title": "传输时延、传播时延、排队时延与处理时延",
+      "layer": "physical",
+      "type": "formula",
+      "summary": "网络总时延通常由处理、排队、传输和传播时延组成。",
+      "keywords": [
+        "传输时延",
+        "传播时延",
+        "排队时延",
+        "处理时延"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 10,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "时延计算题最常混淆传输时延和传播时延：传输时延看分组长度和发送速率，传播时延看链路距离和传播速度。"
+        }
+      ],
+      "definition": "处理时延是节点检查处理时间，排队时延是等待发送时间，传输时延是把比特推上链路的时间，传播时延是信号在介质中传播时间。",
+      "solves": "解决网络性能题中总时延如何拆分和计算的问题。",
+      "input": [
+        "分组长度",
+        "发送速率",
+        "链路距离",
+        "传播速度",
+        "队列状态"
+      ],
+      "output": [
+        "各类时延",
+        "端到端总时延"
+      ],
+      "mechanism": [
+        "节点处理分组",
+        "分组在队列等待",
+        "发送端按速率发送比特",
+        "信号沿介质传播",
+        "多跳累加"
+      ],
+      "fieldsOrStates": [
+        "L",
+        "R",
+        "d",
+        "v",
+        "队列长度"
+      ],
+      "formulas": [
+        "传输时延 = L / R",
+        "传播时延 = d / v",
+        "总时延 = 处理 + 排队 + 传输 + 传播"
+      ],
+      "examRules": [
+        "传输时延与分组长度和发送速率有关。",
+        "传播时延与距离和介质传播速度有关。"
+      ],
+      "pitfalls": [
+        "不要把带宽大理解为传播速度快。",
+        "多跳场景每跳可能都有传输时延。"
+      ],
+      "related": [
+        "bandwidth-delay-product",
+        "rtt-rto"
+      ],
+      "examTemplates": [
+        {
+          "title": "时延综合计算",
+          "rule": "逐段拆分处理、排队、传输、传播",
+          "steps": [
+            "统一单位",
+            "计算每跳传输时延",
+            "计算每段传播时延",
+            "加入处理和排队时延",
+            "按路径累加"
+          ]
+        }
+      ],
+      "children": [
+        "bandwidth-delay-product",
+        "channel-utilization",
+        "throughput"
+      ]
+    },
+    {
+      "id": "bandwidth-delay-product",
+      "title": "带宽时延积",
+      "layer": "physical",
+      "type": "formula",
+      "summary": "带宽时延积表示链路中可同时容纳的比特数量。",
+      "keywords": [
+        "带宽时延积",
+        "BDP",
+        "RTT",
+        "窗口"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "带宽时延积是带宽与传播时延或 RTT 的乘积，用来估计链路管道中在途数据量。",
+      "solves": "解决高速长距离链路需要多大窗口才能填满管道的问题。",
+      "input": [
+        "带宽",
+        "传播时延或 RTT"
+      ],
+      "output": [
+        "在途比特数",
+        "窗口估计"
+      ],
+      "mechanism": [
+        "把带宽换成 bit/s",
+        "把时延换成秒",
+        "相乘得到链路中比特数",
+        "用于估算窗口或缓存需求"
+      ],
+      "fieldsOrStates": [
+        "带宽",
+        "传播时延",
+        "RTT",
+        "窗口大小"
+      ],
+      "formulas": [
+        "BDP = 带宽 × 时延"
+      ],
+      "examRules": [
+        "单位通常是 bit，换算字节要除以 8。",
+        "使用单程时延还是 RTT 要看题目语境。"
+      ],
+      "pitfalls": [
+        "不要忘记单位换算。",
+        "BDP 不是实际吞吐量，只是容量估计。"
+      ],
+      "related": [
+        "delay-model",
+        "sliding-window"
+      ],
+      "examTemplates": [
+        {
+          "title": "带宽时延积计算",
+          "rule": "BDP = R × delay",
+          "steps": [
+            "统一带宽单位",
+            "统一时延单位",
+            "相乘得 bit",
+            "必要时换算 Byte",
+            "结合窗口判断能否填满链路"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "web-access-process",
+      "title": "从浏览器访问网页全过程",
+      "layer": "application / transport / network / data-link",
+      "type": "exam-template",
+      "summary": "综合串联 DNS、TCP、HTTP、IP、ARP 和以太网封装过程。",
+      "keywords": [
+        "访问网页全过程",
+        "DNS",
+        "TCP",
+        "HTTP",
+        "ARP",
+        "封装"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 1,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "浏览器访问网页是 408 高频综合题：先用 [[DNS|dns]] 解析域名，再建立 [[TCP三次握手|tcp-three-way-handshake]]，发送 [[HTTP|http]] 请求，经过 [[IP地址 vs MAC地址|ip-vs-mac]] 与 [[ARP|arp]] 完成逐跳交付。"
+        }
+      ],
+      "definition": "访问网页全过程是从用户输入 URL 到浏览器收到页面资源的一系列跨层协议协作。",
+      "solves": "解决综合题中如何按层次组织 DNS、TCP、HTTP、IP、ARP 和以太网步骤的问题。",
+      "input": [
+        "URL",
+        "DNS 配置",
+        "路由表",
+        "ARP 缓存"
+      ],
+      "output": [
+        "HTTP 响应资源",
+        "浏览器渲染输入"
+      ],
+      "mechanism": [
+        "解析 URL",
+        "DNS 查询得到服务器 IP",
+        "TCP 三次握手",
+        "发送 HTTP/HTTPS 请求",
+        "IP 路由转发",
+        "每跳用 ARP 和 MAC 封装",
+        "服务器响应返回"
+      ],
+      "fieldsOrStates": [
+        "域名",
+        "IP",
+        "端口",
+        "TCP 连接",
+        "MAC",
+        "路由表",
+        "ARP 表"
+      ],
+      "examRules": [
+        "按应用层到物理层封装，接收端反向解封装。",
+        "跨路由器时 IP 通常不变，MAC 逐跳变化。"
+      ],
+      "pitfalls": [
+        "不要在跨网段时 ARP 远端主机 MAC。",
+        "不要漏掉端口号定位进程。"
+      ],
+      "related": [
+        "dns",
+        "tcp-three-way-handshake",
+        "http",
+        "arp",
+        "encapsulation"
+      ],
+      "examTemplates": [
+        {
+          "title": "访问网页综合流程",
+          "rule": "应用语义先行，逐层封装转发",
+          "steps": [
+            "DNS 解析域名",
+            "建立 TCP 连接",
+            "发送 HTTP 请求",
+            "网络层查路由",
+            "链路层 ARP 得下一跳 MAC",
+            "逐跳转发并解封装"
+          ]
+        }
+      ],
+      "teachingTemplate": "process"
+    },
+    {
+      "id": "pdu-name-change",
+      "title": "PDU 名称变化",
+      "layer": "application / transport / network / data-link / physical",
+      "type": "concept",
+      "summary": "不同层的数据单元名称不同：报文、报文段、数据报/分组、帧、比特流。",
+      "keywords": [
+        "PDU",
+        "报文",
+        "报文段",
+        "帧",
+        "比特流"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "PDU 是协议数据单元，不同层封装后的数据单元有不同名称。",
+      "solves": "解决分层题中如何准确写出各层数据名称的问题。",
+      "input": [
+        "上层数据",
+        "协议层次"
+      ],
+      "output": [
+        "对应层 PDU 名称"
+      ],
+      "mechanism": [
+        "应用层形成报文",
+        "传输层形成报文段或用户数据报",
+        "网络层形成 IP 数据报或分组",
+        "链路层形成帧",
+        "物理层发送比特流"
+      ],
+      "fieldsOrStates": [
+        "报文",
+        "报文段",
+        "用户数据报",
+        "IP 数据报",
+        "帧",
+        "比特流"
+      ],
+      "examRules": [
+        "PDU 名称随层次变化。",
+        "UDP 常称用户数据报，TCP 常称报文段。"
+      ],
+      "pitfalls": [
+        "不要把所有层的数据都叫包。",
+        "比特流属于物理层表达。"
+      ],
+      "related": [
+        "layering-encapsulation",
+        "encapsulation",
+        "frame-to-bitstream"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "host-process-delivery",
+      "title": "主机到主机 vs 进程到进程",
+      "layer": "transport / network",
+      "type": "comparison",
+      "summary": "网络层提供主机到主机交付，传输层提供进程到进程交付。",
+      "keywords": [
+        "主机到主机",
+        "进程到进程",
+        "端口号",
+        "IP"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "主机到主机交付依赖 IP 地址和网络层转发，进程到进程交付依赖传输层端口和分用。",
+      "solves": "解决层次职责题中 IP 地址和端口号分别负责什么的问题。",
+      "input": [
+        "源/目的 IP",
+        "源/目的端口",
+        "协议类型"
+      ],
+      "output": [
+        "目标主机",
+        "目标进程"
+      ],
+      "mechanism": [
+        "网络层按目的 IP 把分组送到主机",
+        "传输层读取目的端口",
+        "按套接字交给对应进程"
+      ],
+      "fieldsOrStates": [
+        "IP 地址",
+        "端口号",
+        "套接字",
+        "协议字段"
+      ],
+      "examRules": [
+        "IP 定位主机，端口定位进程。",
+        "TCP/UDP 属于传输层。"
+      ],
+      "pitfalls": [
+        "不要说端口号用于路由器选路。",
+        "主机到主机不等于相邻节点链路交付。"
+      ],
+      "related": [
+        "ports-for-process",
+        "transport-multiplexing-demultiplexing",
+        "end-to-end-vs-point-to-point"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "address-change-switch-router",
+      "title": "经过交换机 / 路由器时地址变化",
+      "layer": "network / data-link",
+      "type": "comparison",
+      "summary": "经过交换机通常不改变帧地址，经过路由器会重新封装链路层 MAC。",
+      "keywords": [
+        "地址变化",
+        "交换机",
+        "路由器",
+        "IP",
+        "MAC"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "definition": "交换机在同一二层网络内按 MAC 转发帧；路由器跨三层网络转发 IP 数据报并为下一跳重新封装 MAC。",
+      "solves": "解决转发路径题中源/目的 IP 和源/目的 MAC 如何变化的问题。",
+      "input": [
+        "转发设备",
+        "当前链路",
+        "下一跳",
+        "IP 数据报"
+      ],
+      "output": [
+        "每跳地址表",
+        "重封装结果"
+      ],
+      "mechanism": [
+        "交换机查 MAC 表转发",
+        "IP 数据报内容通常不变",
+        "路由器解封装到网络层",
+        "路由器查下一跳并重新封装源/目的 MAC"
+      ],
+      "fieldsOrStates": [
+        "源 IP",
+        "目的 IP",
+        "源 MAC",
+        "目的 MAC",
+        "下一跳",
+        "出接口"
+      ],
+      "examRules": [
+        "路由器转发时目的 IP 通常不变，MAC 地址逐跳变化。",
+        "交换机不改写 IP 地址。"
+      ],
+      "pitfalls": [
+        "不要把最终主机 MAC 写成第一跳跨网帧目的 MAC。",
+        "交换机不是按 IP 地址转发普通二层帧。"
+      ],
+      "related": [
+        "ip-vs-mac",
+        "switch-learning-forwarding",
+        "direct-indirect-delivery"
+      ],
+      "examTemplates": [],
+      "teachingTemplate": "process"
+    },
+    {
+      "id": "arp-vs-dns",
+      "title": "ARP vs DNS",
+      "layer": "application / network / data-link",
+      "type": "comparison",
+      "summary": "DNS 把域名解析为 IP，ARP 在同一广播域内把下一跳 IP 解析为 MAC。",
+      "keywords": [
+        "ARP",
+        "DNS",
+        "域名",
+        "MAC"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "DNS 是应用层名字解析系统，ARP 是同一局域网内 IP 到 MAC 的地址解析协议。",
+      "solves": "解决域名到 IP 和 IP 到 MAC 两类解析任务的边界问题。",
+      "input": [
+        "域名",
+        "目标或下一跳 IP",
+        "广播域"
+      ],
+      "output": [
+        "IP 地址",
+        "MAC 地址"
+      ],
+      "mechanism": [
+        "DNS 查询域名得到 IP",
+        "主机判断下一跳",
+        "ARP 广播查询下一跳 MAC",
+        "用 MAC 封装帧"
+      ],
+      "fieldsOrStates": [
+        "域名",
+        "资源记录",
+        "ARP 表",
+        "广播域",
+        "下一跳"
+      ],
+      "examRules": [
+        "DNS 可跨网络查询，ARP 只在同一广播域内解析下一跳 MAC。",
+        "跨网段时 ARP 网关 MAC。"
+      ],
+      "pitfalls": [
+        "不要用 ARP 查询域名。",
+        "不要跨路由器 ARP 远端主机 MAC。"
+      ],
+      "related": [
+        "dns",
+        "arp",
+        "direct-indirect-delivery"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "switch-vs-router",
+      "title": "交换机 vs 路由器",
+      "layer": "network / data-link",
+      "type": "comparison",
+      "summary": "交换机主要按 MAC 地址二层转发，路由器按 IP 地址三层转发并隔离广播域。",
+      "keywords": [
+        "交换机",
+        "路由器",
+        "二层",
+        "三层"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "交换机是数据链路层互连设备，路由器是网络层互连设备。",
+      "solves": "解决网络设备层次、转发依据、广播域和冲突域判断问题。",
+      "input": [
+        "帧",
+        "IP 数据报",
+        "MAC 表",
+        "路由表"
+      ],
+      "output": [
+        "二层转发",
+        "三层转发"
+      ],
+      "mechanism": [
+        "交换机学习 MAC 并转发帧",
+        "路由器解封装查 IP 路由",
+        "路由器重新封装链路层帧",
+        "广播域在路由器处隔离"
+      ],
+      "fieldsOrStates": [
+        "MAC 表",
+        "路由表",
+        "广播域",
+        "冲突域"
+      ],
+      "examRules": [
+        "交换机默认不隔离广播域，路由器隔离广播域。",
+        "路由器每跳重写 MAC 地址。"
+      ],
+      "pitfalls": [
+        "不要说交换机根据 IP 路由。",
+        "三层交换机特殊能力题目会明确说明。"
+      ],
+      "related": [
+        "hub-switch",
+        "routing-table-forwarding-table",
+        "broadcast-domain"
+      ],
+      "examTemplates": [],
+      "children": [
+        "switch-router-l3switch-comparison"
+      ]
+    },
+    {
+      "id": "tcp-vs-link-reliable",
+      "title": "TCP 可靠传输 vs 数据链路层可靠传输",
+      "layer": "transport / data-link",
+      "type": "comparison",
+      "summary": "TCP 可靠传输是端到端的，数据链路层可靠传输只覆盖相邻节点或单条链路。",
+      "keywords": [
+        "TCP 可靠传输",
+        "链路层可靠传输",
+        "端到端",
+        "逐跳"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "TCP 在端系统之间提供可靠字节流，链路层可靠传输在相邻节点链路上恢复帧错误。",
+      "solves": "解决不同层可靠性范围和责任边界容易混淆的问题。",
+      "input": [
+        "TCP 报文段",
+        "链路层帧",
+        "ACK",
+        "重传"
+      ],
+      "output": [
+        "端到端可靠性",
+        "单链路可靠性"
+      ],
+      "mechanism": [
+        "链路层可在每跳检错重传",
+        "网络层仍尽力交付",
+        "TCP 在端系统确认和重传",
+        "应用看到可靠字节流"
+      ],
+      "fieldsOrStates": [
+        "TCP ACK",
+        "链路层 ACK",
+        "帧序号",
+        "字节序号"
+      ],
+      "examRules": [
+        "TCP 可靠性是端到端。",
+        "链路层可靠性不能替代跨路径端到端可靠性。"
+      ],
+      "pitfalls": [
+        "不要说有链路层可靠传输就不需要 TCP。",
+        "路由器不维护 TCP 可靠传输状态。"
+      ],
+      "related": [
+        "tcp-reliable-transmission",
+        "error-control",
+        "end-to-end-vs-point-to-point"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "flow-vs-congestion",
+      "title": "流量控制 vs 拥塞控制",
+      "layer": "transport",
+      "type": "comparison",
+      "summary": "流量控制保护接收方，拥塞控制保护网络。",
+      "keywords": [
+        "流量控制",
+        "拥塞控制",
+        "rwnd",
+        "cwnd"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 50,
+      "definition": "流量控制根据接收端缓存能力限制发送，拥塞控制根据网络拥塞程度限制发送。",
+      "solves": "解决 TCP 窗口题中 rwnd 和 cwnd 含义与来源的区分问题。",
+      "input": [
+        "接收窗口",
+        "拥塞窗口",
+        "ACK",
+        "丢包事件"
+      ],
+      "output": [
+        "实际发送窗口",
+        "发送速率"
+      ],
+      "mechanism": [
+        "接收端通告 rwnd",
+        "发送端维护 cwnd",
+        "实际发送受二者较小值限制",
+        "根据 ACK 和拥塞事件调整窗口"
+      ],
+      "fieldsOrStates": [
+        "rwnd",
+        "cwnd",
+        "ssthresh",
+        "接收缓存",
+        "网络拥塞"
+      ],
+      "formulas": [
+        "发送窗口 <= min(rwnd, cwnd)"
+      ],
+      "examRules": [
+        "流量控制看接收方，拥塞控制看网络。",
+        "实际窗口通常取 rwnd 和 cwnd 的较小值。"
+      ],
+      "pitfalls": [
+        "不要把 rwnd 和 cwnd 来源写反。",
+        "接收方变慢不一定代表网络拥塞。"
+      ],
+      "related": [
+        "tcp-flow-control",
+        "tcp-congestion-control",
+        "sliding-window"
+      ],
+      "examTemplates": []
+    },
+    {
+      "id": "subnet-routing-arp-integrated",
+      "title": "子网划分 + 路由匹配 + ARP 综合题",
+      "layer": "network / data-link",
+      "type": "exam-template",
+      "summary": "综合使用子网判断、最长前缀匹配和 ARP 确定下一跳 MAC。",
+      "keywords": [
+        "子网划分",
+        "路由匹配",
+        "ARP",
+        "综合题"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 20,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "这类题的固定顺序是：先用 [[子网掩码|subnet-mask]] 判断同网段，再用 [[最长前缀匹配|longest-prefix-match]] 找下一跳，最后用 [[ARP|arp]] 得到当前链路的目的 MAC。"
+        }
+      ],
+      "definition": "子网、路由和 ARP 综合题要求同时判断目的网络、下一跳和链路层封装地址。",
+      "solves": "解决跨层转发题中 IP 层决策和链路层交付如何衔接的问题。",
+      "input": [
+        "源/目的 IP",
+        "子网掩码",
+        "路由表",
+        "ARP 缓存"
+      ],
+      "output": [
+        "下一跳 IP",
+        "目的 MAC",
+        "转发路径"
+      ],
+      "mechanism": [
+        "计算源和目的网络",
+        "判断直接或间接交付",
+        "查路由表最长前缀",
+        "确定下一跳",
+        "ARP 解析下一跳 MAC"
+      ],
+      "fieldsOrStates": [
+        "网络地址",
+        "路由表",
+        "下一跳",
+        "ARP 表",
+        "MAC 地址"
+      ],
+      "examRules": [
+        "同网段 ARP 目的主机，跨网段 ARP 网关或下一跳。",
+        "路由表选择最长匹配前缀。"
+      ],
+      "pitfalls": [
+        "不要跨广播域 ARP 远端主机。",
+        "不要先写 MAC 地址再判断下一跳。"
+      ],
+      "related": [
+        "network-address-broadcast-host",
+        "longest-prefix-match",
+        "direct-indirect-delivery",
+        "arp"
+      ],
+      "examTemplates": [
+        {
+          "title": "子网 + 路由 + ARP 综合",
+          "rule": "网络层先定下一跳，链路层再定下一跳 MAC",
+          "steps": [
+            "计算源/目的网络",
+            "判断直接或间接交付",
+            "按最长前缀匹配查路由",
+            "确定 ARP 的目标 IP",
+            "写当前链路源/目的 MAC"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "channel-utilization",
+      "title": "信道利用率",
+      "layer": "physical",
+      "type": "formula",
+      "summary": "信道利用率表示发送有效数据的时间或速率占信道可用能力的比例。",
+      "keywords": [
+        "信道利用率",
+        "利用率",
+        "U",
+        "停止等待",
+        "带宽时延积"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 18,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "信道利用率常和[[传输时延、传播时延、排队时延与处理时延|delay-model]]、[[带宽时延积|bandwidth-delay-product]]、[[停止等待协议|stop-and-wait]]一起考。核心不是背结论，而是先判断一个周期内哪些时间真正用于发送有效数据。"
+        }
+      ],
+      "definition": "信道利用率是信道用于传送有效数据的时间或有效吞吐速率占理论可用传输能力的比例。",
+      "solves": "解决协议开销、传播时延和等待确认导致信道不能持续发送时，实际利用程度如何量化的问题。",
+      "input": [
+        "数据帧发送时延",
+        "传播时延",
+        "确认帧开销",
+        "窗口大小",
+        "链路带宽"
+      ],
+      "output": [
+        "信道利用率",
+        "有效吞吐量估计"
+      ],
+      "mechanism": [
+        "确定一个发送周期",
+        "找出周期内真正发送有效数据的时间或数据量",
+        "除以周期总时间或链路理论能力",
+        "滑动窗口场景还要判断窗口是否足以填满带宽时延积"
+      ],
+      "fieldsOrStates": [
+        "发送时延",
+        "传播时延",
+        "RTT",
+        "窗口大小",
+        "确认等待时间"
+      ],
+      "formulas": [
+        "停止等待近似利用率 U = T发送 / (T发送 + 2T传播 + T确认)",
+        "窗口协议近似利用率 U = min(1, W × T发送 / RTT)",
+        "有效吞吐量 = 理论带宽 × 利用率"
+      ],
+      "examRules": [
+        "题目给出帧长和带宽时，先算发送时延。",
+        "传播时延越大，停止等待利用率通常越低。",
+        "窗口足够大时，信道可以被连续填满，利用率按 1 处理。"
+      ],
+      "pitfalls": [
+        "不要把传播时延当成发送时延。",
+        "不要忘记往返等待通常是 2 倍传播时延。",
+        "确认帧是否忽略要看题目说明。"
+      ],
+      "related": [
+        "delay-model",
+        "bandwidth-delay-product",
+        "stop-and-wait",
+        "sliding-window-arq-overview",
+        "throughput"
+      ],
+      "examTemplates": [
+        {
+          "title": "信道利用率计算",
+          "rule": "利用率 = 有效发送时间 / 一个完整发送周期",
+          "steps": [
+            "统一单位",
+            "计算发送时延和传播时延",
+            "确定是否等待确认",
+            "写出周期总时间",
+            "用有效发送时间除以周期总时间"
+          ]
+        }
+      ],
+      "details": [
+        {
+          "id": "window-fill",
+          "title": "窗口能否填满信道",
+          "content": "如果窗口内可连续发送的数据量不小于带宽时延积对应的数据量，发送端通常可以持续发送，利用率接近 1；否则利用率受窗口大小限制。"
+        }
+      ],
+      "references": [
+        {
+          "title": "408 计算机网络复习笔记",
+          "type": "note",
+          "target": "物理层与数据链路层时延计算"
+        }
+      ]
+    },
+    {
+      "id": "throughput",
+      "title": "吞吐量",
+      "layer": "physical",
+      "type": "formula",
+      "summary": "吞吐量表示单位时间内实际成功传输的数据量，通常小于链路标称速率。",
+      "keywords": [
+        "吞吐量",
+        "有效吞吐量",
+        "速率",
+        "throughput"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 19,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "吞吐量看实际成功交付的数据速率，常由[[信道利用率|channel-utilization]]和链路理论带宽共同决定。和[[带宽、奈奎斯特定理与香农公式|bandwidth-channel-limit]]相比，它更强调协议运行后的有效结果。"
+        }
+      ],
+      "definition": "吞吐量是单位时间内网络、链路或协议实际成功传输的有效数据量。",
+      "solves": "解决理论速率与实际传输效果不一致时，如何衡量真实传输能力的问题。",
+      "input": [
+        "有效数据量",
+        "传输总时间",
+        "链路带宽",
+        "协议利用率"
+      ],
+      "output": [
+        "平均吞吐量",
+        "有效数据率"
+      ],
+      "mechanism": [
+        "确定统计时间范围",
+        "只统计成功传输的有效数据",
+        "排除等待、重传、首部等开销对有效载荷的影响",
+        "用有效数据量除以总时间"
+      ],
+      "fieldsOrStates": [
+        "有效载荷",
+        "总耗时",
+        "重传次数",
+        "协议开销"
+      ],
+      "formulas": [
+        "吞吐量 = 有效数据量 / 总时间",
+        "有效吞吐量 = 带宽 × 信道利用率"
+      ],
+      "examRules": [
+        "题目问实际传输效果通常答吞吐量，不是标称带宽。",
+        "如果存在重传或等待，要把额外时间算入总时间。",
+        "吞吐量单位常用 bit/s、B/s，注意换算。"
+      ],
+      "pitfalls": [
+        "不要把带宽直接等同于吞吐量。",
+        "不要把首部和确认开销当成应用有效数据。",
+        "注意 bit 和 Byte 的换算。"
+      ],
+      "related": [
+        "channel-utilization",
+        "bandwidth-channel-limit",
+        "delay-model"
+      ],
+      "examTemplates": [
+        {
+          "title": "平均吞吐量计算",
+          "rule": "吞吐量 = 成功交付的有效数据量 / 总耗时",
+          "steps": [
+            "确认统计的是 bit 还是 Byte",
+            "计算完整传输总时间",
+            "排除题目要求不计入的数据",
+            "相除并统一单位"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyquist-exam-template",
+      "title": "奈奎斯特定理计算题模板",
+      "layer": "physical",
+      "type": "exam-template",
+      "summary": "无噪声信道下由带宽和码元离散状态数计算最高数据率。",
+      "keywords": [
+        "奈奎斯特",
+        "码元",
+        "无噪声",
+        "最高数据率"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 14,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "奈奎斯特定理用于理想低通信道，通常和[[比特率、波特率与码元|bit-baud-symbol]]一起考。若题目给出噪声或信噪比，应优先判断是否改用[[香农公式计算题模板|shannon-exam-template]]。"
+        }
+      ],
+      "definition": "奈奎斯特定理给出无噪声带限信道中，最高码元传输速率和最高数据率的理论上限。",
+      "solves": "解决无噪声理想信道中，带宽和码元状态数能支持多大数据率的问题。",
+      "input": [
+        "信道带宽 B",
+        "码元离散状态数 V"
+      ],
+      "output": [
+        "最高数据率",
+        "最高码元率"
+      ],
+      "mechanism": [
+        "判断题目是否为无噪声带限信道",
+        "确定带宽 B",
+        "确定每个码元携带 log2V bit",
+        "代入 2B log2V"
+      ],
+      "fieldsOrStates": [
+        "带宽",
+        "码元状态数",
+        "每码元比特数"
+      ],
+      "formulas": [
+        "C = 2B log2V",
+        "最高码元率 = 2B Baud"
+      ],
+      "examRules": [
+        "无噪声题用奈奎斯特，不看信噪比。",
+        "V 是码元取值种类，不是比特数。",
+        "如果给的是每码元 n bit，则 V = 2^n。"
+      ],
+      "pitfalls": [
+        "不要把 log2V 写成 V。",
+        "不要把 Hz、kHz、MHz 单位混用。",
+        "不要把奈奎斯特和香农公式条件混淆。"
+      ],
+      "related": [
+        "bandwidth-channel-limit",
+        "bit-baud-symbol",
+        "shannon-exam-template"
+      ],
+      "examTemplates": [
+        {
+          "title": "奈奎斯特速率题",
+          "rule": "C = 2B log2V",
+          "steps": [
+            "确认无噪声条件",
+            "统一带宽单位为 Hz",
+            "求 log2V",
+            "代入公式得到 bit/s",
+            "按题目要求换算 kb/s 或 Mb/s"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "shannon-exam-template",
+      "title": "香农公式计算题模板",
+      "layer": "physical",
+      "type": "exam-template",
+      "summary": "有噪声信道下由带宽和信噪比计算信道极限容量。",
+      "keywords": [
+        "香农公式",
+        "信噪比",
+        "dB",
+        "信道容量"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 15,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "香农公式适用于有噪声信道，重点是把 dB 形式的信噪比转换为普通比值。它常和[[奈奎斯特定理计算题模板|nyquist-exam-template]]组成条件判断题。"
+        }
+      ],
+      "definition": "香农公式给出带宽为 B、信噪比为 S/N 的有噪声信道的极限信息传输速率。",
+      "solves": "解决有噪声信道中理论最大数据率受信噪比限制的问题。",
+      "input": [
+        "信道带宽 B",
+        "信噪比 S/N 或 dB 值"
+      ],
+      "output": [
+        "信道极限容量 C"
+      ],
+      "mechanism": [
+        "判断题目是否给出噪声或信噪比",
+        "把 dB 转换为普通比值",
+        "代入 B log2(1+S/N)",
+        "按单位换算结果"
+      ],
+      "fieldsOrStates": [
+        "带宽",
+        "信号功率",
+        "噪声功率",
+        "信噪比"
+      ],
+      "formulas": [
+        "C = B log2(1 + S/N)",
+        "SNR(dB) = 10 log10(S/N)"
+      ],
+      "examRules": [
+        "题目给 dB 时必须先转换。",
+        "香农公式结果是理论上限，不代表实际协议吞吐量。",
+        "有噪声容量题优先考虑香农公式。"
+      ],
+      "pitfalls": [
+        "不要把 dB 数值直接代入 S/N。",
+        "不要忘记公式中的 1+S/N。",
+        "不要把 B 写成 2B。"
+      ],
+      "related": [
+        "bandwidth-channel-limit",
+        "throughput",
+        "nyquist-exam-template"
+      ],
+      "examTemplates": [
+        {
+          "title": "香农容量题",
+          "rule": "C = B log2(1 + S/N)",
+          "steps": [
+            "统一带宽单位",
+            "若信噪比为 dB，先换成普通比值",
+            "代入公式",
+            "计算并换算单位"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "sliding-window-arq-overview",
+      "title": "滑动窗口协议总览",
+      "layer": "data-link",
+      "type": "mechanism",
+      "summary": "数据链路层滑动窗口协议用窗口和确认机制提高连续发送能力。",
+      "keywords": [
+        "滑动窗口协议",
+        "ARQ",
+        "停止等待",
+        "GBN",
+        "SR"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 22,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "数据链路层滑动窗口协议是[[停止等待协议|stop-and-wait]]的推广，典型实现包括[[后退 N 帧 GBN|gbn]]和[[选择重传 SR|selective-repeat]]。它和 TCP 的[[滑动窗口|sliding-window]]思想相似，但作用范围通常是单条链路。"
+        }
+      ],
+      "definition": "滑动窗口协议允许发送方在未收到前面帧确认前连续发送多个帧，并通过确认、重传和窗口移动控制可靠传输。",
+      "solves": "解决停止等待协议信道利用率低的问题，同时保持链路层差错恢复能力。",
+      "input": [
+        "发送窗口大小",
+        "接收窗口大小",
+        "帧序号",
+        "确认帧",
+        "超时或差错事件"
+      ],
+      "output": [
+        "连续发送的帧",
+        "累计确认或选择确认",
+        "必要的重传帧"
+      ],
+      "mechanism": [
+        "发送窗口内帧可以连续发送",
+        "收到确认后窗口前移",
+        "超时或差错时按 GBN 或 SR 规则重传",
+        "接收方按协议选择丢弃或缓存乱序帧"
+      ],
+      "fieldsOrStates": [
+        "发送窗口",
+        "接收窗口",
+        "帧序号",
+        "ACK",
+        "计时器"
+      ],
+      "formulas": [
+        "GBN 常见窗口上限 W <= 2^n - 1",
+        "SR 常见窗口上限 W <= 2^(n-1)"
+      ],
+      "examRules": [
+        "GBN 接收窗口通常为 1，出错后从错帧开始重传。",
+        "SR 可以缓存乱序帧，只重传出错或丢失帧。",
+        "序号位数限制窗口上限。"
+      ],
+      "pitfalls": [
+        "不要把 GBN 和 SR 的接收窗口混淆。",
+        "不要把链路层窗口题直接套 TCP 拥塞窗口。",
+        "窗口大小上限和序号空间有关。"
+      ],
+      "related": [
+        "stop-and-wait",
+        "gbn",
+        "selective-repeat",
+        "arq-utilization-exam",
+        "sliding-window"
+      ],
+      "examTemplates": [
+        {
+          "title": "滑动窗口协议判断",
+          "rule": "先判协议类型，再判窗口和重传范围",
+          "steps": [
+            "确认是停止等待、GBN 还是 SR",
+            "写出发送窗口和接收窗口",
+            "根据 ACK/超时移动窗口",
+            "确定需要重传哪些帧"
+          ]
+        }
+      ],
+      "children": [
+        "arq-utilization-exam"
+      ]
+    },
+    {
+      "id": "arq-utilization-exam",
+      "title": "信道利用率计算：停止等待 / GBN / SR",
+      "layer": "data-link",
+      "type": "exam-template",
+      "summary": "比较停止等待、GBN、SR 在窗口大小和 RTT 约束下的信道利用率。",
+      "keywords": [
+        "信道利用率",
+        "停止等待",
+        "GBN",
+        "SR",
+        "窗口"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 23,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "这类题把[[信道利用率|channel-utilization]]放到链路层可靠传输中考。停止等待看一个帧周期，GBN/SR 看窗口能否覆盖 RTT。"
+        }
+      ],
+      "definition": "链路层 ARQ 利用率题计算不同可靠传输协议在等待确认、窗口限制和重传影响下的有效发送比例。",
+      "solves": "解决不同 ARQ 协议为什么吞吐效率不同以及如何计算有效利用率的问题。",
+      "input": [
+        "帧长",
+        "数据率",
+        "传播时延",
+        "窗口大小",
+        "确认帧开销",
+        "差错或重传条件"
+      ],
+      "output": [
+        "协议利用率",
+        "有效吞吐量",
+        "重传帧范围"
+      ],
+      "mechanism": [
+        "先算单帧发送时延",
+        "再算 RTT 或一个确认周期",
+        "停止等待按单帧周期计算",
+        "窗口协议按窗口内可连续发送时间和 RTT 比较",
+        "出现差错时按 GBN 或 SR 重传规则修正"
+      ],
+      "fieldsOrStates": [
+        "发送窗口",
+        "RTT",
+        "发送时延",
+        "ACK",
+        "重传范围"
+      ],
+      "formulas": [
+        "停止等待 U = Tt / (Tt + 2Tp)",
+        "窗口协议 U = min(1, W × Tt / RTT)",
+        "吞吐量 = U × 数据率"
+      ],
+      "examRules": [
+        "窗口足够大时利用率按 1 封顶。",
+        "GBN 出错后可能重传多个帧，SR 通常只重传丢失帧。",
+        "确认帧时延是否忽略要按题干。"
+      ],
+      "pitfalls": [
+        "不要把窗口大小当成序号空间。",
+        "不要忘记利用率不能超过 1。",
+        "不要把单程传播时延误当 RTT。"
+      ],
+      "related": [
+        "channel-utilization",
+        "stop-and-wait",
+        "gbn",
+        "selective-repeat",
+        "sliding-window-arq-overview"
+      ],
+      "examTemplates": [
+        {
+          "title": "ARQ 利用率计算",
+          "rule": "U = min(1, 窗口可连续发送时间 / 一个往返确认周期)",
+          "steps": [
+            "统一帧长和速率单位",
+            "计算 Tt 和 Tp",
+            "确定 RTT 或确认周期",
+            "代入停止等待或窗口公式",
+            "结合重传规则修正有效吞吐量"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "switch-table-building-exam",
+      "title": "交换机转发表建立过程题型",
+      "layer": "data-link",
+      "type": "exam-template",
+      "summary": "根据帧的源 MAC 学习端口，根据目的 MAC 决定过滤、转发或泛洪。",
+      "keywords": [
+        "交换机转发表",
+        "自学习",
+        "泛洪",
+        "过滤",
+        "转发"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 26,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "交换机题的核心规则是“看源地址学习，看目的地址转发”。它依赖[[MAC 地址|mac-address]]，并直接影响[[广播域|broadcast-domain]]和[[VLAN|vlan]]题。"
+        }
+      ],
+      "definition": "交换机转发表建立题要求按帧到达顺序模拟交换机自学习和转发决策过程。",
+      "solves": "解决交换机如何从数据帧中学习 MAC-端口映射，以及未知目的地址如何处理的问题。",
+      "input": [
+        "帧到达端口",
+        "源 MAC 地址",
+        "目的 MAC 地址",
+        "当前转发表"
+      ],
+      "output": [
+        "更新后的转发表",
+        "过滤 / 转发 / 泛洪决策"
+      ],
+      "mechanism": [
+        "收到帧后记录源 MAC 与入端口映射",
+        "查目的 MAC 是否已在转发表中",
+        "若未知则向除入端口外其他端口泛洪",
+        "若已知且目的端口等于入端口则过滤",
+        "若已知且端口不同则定向转发"
+      ],
+      "fieldsOrStates": [
+        "源 MAC",
+        "目的 MAC",
+        "入端口",
+        "转发表",
+        "老化时间"
+      ],
+      "formulas": [],
+      "examRules": [
+        "学习动作看源 MAC，不看目的 MAC。",
+        "未知目的地址泛洪但不从入端口发回。",
+        "交换机隔离冲突域，但默认不隔离广播域。"
+      ],
+      "pitfalls": [
+        "不要把交换机转发表和路由表混淆。",
+        "不要忘记每收到一个帧都先学习源地址。",
+        "不要把广播帧当成可过滤的单播帧。"
+      ],
+      "related": [
+        "switch-learning-forwarding",
+        "mac-address",
+        "broadcast-domain",
+        "vlan"
+      ],
+      "examTemplates": [
+        {
+          "title": "交换机自学习表格题",
+          "rule": "源地址学习，目的地址转发",
+          "steps": [
+            "按时间顺序处理每一帧",
+            "先用源 MAC 更新表项",
+            "再查目的 MAC",
+            "写出泛洪、过滤或转发端口",
+            "更新最终转发表"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "vlan-broadcast-domain-exam",
+      "title": "VLAN 与广播域题型",
+      "layer": "data-link",
+      "type": "exam-template",
+      "summary": "VLAN 题重点判断广播帧范围、跨 VLAN 通信和 802.1Q 标记。",
+      "keywords": [
+        "VLAN",
+        "广播域",
+        "802.1Q",
+        "trunk",
+        "access"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 27,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "[[VLAN|vlan]]把一个二层交换网络划分为多个逻辑广播域。考试题通常问广播帧能到哪里，以及不同 VLAN 是否需要三层转发。"
+        }
+      ],
+      "definition": "VLAN 与广播域题要求根据端口 VLAN、链路类型和帧类型判断广播传播范围和跨 VLAN 通信条件。",
+      "solves": "解决同一交换机或多交换机环境下，哪些主机处于同一广播域的问题。",
+      "input": [
+        "端口所属 VLAN",
+        "Access/Trunk 链路",
+        "802.1Q 标签",
+        "广播或单播帧"
+      ],
+      "output": [
+        "广播范围",
+        "是否需要路由或三层交换",
+        "帧标签变化"
+      ],
+      "mechanism": [
+        "确定发送端 VLAN",
+        "广播帧只在同一 VLAN 内传播",
+        "Trunk 链路携带 VLAN 标签",
+        "跨 VLAN 通信需要三层设备转发"
+      ],
+      "fieldsOrStates": [
+        "VLAN ID",
+        "Access 端口",
+        "Trunk 端口",
+        "802.1Q 标签",
+        "广播帧"
+      ],
+      "formulas": [],
+      "examRules": [
+        "一个 VLAN 通常对应一个广播域。",
+        "不同 VLAN 二层不直接互通。",
+        "Trunk 口用于跨交换机承载多个 VLAN。"
+      ],
+      "pitfalls": [
+        "不要认为同一交换机上的所有端口都在同一广播域。",
+        "不要把 VLAN 当成物理隔离。",
+        "不要忽略跨 VLAN 通信需要三层转发。"
+      ],
+      "related": [
+        "vlan",
+        "broadcast-domain",
+        "switch-learning-forwarding",
+        "switch-router-l3switch-comparison"
+      ],
+      "examTemplates": [
+        {
+          "title": "VLAN 广播范围判断",
+          "rule": "广播只在同一 VLAN 内传播",
+          "steps": [
+            "标出每个端口 VLAN",
+            "判断链路是否为 Trunk",
+            "沿同 VLAN 传播广播帧",
+            "跨 VLAN 处停止或交给三层设备"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "subnetting-exam-template",
+      "title": "子网划分题型模板",
+      "layer": "network",
+      "type": "exam-template",
+      "summary": "根据主机数或子网数确定前缀长度，并计算子网地址范围。",
+      "keywords": [
+        "子网划分",
+        "CIDR",
+        "前缀长度",
+        "主机数"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 8,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "子网划分题必须和[[子网掩码|subnet-mask]]、[[网络地址 / 广播地址 / 可用主机地址|network-address-broadcast-host]]一起做，最后经常接[[最长前缀匹配|longest-prefix-match]]。"
+        }
+      ],
+      "definition": "子网划分题是在给定地址块内按主机数或子网数要求重新分配网络前缀的题型。",
+      "solves": "解决如何从一个较大的地址块划出满足规模要求的多个子网的问题。",
+      "input": [
+        "原始地址块",
+        "所需子网数",
+        "每个子网主机数",
+        "是否允许可变长子网"
+      ],
+      "output": [
+        "每个子网前缀",
+        "网络地址",
+        "广播地址",
+        "可用主机范围"
+      ],
+      "mechanism": [
+        "按最大主机数确定主机位数",
+        "由主机位数得到新前缀长度",
+        "按块大小递增划分子网",
+        "计算每个子网网络地址和广播地址",
+        "检查是否满足全部需求"
+      ],
+      "fieldsOrStates": [
+        "前缀长度",
+        "主机位",
+        "网络位",
+        "块大小",
+        "地址范围"
+      ],
+      "formulas": [
+        "可用主机数 = 2^h - 2",
+        "块大小 = 2^h",
+        "新前缀 = 32 - h"
+      ],
+      "examRules": [
+        "按主机数划分时先满足最大子网。",
+        "传统 IPv4 子网通常扣除网络地址和广播地址。",
+        "VLSM 题按需求从大到小分配。"
+      ],
+      "pitfalls": [
+        "不要忘记减去网络地址和广播地址。",
+        "不要把子网数和主机数的位数需求混淆。",
+        "不要让子网范围重叠。"
+      ],
+      "related": [
+        "subnet-mask",
+        "network-address-broadcast-host",
+        "cidr-route-aggregation",
+        "longest-prefix-match"
+      ],
+      "examTemplates": [
+        {
+          "title": "子网划分计算",
+          "rule": "先定主机位，再定前缀和块大小",
+          "steps": [
+            "按需求确定 h",
+            "计算前缀 /32-h",
+            "求块大小 2^h",
+            "从起始地址按块大小递增",
+            "列出网络地址、广播地址和可用范围"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "arp-process-exam",
+      "title": "ARP 工作过程题型",
+      "layer": "network / data-link",
+      "type": "exam-template",
+      "summary": "ARP 题重点判断要解析谁的 MAC、请求广播范围和缓存更新。",
+      "keywords": [
+        "ARP 过程",
+        "ARP 请求",
+        "ARP 响应",
+        "网关 MAC"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 10,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "ARP 不解析最终域名，而是在当前链路内把下一跳 IP 解析为 MAC。直接交付时解析目标主机，间接交付时解析默认网关，判断依据来自[[直接交付与间接交付|direct-indirect-delivery]]。"
+        }
+      ],
+      "definition": "ARP 工作过程题要求根据通信双方是否同网段，判断 ARP 请求目标、广播范围和得到的 MAC 地址。",
+      "solves": "解决发送 IP 数据报前，当前链路帧目的 MAC 应该填谁的问题。",
+      "input": [
+        "源主机 IP/MAC",
+        "目的 IP",
+        "子网掩码",
+        "默认网关",
+        "ARP 缓存"
+      ],
+      "output": [
+        "ARP 请求帧",
+        "ARP 响应帧",
+        "下一跳 MAC 地址"
+      ],
+      "mechanism": [
+        "先判断目的 IP 是否同网段",
+        "同网段则 ARP 查询目的主机 IP",
+        "跨网段则 ARP 查询默认网关 IP",
+        "ARP 请求在本广播域内广播",
+        "目标设备单播 ARP 响应并更新缓存"
+      ],
+      "fieldsOrStates": [
+        "目标 IP",
+        "下一跳 IP",
+        "ARP 缓存",
+        "广播域",
+        "MAC 地址"
+      ],
+      "formulas": [],
+      "examRules": [
+        "ARP 请求是链路层广播，ARP 响应通常是单播。",
+        "跨网段时 ARP 解析的是网关 MAC，不是远端主机 MAC。",
+        "ARP 只在当前广播域内工作。"
+      ],
+      "pitfalls": [
+        "不要用 ARP 解析域名。",
+        "不要认为跨路由器能 ARP 到远端主机。",
+        "不要把 IP 地址变化和 MAC 地址逐跳变化混淆。"
+      ],
+      "related": [
+        "arp",
+        "direct-indirect-delivery",
+        "ip-vs-mac",
+        "same-subnet-vs-cross-subnet"
+      ],
+      "examTemplates": [
+        {
+          "title": "ARP 过程判断",
+          "rule": "同网段查目标主机，跨网段查默认网关",
+          "steps": [
+            "用掩码判断是否同网段",
+            "确定下一跳 IP",
+            "查看 ARP 缓存是否已有映射",
+            "没有则广播 ARP 请求",
+            "写出帧目的 MAC 和 IP 数据报目的 IP"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "icmp-error-types",
+      "title": "ICMP 差错报文常见类型",
+      "layer": "network",
+      "type": "concept",
+      "summary": "ICMP 差错报文报告网络层转发异常，常见类型包括终点不可达、时间超过和参数问题。",
+      "keywords": [
+        "ICMP 差错报文",
+        "终点不可达",
+        "时间超过",
+        "参数问题"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 45,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "ICMP 差错报文服务于[[ICMP、Ping 与 Traceroute|icmp-ping-traceroute]]。[[Ping|icmp-ping-traceroute]]常用回显请求/回答，Traceroute 主要利用 TTL 逐跳触发时间超过。"
+        }
+      ],
+      "definition": "ICMP 差错报文是网络层设备或主机在转发 IP 数据报失败时返回的控制报文。",
+      "solves": "解决 IP 尽最大努力交付失败时，如何把错误原因反馈给源主机的问题。",
+      "input": [
+        "出错的 IP 数据报",
+        "路由器或目的主机检测到的异常"
+      ],
+      "output": [
+        "ICMP 差错报文"
+      ],
+      "mechanism": [
+        "路由器或主机检测转发异常",
+        "生成对应类型的 ICMP 报文",
+        "封装进 IP 数据报返回源主机",
+        "源主机据此诊断网络问题"
+      ],
+      "fieldsOrStates": [
+        "类型 Type",
+        "代码 Code",
+        "出错 IP 首部",
+        "TTL"
+      ],
+      "formulas": [],
+      "examRules": [
+        "TTL 变为 0 通常触发时间超过。",
+        "无法到达目的网络或主机可返回终点不可达。",
+        "ICMP 报文封装在 IP 数据报中。"
+      ],
+      "pitfalls": [
+        "不要把 ICMP 当成传输层协议。",
+        "不是所有 IP 丢弃都会返回 ICMP。",
+        "ICMP 差错报文通常不再对 ICMP 差错报文产生差错报文。"
+      ],
+      "related": [
+        "icmp-ping-traceroute",
+        "ipv4-header-ttl",
+        "routing-table-forwarding-table"
+      ],
+      "examTemplates": [],
+      "details": [
+        {
+          "id": "common-types",
+          "title": "常见类型",
+          "content": "常见 ICMP 差错类型包括终点不可达、源点抑制（现代网络中较少使用）、时间超过、参数问题、重定向等。408 中重点掌握终点不可达和时间超过。"
+        }
+      ]
+    },
+    {
+      "id": "nat-napt-translation-exam",
+      "title": "NAT / NAPT 地址端口转换题型",
+      "layer": "network",
+      "type": "exam-template",
+      "summary": "NAT/NAPT 题要求跟踪私网地址、公网地址和端口映射表的变化。",
+      "keywords": [
+        "NAT",
+        "NAPT",
+        "端口转换",
+        "地址转换表"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 16,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "[[NAT / NAPT 与专用地址|nat-napt-private-address]]会改写 IP 地址，NAPT 还会改写传输层端口号。因此它同时依赖[[IP 地址|ip-address]]和[[端口号区分进程|ports-for-process]]。"
+        }
+      ],
+      "definition": "NAT/NAPT 转换题要求根据报文方向和转换表，写出出站和入站报文的地址、端口变化。",
+      "solves": "解决多个私网主机共享公网地址访问外网时，如何区分连接并转回正确内网主机的问题。",
+      "input": [
+        "内网源 IP/端口",
+        "公网地址",
+        "目的 IP/端口",
+        "NAT 转换表"
+      ],
+      "output": [
+        "转换后的源/目的地址端口",
+        "更新后的映射表"
+      ],
+      "mechanism": [
+        "出站时把私网源地址替换为公网地址",
+        "NAPT 同时分配或改写源端口",
+        "记录内外映射关系",
+        "入站响应按映射表改回内网目的地址和端口"
+      ],
+      "fieldsOrStates": [
+        "私网 IP",
+        "公网 IP",
+        "源端口",
+        "目的端口",
+        "转换表"
+      ],
+      "formulas": [],
+      "examRules": [
+        "普通 NAT 主要改 IP，NAPT 改 IP 和端口。",
+        "返回报文必须能在转换表中找到映射。",
+        "专用地址不能直接在公网路由。"
+      ],
+      "pitfalls": [
+        "不要只改 IP 忘记端口。",
+        "不要把目的服务器端口和 NAT 分配端口混淆。",
+        "不要认为 NAT 提供端到端透明连接。"
+      ],
+      "related": [
+        "nat-napt-private-address",
+        "ip-address",
+        "ports-for-process",
+        "tcp"
+      ],
+      "examTemplates": [
+        {
+          "title": "NAPT 表项跟踪",
+          "rule": "出站建表，入站查表反向改写",
+          "steps": [
+            "写出出站五元组",
+            "分配公网端口并建映射",
+            "改写源 IP 和源端口",
+            "返回报文按目的公网端口查表",
+            "改写回内网目的 IP 和端口"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "tcp-window-calculation-exam",
+      "title": "TCP 滑动窗口计算题",
+      "layer": "transport",
+      "type": "exam-template",
+      "summary": "TCP 窗口题综合发送窗口、接收窗口、拥塞窗口、序号和确认号。",
+      "keywords": [
+        "TCP 窗口计算",
+        "发送窗口",
+        "接收窗口",
+        "拥塞窗口",
+        "确认号"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 11,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "TCP 实际可发送窗口受[[TCP 流量控制|tcp-flow-control]]和[[TCP 拥塞控制|tcp-congestion-control]]共同限制，题目还会结合[[TCP 序号与确认号|tcp-seq-ack]]判断已经确认和还能发送的数据。"
+        }
+      ],
+      "definition": "TCP 滑动窗口计算题要求根据确认号、接收窗口和拥塞窗口求发送方当前可发送范围或可发送字节数。",
+      "solves": "解决 TCP 发送方在可靠传输、流量控制和拥塞控制共同约束下还能发送多少数据的问题。",
+      "input": [
+        "已发送序号范围",
+        "最新 ACK",
+        "rwnd",
+        "cwnd",
+        "MSS"
+      ],
+      "output": [
+        "发送窗口大小",
+        "可发送字节数",
+        "下一段序号范围"
+      ],
+      "mechanism": [
+        "根据 ACK 去掉已确认数据",
+        "用 min(rwnd, cwnd) 得到发送窗口上限",
+        "减去已发送未确认数据",
+        "得到当前还能发送的数据量"
+      ],
+      "fieldsOrStates": [
+        "snd.una",
+        "snd.nxt",
+        "ACK",
+        "rwnd",
+        "cwnd",
+        "MSS"
+      ],
+      "formulas": [
+        "实际发送窗口 = min(rwnd, cwnd)",
+        "可发送量 = 实际发送窗口 - 已发送未确认量"
+      ],
+      "examRules": [
+        "ACK 号表示期望收到的下一个字节序号。",
+        "发送窗口受接收窗口和拥塞窗口共同限制。",
+        "MSS 只影响分段大小，不直接改变字节序号连续性。"
+      ],
+      "pitfalls": [
+        "不要把确认号当成已经收到的最后一个字节，而应理解为下一个期望字节。",
+        "不要只看 rwnd 忽略 cwnd。",
+        "不要把段序号按段数递增，TCP 序号按字节计数。"
+      ],
+      "related": [
+        "sliding-window",
+        "tcp-seq-ack",
+        "tcp-flow-control",
+        "tcp-congestion-control"
+      ],
+      "examTemplates": [
+        {
+          "title": "TCP 可发送量计算",
+          "rule": "可发送量 = min(rwnd, cwnd) - 已发送未确认量",
+          "steps": [
+            "确定最早未确认字节",
+            "确定下一个待发送字节",
+            "计算已发送未确认量",
+            "取 rwnd 和 cwnd 较小者",
+            "相减得到还能发送多少字节"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "tcp-congestion-window-exam",
+      "title": "TCP 拥塞窗口变化题型",
+      "layer": "transport",
+      "type": "exam-template",
+      "summary": "根据慢开始、拥塞避免、超时和三重重复 ACK 推导 cwnd 与 ssthresh 变化。",
+      "keywords": [
+        "拥塞窗口",
+        "cwnd",
+        "ssthresh",
+        "慢开始",
+        "拥塞避免",
+        "快恢复"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 12,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "拥塞窗口题是[[TCP 拥塞控制|tcp-congestion-control]]的核心题型。先判断处于[[慢开始、拥塞避免、快重传与快恢复|congestion-phases]]哪个阶段，再按超时或三重重复 ACK 更新 cwnd 和 ssthresh。"
+        }
+      ],
+      "definition": "TCP 拥塞窗口变化题要求按拥塞控制算法推导每轮 RTT 后 cwnd、ssthresh 的数值变化。",
+      "solves": "解决网络拥塞信号出现后，TCP 如何调整发送速率的问题。",
+      "input": [
+        "初始 cwnd",
+        "ssthresh",
+        "ACK 情况",
+        "超时事件",
+        "三重重复 ACK"
+      ],
+      "output": [
+        "每轮 cwnd",
+        "新的 ssthresh",
+        "所处阶段"
+      ],
+      "mechanism": [
+        "cwnd 小于 ssthresh 时慢开始指数增长",
+        "达到阈值后拥塞避免线性增长",
+        "超时后 ssthresh 减半且 cwnd 回到 1 MSS",
+        "三重重复 ACK 触发快重传和快恢复"
+      ],
+      "fieldsOrStates": [
+        "cwnd",
+        "ssthresh",
+        "MSS",
+        "重复 ACK",
+        "超时计时器"
+      ],
+      "formulas": [
+        "慢开始：每 RTT 近似翻倍",
+        "拥塞避免：每 RTT 近似增加 1 MSS",
+        "超时：ssthresh = 当前 cwnd / 2，cwnd = 1 MSS"
+      ],
+      "examRules": [
+        "超时比三重重复 ACK 更严重，通常 cwnd 回到 1。",
+        "ssthresh 常设为拥塞发生时窗口的一半。",
+        "题目采用不同教材版本时，快恢复细节以题干为准。"
+      ],
+      "pitfalls": [
+        "不要把慢开始理解为增长慢。",
+        "不要把 rwnd 和 cwnd 混为一个窗口。",
+        "不要忘记更新 ssthresh。"
+      ],
+      "related": [
+        "tcp-congestion-control",
+        "congestion-phases",
+        "flow-vs-congestion",
+        "tcp-window-calculation-exam"
+      ],
+      "examTemplates": [
+        {
+          "title": "拥塞窗口曲线题",
+          "rule": "先判事件，再更新 ssthresh 和 cwnd",
+          "steps": [
+            "标出每轮 cwnd",
+            "判断慢开始或拥塞避免",
+            "遇到超时则阈值减半且 cwnd 置 1",
+            "遇到三重重复 ACK 则执行快重传/快恢复",
+            "继续按阶段增长"
+          ]
+        }
+      ],
+      "teachingTemplate": "exam"
+    },
+    {
+      "id": "application-protocol-comparison",
+      "title": "DNS / DHCP / HTTP / HTTPS / 邮件协议对比",
+      "layer": "application",
+      "type": "comparison",
+      "summary": "对比常见应用层协议解决的问题、依赖的传输层协议和典型端口。",
+      "keywords": [
+        "DNS",
+        "DHCP",
+        "HTTP",
+        "HTTPS",
+        "SMTP",
+        "POP3",
+        "IMAP",
+        "协议对比"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 36,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "应用层协议题首先问“解决什么问题”。[[DNS|dns]]解决名字到地址，[[DHCP|dhcp]]解决自动配置，[[HTTP|http]]解决 Web 资源传输，[[HTTPS|https]]在 HTTP 上增加 TLS 保护，邮件发送和读取分别依赖 SMTP、POP3/IMAP。"
+        }
+      ],
+      "definition": "应用层协议对比是按功能、端口、传输层依赖和典型交互方式区分常见应用协议。",
+      "solves": "解决考试中把 DNS、DHCP、HTTP、HTTPS、SMTP、POP3、IMAP 混淆的问题。",
+      "input": [
+        "协议名称",
+        "应用场景",
+        "端口号",
+        "TCP 或 UDP 依赖"
+      ],
+      "output": [
+        "协议功能判断",
+        "端口和传输层协议判断"
+      ],
+      "mechanism": [
+        "按功能分类",
+        "判断是否需要可靠字节流",
+        "记忆典型端口",
+        "结合报文交互流程判断协议"
+      ],
+      "fieldsOrStates": [
+        "域名",
+        "IP 配置",
+        "URL",
+        "TLS 证书",
+        "邮件发送/读取状态"
+      ],
+      "formulas": [],
+      "examRules": [
+        "DNS 常用 UDP 53，区域传送等场景可用 TCP。",
+        "DHCP 基于 UDP，客户端初始时可能使用广播。",
+        "HTTP/HTTPS 通常基于 TCP，HTTPS 多了 TLS。",
+        "SMTP 发送邮件，POP3/IMAP 读取邮件。"
+      ],
+      "pitfalls": [
+        "不要把 DHCP 当成域名解析协议。",
+        "不要把 SMTP 当成收信协议。",
+        "不要认为 HTTPS 是独立于 HTTP 的全新应用语义。"
+      ],
+      "related": [
+        "dns",
+        "dhcp",
+        "http",
+        "https",
+        "email-protocols",
+        "ports-for-process"
+      ],
+      "examTemplates": [
+        {
+          "title": "应用协议识别题",
+          "rule": "功能优先，端口辅助",
+          "steps": [
+            "看题目描述的任务",
+            "判断协议功能",
+            "再核对端口和 TCP/UDP",
+            "写出容易混淆的相邻协议"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "same-subnet-vs-cross-subnet",
+      "title": "同网段通信 vs 跨网段通信",
+      "layer": "network / data-link",
+      "type": "comparison",
+      "summary": "同网段直接交付，跨网段交给默认网关，IP 目标保持不变但 MAC 逐跳变化。",
+      "keywords": [
+        "同网段",
+        "跨网段",
+        "默认网关",
+        "直接交付",
+        "间接交付"
+      ],
+      "importance": "high",
+      "examDepth": "必会",
+      "displayMode": "full",
+      "reviewPriority": 9,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "同网段与跨网段的分界来自[[子网掩码|subnet-mask]]判断。直接交付时 ARP 解析目标主机，跨网段时 ARP 解析默认网关，随后路由器逐跳转发。"
+        }
+      ],
+      "definition": "同网段通信是源主机可在本链路直接交付给目的主机；跨网段通信需要先交给默认网关或下一跳路由器。",
+      "solves": "解决发送帧时目的 MAC 应该写目标主机还是网关，以及是否需要路由器转发的问题。",
+      "input": [
+        "源 IP",
+        "目的 IP",
+        "子网掩码",
+        "默认网关",
+        "ARP 缓存"
+      ],
+      "output": [
+        "直接交付或间接交付判断",
+        "下一跳 IP",
+        "帧目的 MAC"
+      ],
+      "mechanism": [
+        "用子网掩码分别计算源和目的网络地址",
+        "网络地址相同则同网段直接交付",
+        "网络地址不同则跨网段交给默认网关",
+        "ARP 获取下一跳 MAC",
+        "IP 数据报目的地址保持为最终目的 IP"
+      ],
+      "fieldsOrStates": [
+        "源网络地址",
+        "目的网络地址",
+        "默认网关",
+        "下一跳",
+        "MAC 地址"
+      ],
+      "formulas": [
+        "网络地址 = IP 地址 AND 子网掩码"
+      ],
+      "examRules": [
+        "跨网段时第一跳帧目的 MAC 是网关 MAC。",
+        "路由转发时 IP 源/目的通常不变，MAC 地址逐跳变化。",
+        "交换机只在同一二层网络内按 MAC 转发。"
+      ],
+      "pitfalls": [
+        "不要把默认网关写成最终目的 IP。",
+        "不要认为跨网段能直接 ARP 远端主机。",
+        "不要把同网段判断只看前三个十进制段，必须看掩码。"
+      ],
+      "related": [
+        "direct-indirect-delivery",
+        "arp-process-exam",
+        "subnet-mask",
+        "address-change-switch-router"
+      ],
+      "examTemplates": [
+        {
+          "title": "同网段 / 跨网段判断",
+          "rule": "网络地址相同直接交付，不同交给默认网关",
+          "steps": [
+            "计算源网络地址",
+            "计算目的网络地址",
+            "比较是否相同",
+            "确定下一跳 IP",
+            "写出 ARP 解析对象和帧目的 MAC"
+          ]
+        }
+      ],
+      "teachingTemplate": "process"
+    },
+    {
+      "id": "switch-router-l3switch-comparison",
+      "title": "交换机、路由器、三层交换机对比",
+      "layer": "network / data-link",
+      "type": "comparison",
+      "summary": "二层交换机按 MAC 转发，路由器按 IP 转发，三层交换机在硬件中实现高速三层转发。",
+      "keywords": [
+        "交换机",
+        "路由器",
+        "三层交换机",
+        "二层转发",
+        "三层转发"
+      ],
+      "importance": "medium",
+      "examDepth": "掌握",
+      "displayMode": "compact",
+      "reviewPriority": 40,
+      "body": [
+        {
+          "type": "paragraph",
+          "content": "[[交换机 vs 路由器|switch-vs-router]]题常进一步问三层交换机。核心区别是转发表依据：二层交换机看 MAC，路由器和三层交换机看 IP/路由，三层交换机更偏局域网内高速三层转发。"
+        }
+      ],
+      "definition": "交换机、路由器、三层交换机对比用于区分不同网络设备的转发层次、地址依据和广播域隔离能力。",
+      "solves": "解决设备功能、转发依据和网络边界判断混淆的问题。",
+      "input": [
+        "设备类型",
+        "帧或 IP 数据报",
+        "MAC 表",
+        "路由表",
+        "VLAN 信息"
+      ],
+      "output": [
+        "转发依据",
+        "是否隔离广播域",
+        "是否支持跨网段通信"
+      ],
+      "mechanism": [
+        "二层交换机按 MAC 表转发帧",
+        "路由器查路由表转发 IP 数据报并重写链路层封装",
+        "三层交换机结合 VLAN 和三层转发表高速转发",
+        "跨广播域通信需要三层转发"
+      ],
+      "fieldsOrStates": [
+        "MAC 地址表",
+        "路由表",
+        "VLAN 接口",
+        "ARP 表",
+        "广播域"
+      ],
+      "formulas": [],
+      "examRules": [
+        "交换机隔离冲突域，默认不隔离广播域。",
+        "路由器隔离广播域并连接不同网络。",
+        "三层交换机常用于 VLAN 间路由。"
+      ],
+      "pitfalls": [
+        "不要把三层交换机简单等同于普通二层交换机。",
+        "不要认为路由器按 MAC 表选择下一跳。",
+        "不要忽略路由转发时需要重新封装链路层帧。"
+      ],
+      "related": [
+        "switch-vs-router",
+        "switch-learning-forwarding",
+        "routing-table-forwarding-table",
+        "vlan-broadcast-domain-exam"
+      ],
+      "examTemplates": [
+        {
+          "title": "设备功能判断",
+          "rule": "看转发层次和地址依据",
+          "steps": [
+            "判断设备工作层次",
+            "写出查表依据",
+            "判断是否隔离广播域",
+            "判断是否能跨网段转发"
+          ]
+        }
+      ]
+    }
+  ]
+}

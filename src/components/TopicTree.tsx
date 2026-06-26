@@ -13,6 +13,7 @@ interface TopicTreeProps {
   context: KnowledgeContext;
   selectedKnowledgeId?: string;
   onSelectKnowledge: (knowledgeId: string) => void;
+  onHoverKnowledge?: (knowledgeId?: string) => void;
 }
 
 interface TreeItemProps {
@@ -22,6 +23,7 @@ interface TreeItemProps {
   selectedKnowledgeId?: string;
   onToggle: (knowledgeId: string) => void;
   onSelectKnowledge: (knowledgeId: string) => void;
+  onHoverKnowledge?: (knowledgeId?: string) => void;
 }
 
 function getChildNodes(node: KnowledgeNode): KnowledgeNode[] {
@@ -37,6 +39,7 @@ function TreeItem({
   selectedKnowledgeId,
   onToggle,
   onSelectKnowledge,
+  onHoverKnowledge,
 }: TreeItemProps) {
   const children = getChildNodes(node);
   const hasChildren = children.length > 0;
@@ -53,6 +56,10 @@ function TreeItem({
             : "border-transparent hover:bg-slate-50",
         ].join(" ")}
         style={{ paddingLeft: 12 + depth * 18 }}
+        onMouseEnter={() => onHoverKnowledge?.(node.id)}
+        onMouseLeave={() => onHoverKnowledge?.(undefined)}
+        onFocus={() => onHoverKnowledge?.(node.id)}
+        onBlur={() => onHoverKnowledge?.(undefined)}
       >
         {hasChildren ? (
           <button
@@ -97,6 +104,7 @@ function TreeItem({
               selectedKnowledgeId={selectedKnowledgeId}
               onToggle={onToggle}
               onSelectKnowledge={onSelectKnowledge}
+              onHoverKnowledge={onHoverKnowledge}
             />
           ))}
         </div>
@@ -109,6 +117,7 @@ export function TopicTree({
   context,
   selectedKnowledgeId,
   onSelectKnowledge,
+  onHoverKnowledge,
 }: TopicTreeProps) {
   const topics = useMemo(() => getTopicsForContext(context), [context]);
   const contextTitle = getContextTitle(context);
@@ -162,6 +171,7 @@ export function TopicTree({
               selectedKnowledgeId={selectedKnowledgeId}
               onToggle={handleToggle}
               onSelectKnowledge={onSelectKnowledge}
+              onHoverKnowledge={onHoverKnowledge}
             />
           ))
         ) : (

@@ -18,6 +18,7 @@ interface StudyPanelProps {
   activeTab: StudyTab;
   onActiveTabChange: (tab: StudyTab) => void;
   onSelectKnowledge: (knowledgeId: string) => void;
+  onHoverKnowledge?: (knowledgeId?: string) => void;
 }
 
 const tabs: Array<{ id: StudyTab; title: string }> = [
@@ -96,11 +97,13 @@ function StudyList({
   nodes,
   selectedKnowledgeId,
   onSelectKnowledge,
+  onHoverKnowledge,
   emptyText,
 }: {
   nodes: KnowledgeNode[];
   selectedKnowledgeId?: string;
   onSelectKnowledge: (knowledgeId: string) => void;
+  onHoverKnowledge?: (knowledgeId?: string) => void;
   emptyText: string;
 }) {
   if (!nodes.length) {
@@ -128,6 +131,10 @@ function StudyList({
                 : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50",
             ].join(" ")}
             onClick={() => onSelectKnowledge(node.id)}
+            onMouseEnter={() => onHoverKnowledge?.(node.id)}
+            onMouseLeave={() => onHoverKnowledge?.(undefined)}
+            onFocus={() => onHoverKnowledge?.(node.id)}
+            onBlur={() => onHoverKnowledge?.(undefined)}
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600">
               {index + 1}
@@ -161,6 +168,7 @@ export function StudyPanel({
   activeTab,
   onActiveTabChange,
   onSelectKnowledge,
+  onHoverKnowledge,
 }: StudyPanelProps) {
   const pathNodes = useMemo(() => getPathNodes(context), [context]);
   const examNodes = useMemo(() => getExamNodes(context), [context]);
@@ -190,6 +198,7 @@ export function StudyPanel({
           context={context}
           selectedKnowledgeId={selectedKnowledgeId}
           onSelectKnowledge={onSelectKnowledge}
+          onHoverKnowledge={onHoverKnowledge}
         />
       ) : null}
 
@@ -198,6 +207,7 @@ export function StudyPanel({
           nodes={pathNodes}
           selectedKnowledgeId={selectedKnowledgeId}
           onSelectKnowledge={onSelectKnowledge}
+          onHoverKnowledge={onHoverKnowledge}
           emptyText="当前范围暂无学习路径。"
         />
       ) : null}
@@ -207,6 +217,7 @@ export function StudyPanel({
           nodes={examNodes}
           selectedKnowledgeId={selectedKnowledgeId}
           onSelectKnowledge={onSelectKnowledge}
+          onHoverKnowledge={onHoverKnowledge}
           emptyText="当前范围暂无题型模板。"
         />
       ) : null}

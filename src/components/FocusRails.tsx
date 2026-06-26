@@ -24,9 +24,9 @@ interface CollapsedTreeRailProps {
   onSelectKnowledge: (knowledgeId: string) => void;
 }
 
-interface CollapsedKnowledgePreviewProps {
+interface KnowledgeSummaryPreviewProps {
   knowledge?: KnowledgeNode;
-  onActivateCard: () => void;
+  hint?: string;
 }
 
 const studyTabLabels: Record<StudyTab, string> = {
@@ -166,16 +166,19 @@ export function CollapsedTreeRail({
   );
 }
 
-export function CollapsedKnowledgePreview({
+export function KnowledgeSummaryPreview({
   knowledge,
-  onActivateCard,
-}: CollapsedKnowledgePreviewProps) {
+  hint,
+}: KnowledgeSummaryPreviewProps) {
   const meta = knowledge ? getKnowledgeDisplayMeta(knowledge) : undefined;
 
   return (
-    <div className="flex min-h-full flex-col p-4">
+    <div
+      data-scroll-panel="right"
+      className="flex h-full min-h-0 flex-col overflow-y-auto p-5"
+    >
       <div className="min-h-0 flex-1">
-        <div className="text-xs font-semibold text-blue-700">知识卡片</div>
+        <div className="text-xs font-semibold text-blue-700">知识预览</div>
         <h3 className="mt-2 line-clamp-2 text-lg font-semibold text-slate-950">
           {knowledge?.title ?? "暂未选择知识点"}
         </h3>
@@ -194,6 +197,11 @@ export function CollapsedKnowledgePreview({
             <p className="mt-3 line-clamp-5 text-sm leading-6 text-slate-600">
               {knowledge.summary}
             </p>
+            {hint ? (
+              <p className="mt-4 rounded-md border border-blue-100 bg-blue-50 px-3 py-2 text-sm text-blue-700">
+                {hint}
+              </p>
+            ) : null}
           </>
         ) : (
           <p className="mt-3 text-sm leading-6 text-slate-500">
@@ -201,13 +209,6 @@ export function CollapsedKnowledgePreview({
           </p>
         )}
       </div>
-      <button
-        type="button"
-        className="mt-4 rounded-md bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700"
-        onClick={onActivateCard}
-      >
-        展开阅读
-      </button>
     </div>
   );
 }

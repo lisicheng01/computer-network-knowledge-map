@@ -4,6 +4,7 @@
   "description": "计算机网络渐进展开式知识网络",
   "scripts": {
     "dev": "vite",
+    "build:notes": "node scripts/buildNotesData.js",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },

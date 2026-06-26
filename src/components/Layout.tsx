@@ -3,16 +3,16 @@ import type { ReactNode } from "react";
 interface LayoutProps {
   searchBar: ReactNode;
   stats: ReactNode;
-  navigationRail: ReactNode;
-  topicTree: ReactNode;
+  chapterNav: ReactNode;
+  notesTree: ReactNode;
   rightPanel: ReactNode;
 }
 
 export function Layout({
   searchBar,
   stats,
-  navigationRail,
-  topicTree,
+  chapterNav,
+  notesTree,
   rightPanel,
 }: LayoutProps) {
   return (
@@ -20,11 +20,11 @@ export function Layout({
       <header className="shrink-0 border-b border-slate-200 bg-white px-5 py-4">
         <div className="flex items-center gap-5">
           <div className="w-[320px] shrink-0">
-            <h1 className="text-xl font-semibold tracking-normal text-ink">
-              计算机网络知识网络
+            <h1 className="text-xl font-semibold tracking-normal text-slate-950">
+              计算机网络课程复习页
             </h1>
             <p className="mt-1 text-sm text-slate-500">
-              五层体系 / 跨层关系 / 408 复习
+              课程笔记 / 章节目录 / Markdown 正文
             </p>
           </div>
           <div className="max-w-3xl flex-1">{searchBar}</div>
@@ -35,20 +35,22 @@ export function Layout({
       <main className="min-h-0 flex-1 overflow-hidden p-5">
         <div
           className="grid h-full min-h-0 gap-4 overflow-hidden"
-          style={{ gridTemplateColumns: "128px minmax(0, 1fr) minmax(460px, 42vw)" }}
+          style={{
+            gridTemplateColumns: "220px 390px minmax(0, 1fr)",
+          }}
         >
           <section className="flex min-h-0 flex-col overflow-hidden rounded-lg border border-slate-200 bg-white">
             <div className="shrink-0 border-b border-slate-200 px-4 py-3">
               <h2 className="text-sm font-semibold text-slate-800">
-                导航
+                章节
               </h2>
-              <p className="mt-1 text-xs text-slate-500">层 / 跨层</p>
+              <p className="mt-1 text-xs text-slate-500">课程笔记六章</p>
             </div>
             <div
               data-scroll-panel="left"
               className="min-h-0 flex-1 overflow-y-auto"
             >
-              {navigationRail}
+              {chapterNav}
             </div>
           </section>
 
@@ -57,30 +59,33 @@ export function Layout({
           >
             <div className="shrink-0 border-b border-slate-200 px-4 py-3">
               <h2 className="text-sm font-semibold text-slate-800">
-                学习导航
+                本章目录
               </h2>
               <p className="mt-1 text-xs text-slate-500">
-                知识树 / 学习路径 / 题型模板
+                按 Markdown 标题层级生成
               </p>
             </div>
             <div
               data-scroll-panel="middle"
               className="min-h-0 flex-1 overflow-y-auto"
             >
-              {topicTree}
+              {notesTree}
             </div>
           </section>
 
           <section className="flex min-h-0 flex-col overflow-hidden rounded-lg border border-slate-200 bg-white">
             <div className="shrink-0 border-b border-slate-200 px-4 py-3">
               <h2 className="text-sm font-semibold text-slate-800">
-                知识卡片
+                课程笔记正文
               </h2>
               <p className="mt-1 text-xs text-slate-500">
-                悬停预览，点击查看完整内容
+                点击目录阅读正文，悬停临时预览
               </p>
             </div>
-            <div className="h-full min-h-0 flex-1 overflow-hidden">
+            <div
+              data-scroll-panel="right"
+              className="min-h-0 flex-1 overflow-y-auto"
+            >
               {rightPanel}
             </div>
           </section>

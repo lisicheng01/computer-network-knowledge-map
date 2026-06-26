@@ -1,121 +1,106 @@
-import { KnowledgeCard } from "./components/KnowledgeCard";
-import { KnowledgeStats } from "./components/KnowledgeStats";
+import { useEffect, useMemo, useState } from "react";
+import { ChapterNav } from "./components/ChapterNav";
+import { CourseStats } from "./components/CourseStats";
 import { Layout } from "./components/Layout";
+import { MarkdownViewer } from "./components/MarkdownViewer";
+import { NotesTree } from "./components/NotesTree";
 import { SearchBar } from "./components/SearchBar";
-import { StudyPanel, type StudyTab } from "./components/StudyPanel";
 import {
-  FocusNavigationRail,
-  KnowledgeSummaryPreview,
-} from "./components/FocusRails";
-import type { KnowledgeContext } from "./types/knowledge";
-import {
-  findContextForKnowledge,
-  getDefaultKnowledgeForContext,
-  getKnowledgeById,
-  knowledgeData,
-} from "./utils/knowledge";
-import { useState } from "react";
+  courseNotesData,
+  getChapterById,
+  getDefaultNodeForChapter,
+  getNodeById,
+} from "./utils/courseNotes";
 
-const initialContext: KnowledgeContext = {
-  kind: "layer",
-  id: "application",
-};
+const initialChapterId = courseNotesData.chapters[0]?.id ?? "";
 
-function getInitialKnowledgeId() {
-  return getDefaultKnowledgeForContext(initialContext)?.id ?? "";
+function getInitialNodeId() {
+  return getDefaultNodeForChapter(initialChapterId)?.id ?? "";
+}
+
+function scrollRightPanelToTop() {
+  const rightPanel = document.querySelector<HTMLElement>(
+    '[data-scroll-panel="right"]',
+  );
+  rightPanel?.scrollTo({ top: 0, behavior: "auto" });
 }
 
 export default function App() {
-  const [selectedContext, setSelectedContext] =
-    useState<KnowledgeContext>(initialContext);
-  const [selectedNode, setSelectedNode] = useState(
-    getInitialKnowledgeId,
-  );
+  const [selectedChapterId, setSelectedChapterId] = useState(initialChapterId);
+  const [selectedNode, setSelectedNode] = useState(getInitialNodeId);
   const [hoverNode, setHoverNode] = useState<string | undefined>();
-  const [activeStudyTab, setActiveStudyTab] = useState<StudyTab>("tree");
 
-  const selectedKnowledge = selectedNode
-    ? getKnowledgeById(selectedNode)
-    : undefined;
-  const hoverKnowledge = hoverNode ? getKnowledgeById(hoverNode) : undefined;
+  const selectedChapter = useMemo(
+    () =>
+      getChapterById(selectedChapterId) ??
+      courseNotesData.chapters[0],
+    [selectedChapterId],
+  );
+  const selectedNote = getNodeById(selectedNode);
+  const hoverNote = getNodeById(hoverNode);
+  const displayedNote = hoverNote ?? selectedNote;
 
-  const selectContext = (context: KnowledgeContext) => {
-    setSelectedContext(context);
-    const defaultKnowledge = getDefaultKnowledgeForContext(context);
+  useEffect(() => {
+    scrollRightPanelToTop();
+  }, [displayedNote?.id, Boolean(hoverNote)]);
 
-    if (defaultKnowledge) {
-      setSelectedNode(defaultKnowledge.id);
+  const selectChapter = (chapterId: string) => {
+    const defaultNode = getDefaultNodeForChapter(chapterId);
+
+    setSelectedChapterId(chapterId);
+    setSelectedNode(defaultNode?.id ?? "");
+    setHoverNode(undefined);
+  };
+
+  const selectNode = (nodeId: string) => {
+    const node = getNodeById(nodeId);
+
+    if (!node) {
+      return;
     }
 
+    setSelectedChapterId(node.chapterId);
+    setSelectedNode(node.id);
     setHoverNode(undefined);
   };
 
-  const selectKnowledge = (knowledgeId: string) => {
-    setSelectedNode(knowledgeId);
-    setHoverNode(undefined);
-  };
-
-  const selectContextFromNavigation = (context: KnowledgeContext) => {
-    selectContext(context);
-  };
-
-  const previewKnowledge = (knowledgeId?: string) => {
-    if (!knowledgeId || knowledgeId === selectedNode) {
+  const previewNode = (nodeId?: string) => {
+    if (!nodeId || nodeId === selectedNode) {
       setHoverNode(undefined);
       return;
     }
 
-    setHoverNode(knowledgeId);
-  };
-
-  const selectKnowledgeForCard = (knowledgeId: string) => {
-    const nextContext = findContextForKnowledge(knowledgeId);
-
-    if (nextContext) {
-      setSelectedContext(nextContext);
-    }
-
-    setSelectedNode(knowledgeId);
-    setHoverNode(undefined);
+    setHoverNode(nodeId);
   };
 
   return (
     <Layout
-      searchBar={<SearchBar onSelectKnowledge={selectKnowledgeForCard} />}
-      stats={<KnowledgeStats />}
-      navigationRail={
-        <FocusNavigationRail
-          layers={knowledgeData.layers}
-          edges={knowledgeData.edges}
-          selectedContext={selectedContext}
-          onSelectContext={selectContextFromNavigation}
+      searchBar={<SearchBar onSelectNode={selectNode} />}
+      stats={<CourseStats />}
+      chapterNav={
+        <ChapterNav
+          chapters={courseNotesData.chapters}
+          selectedChapterId={selectedChapterId}
+          onSelectChapter={selectChapter}
         />
       }
-      topicTree={
-        <StudyPanel
-          context={selectedContext}
-          selectedKnowledgeId={selectedNode}
-          activeTab={activeStudyTab}
-          onActiveTabChange={(tab) => {
-            setActiveStudyTab(tab);
-            setHoverNode(undefined);
-          }}
-          onSelectKnowledge={selectKnowledge}
-          onHoverKnowledge={previewKnowledge}
-        />
+      notesTree={
+        selectedChapter ? (
+          <NotesTree
+            chapter={selectedChapter}
+            selectedNodeId={selectedNode}
+            hoverNodeId={hoverNode}
+            onSelectNode={selectNode}
+            onHoverNode={previewNode}
+          />
+        ) : null
       }
       rightPanel={
-        hoverKnowledge ? (
-          <KnowledgeSummaryPreview
-            knowledge={hoverKnowledge}
-            hint="点击查看完整内容"
-          />
-        ) : (
-          <KnowledgeCard
-            knowledge={selectedKnowledge}
-            onSelectKnowledge={selectKnowledgeForCard}
-          />
-        )
+        <MarkdownViewer
+          node={displayedNote}
+          preview={Boolean(hoverNote)}
+          onSelectNode={selectNode}
+        />
       }
     />
   );
